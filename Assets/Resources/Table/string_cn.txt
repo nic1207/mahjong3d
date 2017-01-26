@@ -1,0 +1,439 @@
+[
+  {
+    "key": "kyoku_ton_1",
+    "value": "東風東局"
+  },
+  {
+    "key": "kyoku_ton_2",
+    "value": "東風南局"
+  },
+  {
+    "key": "kyoku_ton_3",
+    "value": "東風西局"
+  },
+  {
+    "key": "kyoku_ton_4",
+    "value": "東風北局"
+  },
+
+  {
+    "key": "kyoku_nan_1",
+    "value": "南風東局"
+  },
+  {
+    "key": "kyoku_nan_2",
+    "value": "南風南局"
+  },
+  {
+    "key": "kyoku_nan_3",
+    "value": "南風西局"
+  },
+  {
+    "key": "kyoku_nan_4",
+    "value": "南風北局"
+  },
+
+  {
+    "key": "kyoku_sya_1",
+    "value": "西風東局"
+  },
+  {
+    "key": "kyoku_sya_2",
+    "value": "西風南局"
+  },
+  {
+    "key": "kyoku_sya_3",
+    "value": "西風西局"
+  },
+  {
+    "key": "kyoku_sya_4",
+    "value": "西風北局"
+  },
+
+  {
+    "key": "kyoku_pei_1",
+    "value": "北風東局"
+  },
+  {
+    "key": "kyoku_pei_2",
+    "value": "北風南局"
+  },
+  {
+    "key": "kyoku_pei_3",
+    "value": "北風西局"
+  },
+  {
+    "key": "kyoku_pei_4",
+    "value": "北風北局"
+  },
+
+  {
+    "key": "kaze_ton",
+    "value": "東"
+  },
+  {
+    "key": "kaze_nan",
+    "value": "南"
+  },
+  {
+    "key": "kaze_sya",
+    "value": "西"
+  },
+  {
+    "key": "kaze_pei",
+    "value": "北"
+  },
+  {
+    "key": "space",
+    "value": " "
+  },
+  {
+    "key": "multi",
+    "value": "x"
+  },
+  {
+    "key": "child",
+    "value": "閒家"
+  },
+  {
+    "key": "parent",
+    "value": "莊家"
+  },
+  {
+    "key": "continue",
+    "value": "繼續"
+  },
+  {
+    "key": "replay",
+    "value": "重玩"
+  },
+  {
+    "key": "honba",
+    "value": "連莊"
+  },
+  {
+    "key": "kyoku",
+    "value": "局"
+  },
+  {
+    "key": "start",
+    "value": "開始"
+  },
+  {
+    "key": "omotedora",
+    "value": "表ドラ"
+  },
+  {
+    "key": "uradora",
+    "value": "裏ドラ"
+  },
+  {
+    "key": "double",
+    "value": "雙倍"
+  },
+  {
+    "key": "button_cancel",
+    "value": "取消"
+  },
+  {
+    "key": "button_reach",
+    "value": "聽牌"
+  },
+  {
+    "key": "button_ron",
+    "value": "胡牌"
+  },
+  {
+    "key": "button_tsumo",
+    "value": "自摸"
+  },
+  {
+    "key": "button_pon",
+    "value": "碰"
+  },
+  {
+    "key": "button_chii",
+    "value": "吃"
+  },
+  {
+    "key": "button_kan",
+    "value": "槓"
+  },
+  {
+    "key": "button_pass",
+    "value": "過"
+  },
+  {
+    "key": "han",
+    "value": "台"
+  },
+  {
+    "key": "fu",
+    "value": "符"
+  },
+  {
+    "key": "ten",
+    "value": "点"
+  },
+  {
+    "key": "mangan",
+    "value": "满贯"
+  },
+  {
+    "key": "haneman",
+    "value": "跳滿"
+  },
+  {
+    "key": "baiman",
+    "value": "倍滿"
+  },
+  {
+    "key": "sanbaiman",
+    "value": "三倍滿"
+  },
+  {
+    "key": "yakuman",
+    "value": "役滿"
+  },
+  {
+    "key": "info_reach",
+    "value": "聽牌"
+  },
+  {
+    "key": "info_ron",
+    "value": "胡牌"
+  },
+  {
+    "key": "info_tsumo",
+    "value": "自摸"
+  },
+  {
+    "key": "info_ryuukyoku",
+    "value": "流局"
+  },
+  {
+    "key": "info_end",
+    "value": "终局"
+  },
+  {
+    "key": "is_tenpai",
+    "value": "聽牌"
+  },
+  {
+    "key": "not_tenpai",
+    "value": "未聽牌"
+  },
+  {
+    "key": "None",
+    "value": ""
+  },
+  {
+    "key": "NoTsumoHai",
+    "value": "荒牌"
+  },
+  {
+    "key": "HaiTypeOver9",
+    "value": "九種九牌"
+  },
+  {
+    "key": "SuteFonHai4",
+    "value": "四風連打"
+  },
+  {
+    "key": "KanOver4",
+    "value": "四槓散了"
+  },
+  {
+    "key": "Reach4",
+    "value": "四家立直"
+  },
+  {
+    "key": "Ron3",
+    "value": "三家和了"
+  },
+
+  {
+    "key": "yaku_tanyao",
+    "value": "断幺九"
+  },
+  {
+    "key": "yaku_pinfu",
+    "value": "平和"
+  },
+  {
+    "key": "yaku_ipeikou",
+    "value": "一杯口"
+  },
+  {
+    "key": "yaku_reach",
+    "value": "聽牌"
+  },
+  {
+    "key": "yaku_ippatsu",
+    "value": "一发"
+  },
+  {
+    "key": "yaku_tsumo",
+    "value": "門清自摸"
+  },
+  {
+    "key": "yaku_haitei",
+    "value": "海底捞月"
+  },
+  {
+    "key": "yaku_houtei",
+    "value": "河底捞鱼"
+  },
+  {
+    "key": "yaku_rinshan",
+    "value": "槓上開花"
+  },
+  {
+    "key": "yaku_chankan",
+    "value": "搶槓"
+  },
+  {
+    "key": "yaku_doublereach",
+    "value": "雙立直"
+  },
+  {
+    "key": "yaku_chiitoitsu",
+    "value": "七對子"
+  },
+  {
+    "key": "yaku_chanta",
+    "value": "混全带幺九"
+  },
+  {
+    "key": "yaku_ikkituukan",
+    "value": "一氣通贯"
+  },
+  {
+    "key": "yaku_sansyokudoujyun",
+    "value": "三色同顺"
+  },
+  {
+    "key": "yaku_sansyokudoukou",
+    "value": "三色同刻"
+  },
+  {
+    "key": "yaku_toitoi",
+    "value": "對對和"
+  },
+  {
+    "key": "yaku_sanankou",
+    "value": "三暗刻"
+  },
+  {
+    "key": "yaku_sankantsu",
+    "value": "三杠子"
+  },
+  {
+    "key": "yaku_ryanpeikou",
+    "value": "二杯口"
+  },
+  {
+    "key": "yaku_honitsu",
+    "value": "混一色"
+  },
+  {
+    "key": "yaku_jyunchan",
+    "value": "纯全带幺九"
+  },
+  {
+    "key": "yaku_shousangen",
+    "value": "小三元"
+  },
+  {
+    "key": "yaku_honroutou",
+    "value": "混老头"
+  },
+  {
+    "key": "yaku_chinitsu",
+    "value": "清一色"
+  },
+  {
+    "key": "yaku_suuankou",
+    "value": "四暗刻"
+  },
+  {
+    "key": "yaku_suukantsu",
+    "value": "四杠子"
+  },
+  {
+    "key": "yaku_chinroutou",
+    "value": "清老头"
+  },
+  {
+    "key": "yaku_ryuiisou",
+    "value": "绿一色"
+  },
+  {
+    "key": "yaku_tsuiisou",
+    "value": "字一色"
+  },
+  {
+    "key": "yaku_daisangen",
+    "value": "大三元"
+  },
+  {
+    "key": "yaku_shousuushii",
+    "value": "小四喜"
+  },
+  {
+    "key": "yaku_daisuushii",
+    "value": "大四喜"
+  },
+  {
+    "key": "yaku_chuurenpoutou",
+    "value": "九莲宝灯"
+  },
+  {
+    "key": "yaku_kokushimusou",
+    "value": "国士无双"
+  },
+  {
+    "key": "yaku_suuankou_tanki",
+    "value": "四暗刻单骑"
+  },
+  {
+    "key": "yaku_chuurenpoutou_jyunsei",
+    "value": "纯正九莲宝灯"
+  },
+  {
+    "key": "yaku_kokushimusou_13men",
+    "value": "国士无双十三面"
+  },
+  {
+    "key": "yaku_tenhou",
+    "value": "天和"
+  },
+  {
+    "key": "yaku_chihou",
+    "value": "地和"
+  },
+  {
+    "key": "yaku_renhou",
+    "value": "人和"
+  },
+  {
+    "key": "yaku_yakuhai",
+    "value": "役牌"
+  },
+  {
+    "key": "yaku_jifonhai",
+    "value": "自风牌"
+  },
+  {
+    "key": "yaku_lenfonhai",
+    "value": "连风牌"
+  },
+  {
+    "key": "yaku_dora",
+    "value": "ドラ"
+  },
+  {
+    "key": "yaku_nagashimangan",
+    "value": "流局满贯"
+  }
+]

@@ -1,0 +1,8 @@
+version: 2
+importPivots: 1
+tpsheetFileNames:
+- Assets/qq/qq1.tpsheet
+textureFileNames:
+- Assets/qq/qq1.png
+normalmapFileNames:
+- 

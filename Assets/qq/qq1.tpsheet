@@ -1,0 +1,17 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:00c356ad1bca828c997f89292823c921:64c18ef65619f16e4be84f394f83667a:fe4739b0e79f0d7d237b538895953191$
+#
+:format=40300
+:texture=qq1.png
+:size=2048x2048
+:pivotpoints=enabled
+:borders=disabled
+
+bg;1;1407;1138;640; 0.5;0.5; 0;0;0;0; 4;1138;0;0;0;0;640;1138;640; 2;1;2;3;0;1;3
+frame_js;1;162;935;601; 0.5112299465240642;0.49916805324459235; 0;0;0;0; 12;103;599;935;599;935;0;20;0;20;458;0;478;0;486;11;601;5;283;1;283;1;291;5;291; 8;0;4;6;4;5;6;2;3;4;0;2;4;0;1;2;0;6;7;9;10;11;8;9;11
+loading;1;765;1138;640; 0.5;0.5; 0;0;0;0; 4;1138;0;0;0;0;640;1138;640; 2;1;2;3;0;1;3
