@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour {
     public Transform foxGameLogoPanel;
     public Transform gameTitlePanel;
     public Transform loginPanel;
+    public Transform gameLobbyButton;
     public Image playNowText;
     public GameObject janWanLoginButton;
     public GameObject janWanLoginPanel;
@@ -26,6 +27,8 @@ public class UIManager : MonoBehaviour {
 
     private int guideImageNum;
     private int guideImageIndex = 0;
+
+    //private float gameLobbyBtnHeight = 300f;
 
     void Start() {
 
@@ -56,6 +59,11 @@ public class UIManager : MonoBehaviour {
 
         if (!rulePanel)
             Debug.LogError("No found RulePanel");
+
+        //if (!gameLobbyButton)
+        //    Debug.LogError("No found GameLobbyButton");
+        //else
+        //    gameLobbyBtnHeight = gameLobbyButton.GetComponent<LayoutElement>().preferredHeight;
 
         InitialLoginPanel();
 
@@ -115,7 +123,9 @@ public class UIManager : MonoBehaviour {
 
     //點擊醬玩帳號入口鈕
     public void JanWanPlayClick() {
-        //playNowText.gameObject.SetActive(false);
+        playNowText.gameObject.SetActive(false);
+        gameLobbyButton.GetComponent<LayoutElement>().preferredHeight = 180f;
+
         janWanLoginButton.SetActive(false);
         janWanLoginPanel.SetActive(true);
     }
@@ -144,7 +154,9 @@ public class UIManager : MonoBehaviour {
     }
 
     private void InitialLoginPanel() {
-        //playNowText.gameObject.SetActive(true);
+        playNowText.gameObject.SetActive(true);
+        gameLobbyButton.GetComponent<LayoutElement>().preferredHeight = 300f;
+
         janWanLoginButton.SetActive(true);
         janWanLoginPanel.SetActive(false);
     }
