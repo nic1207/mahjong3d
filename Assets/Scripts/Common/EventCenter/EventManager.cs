@@ -30,6 +30,7 @@ public class EventManager
 
     public void addObserver(IObserver observer) 
     {
+		Debug.Log ("addObserver("+observer+")");
         if(observer == null)
             return;
         
@@ -49,6 +50,7 @@ public class EventManager
     // send ui event.
     public void SendEvent(UIEventType eventType, params object[] args) 
     {
+		Debug.Log ("SendEvent(_observerList.Count="+_observerList.Count+")");
         for( int i = 0; i < _observerList.Count; i++ ) 
         {
             IObserver observer = (IObserver)_observerList[i];

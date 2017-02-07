@@ -46,7 +46,6 @@ namespace DiceRollerSample
     public class DiceRollerEngine : IJUMPGameServerEngine
     {
         private DiceRollerGameState GameState;
-
         public DiceRollerEngine()
         {
             GameState = new DiceRollerGameState();

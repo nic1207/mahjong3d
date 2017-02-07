@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : StateMachine, IObserver
 {
+	//public MahjongView mview;
 	private int waitTime = 0;
 	private int MaxWaitTime = 12;
 	private Player _savepl;
@@ -42,17 +43,42 @@ public class GameManager : StateMachine, IObserver
     void Awake() {
         _instance = this;
         mahjong = new MahjongMain();
-		DontDestroyOnLoad (this.gameObject);
+		//DontDestroyOnLoad (this.gameObject);
 		//mahjong = gameObject.AddComponent<MahjongMain>();
     }
 
     void Start() {
-		//if (PhotonNetwork.isMasterClient) {
+		/*
+		if (PhotonNetwork.isMasterClient) {
 			ChangeState<GameStartState> ();
-		//}
-		waitTime = MaxWaitTime;
-		StartCoroutine(checkState());
+			//}
+			waitTime = MaxWaitTime;
+			StartCoroutine (checkState ());
+		}
+		*/
+		startGame ();
     }
+
+	public void startGame() {
+		if (PhotonNetwork.isMasterClient) {
+			ChangeState<GameStartState> ();
+			//}
+			waitTime = MaxWaitTime;
+			StartCoroutine (checkState ());
+		} else {
+			if (JUMP.JUMPMultiplayer.GameServer && JUMP.JUMPMultiplayer.GameServer.IsOfflinePlayMode) {
+				ChangeState<GameStartState> ();
+				//}
+				waitTime = MaxWaitTime;
+				StartCoroutine (checkState ());
+			} else {
+				ChangeState<GameStartState> ();
+				//}
+				waitTime = MaxWaitTime;
+				StartCoroutine (checkState ());
+			}
+		}
+	}
 
 	IEnumerator checkState() {
 		bool _send = false;

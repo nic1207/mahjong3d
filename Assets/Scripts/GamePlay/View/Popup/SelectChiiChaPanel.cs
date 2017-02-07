@@ -104,6 +104,7 @@ public class SelectChiiChaPanel : MonoBehaviour
 	IEnumerator MoveMahjongPaiToKaze( int startID , int index)
     {
 		//Debug.Log ("startID="+startID);
+		yield return new WaitForSeconds(0.3f);
 		for( int i = index, id = startID, j = 0; i < index+kazePaiList.Count; i++, id++, j++)
         {
             if( id > Hai.ID_PE )
@@ -113,18 +114,19 @@ public class SelectChiiChaPanel : MonoBehaviour
 			Image img = null;
 			cachePais.TryGetValue (id, out img);
 
-            yield return new WaitForSeconds(0.4f);
+            //yield return new WaitForSeconds(0.4f);
 			//GameObject go = new GameObject ("Xxx");
 			//int xx = chiiChaIndex;
 			//Debug.Log ("xx="+xx);
-			TweenPosition tweener = TweenPosition.Begin( img.transform.parent.gameObject, 0.3f, kazePosList[j] );
+			TweenPosition tweener = TweenPosition.Begin( img.transform.parent.gameObject, 0.8f, kazePosList[j] );
             tweener.style = UITweener.Style.Once;
-
+			//yield return new WaitForSeconds(0.3f);
             if( j == kazePaiList.Count-1 )
                 tweener.SetOnFinished( OnMoveEnd );
 			
-            yield return new WaitForSeconds(0.2f);
+            //yield return new WaitForSeconds(0.2f);
         }
+		//yield return new WaitForSeconds(0.3f);
     }
 
     void OnMoveEnd()

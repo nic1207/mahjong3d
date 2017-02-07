@@ -910,6 +910,7 @@ namespace JUMP
         #endregion
 
         #region Logging *****************************************************
+
         private void Log(LogLevels level, Func<string> message)
         {
             if ((int)JUMPOptions.LogLevel >= (int)level)
@@ -925,25 +926,25 @@ namespace JUMP
                 }
             }
         }
-
+		
         private void LogVerbose(Func<string> message)
         {
-            Log(LogLevels.Verbose, message);
+			Log(LogLevels.Verbose, message);
         }
 
         private void LogDebug(Func<string> message)
         {
-            Log(LogLevels.Debug, message);
+			Log(LogLevels.Debug, message);
         }
 
         private void LogInfo(Func<string> message)
         {
-            Log(LogLevels.Info, message);
+			Log(LogLevels.Info, message);
         }
 
         private void LogError(Func<string> message)
         {
-            Log(LogLevels.Error, message);
+			Log(LogLevels.Error, message);
         }
 
         private string FormatLogMessage(string format, params object[] args)

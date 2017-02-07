@@ -54,8 +54,11 @@ public class MahjongView : UIObject, IObserver
         get { return GameManager.Get().LogicMain; }
     }
 
-
+	void start() {
+		DontDestroyOnLoad (this.gameObject);
+	}
     void OnEnable() {
+		Debug.Log ("OnEnable()");
         EventManager.Get().addObserver(this);
     }
     void OnDisable() {
@@ -164,6 +167,7 @@ public class MahjongView : UIObject, IObserver
     // handle ui event.
     public void OnHandleEvent(UIEventType evtID, object[] args) 
     {
+		Debug.Log ("OnHandleEvent("+evtID+")");
         switch(evtID)
         {
             case UIEventType.Init_Game: // game init /

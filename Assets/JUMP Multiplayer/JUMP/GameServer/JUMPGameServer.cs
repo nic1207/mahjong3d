@@ -9,9 +9,11 @@ namespace JUMP
     public class JUMPGameServer : MonoBehaviour
     {
         // Server Engine
-        private IJUMPGameServerEngine GameServerEngine;
-        private List<IJUMPPlayer> Players;
-        private List<IJUMPBot> Bots;
+        public IJUMPGameServerEngine GameServerEngine;
+		public List<IJUMPPlayer> Players;
+		public List<IJUMPBot> Bots;
+		public GameManager GManager;
+		public JUMPGameServer Instance;
 
         private static TimeSpan SnapshotTimer = TimeSpan.Zero;
         private static TimeSpan SnapshotFrequency = TimeSpan.FromMilliseconds(1000 / JUMPOptions.SnapshotsPerSec);
@@ -25,8 +27,13 @@ namespace JUMP
 
         public void Awake()
         {
+			Instance = this;
             PhotonNetwork.OnEventCall += OnPhotonEventCall;
         }
+
+		public void Start() {
+			GManager = GameManager.Get();
+		}
 
         void OnDestroy()
         {
@@ -46,6 +53,8 @@ namespace JUMP
         public void StartServer(IJUMPGameServerEngine gameServerEngine, List<IJUMPBot> bots, bool isOfflinePlayMode)
         {
             GameServerEngine = gameServerEngine;
+			//GManager = gameObject.AddComponent<GameManager> ();
+			//GManager.startGame ();
             Bots = bots;
             IsOfflinePlayMode = isOfflinePlayMode;
             Players = new List<IJUMPPlayer>();

@@ -19,14 +19,19 @@ public class DiceRollerGameClientManager : MonoBehaviour {
     public void OnSnapshotReceived(JUMPCommand_Snapshot data)
     {
         DiceRoller_Snapshot snap = new DiceRoller_Snapshot(data.CommandData);
-        GameStatus.text = snap.Stage.ToString();
-        MyScore.text = "My score: " + snap.MyScore.ToString();
-        TheirScore.text = "Opponent's score: " + snap.OpponentScore.ToString();
-        TimeLeft.text = "Time left: " + snap.SecondsRemaining.ToString("0.");
+		if(GameStatus)
+        	GameStatus.text = snap.Stage.ToString();
+		if(MyScore)
+        	MyScore.text = "My score: " + snap.MyScore.ToString();
+		if(TheirScore)
+        	TheirScore.text = "Opponent's score: " + snap.OpponentScore.ToString();
+		if(TimeLeft)
+        	TimeLeft.text = "Time left: " + snap.SecondsRemaining.ToString("0.");
         UIStage = snap.Stage;
         if (UIStage == DiceRollerGameStages.Complete)
         {
-            Result.text = (snap.MyScore > snap.OpponentScore) ? "You Won :)" : ((snap.MyScore == snap.OpponentScore) ? "Tied!" : "You Lost :(");
+			if(Result)
+            	Result.text = (snap.MyScore > snap.OpponentScore) ? "You Won :)" : ((snap.MyScore == snap.OpponentScore) ? "Tied!" : "You Lost :(");
         }
     }
 
@@ -37,8 +42,8 @@ public class DiceRollerGameClientManager : MonoBehaviour {
         if (RollDice != null)
         {
             // RollDice.GetComponent<Text>().text = "Rolled a " + score + " \nroll again.."; 
-
-            DiceResult.text = "Rolled a " + score;
+			if(DiceResult)
+            	DiceResult.text = "Rolled a " + score;
         }
         JUMPMultiplayer.GameClient.SendCommandToServer(new DiceRollerCommand_RollDice(JUMPMultiplayer.PlayerID, score));
     }
@@ -59,6 +64,7 @@ public class DiceRollerGameClientManager : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        RollDice.interactable = (UIStage == DiceRollerGameStages.Playing);
+		if(RollDice)
+        	RollDice.interactable = (UIStage == DiceRollerGameStages.Playing);
 	}
 }
