@@ -28,7 +28,7 @@ public class PanelPlayers : MonoBehaviour {
 
 	public void ShowHomeba(int index) {
 		hideAllHome ();
-		Debug.Log ("ShowHomeba("+index+")");
+		//Debug.Log ("ShowHomeba("+index+")");
 		Image im = null;
 		if (index < Homes.Count) {
 			im = Homes [index];

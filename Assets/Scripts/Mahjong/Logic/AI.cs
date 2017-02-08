@@ -22,7 +22,8 @@ public class AI : Player
     protected override EResponse OnHandle_TsumoHai(EKaze fromPlayerKaze, Hai haiToHandle)
     {
         _action.Reset();
-
+		//_action.SutehaiIndex =  UnityEngine.Random.Range(0, ;
+		_action.SutehaiIndex = UnityEngine.Random.Range(0, Tehai.getJyunTehaiCount ()-1);
         //if(inTest){
             //_action.SutehaiIndex = Tehai.getJyunTehaiCount();
             //return DoResponse(EResponse.SuteHai);
@@ -174,7 +175,7 @@ public class AI : Player
     protected override EResponse OnHandle_SuteHai(EKaze fromPlayerKaze, Hai haiToHandle)
     {
         _action.Reset();
-
+		_action.SutehaiIndex = 0;
         Hai suteHai = haiToHandle;
 
         // check Ron
@@ -208,8 +209,12 @@ public class AI : Player
             }
         }
         */
+		//_action.Reset();
 
-        return DoResponse(EResponse.Nagashi);
+		//thinkSelectSuteHai();
+
+		return DoResponse(EResponse.Nagashi);
+        //return DoResponse(EResponse.Nagashi);
     }
 
 
@@ -217,8 +222,8 @@ public class AI : Player
     {
         _action.Reset();
 
-        thinkSelectSuteHai();
-
+        //thinkSelectSuteHai();
+		_action.SutehaiIndex = 0;
         return DoResponse(EResponse.SuteHai);
     }
 
@@ -227,7 +232,8 @@ public class AI : Player
     protected virtual void thinkSutehai(Hai addHai)
     {
         //_action.SutehaiIndex = Tehai.getJyunTehaiCount();
-		_action.SutehaiIndex = UnityEngine.Random.Range(0, Tehai.getJyunTehaiCount ()-1);
+		//_action.SutehaiIndex = UnityEngine.Random.Range(0, Tehai.getJyunTehaiCount ()-1);
+		_action.SutehaiIndex = 0;
         /*
 		Tehai tehaiCopy = new Tehai( Tehai );
 
@@ -259,7 +265,8 @@ public class AI : Player
 
         if( _action.SutehaiIndex == Tehai.getJyunTehaiCount() )
         {
-            _action.SutehaiIndex = Utils.GetRandomNum(0, Tehai.getJyunTehaiCount());
+            //_action.SutehaiIndex = Utils.GetRandomNum(0, Tehai.getJyunTehaiCount());
+			_action.SutehaiIndex = 0;
         }
     }
 

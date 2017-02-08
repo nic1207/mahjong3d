@@ -376,8 +376,8 @@ public class Tehai
     // チー(右)の可否をチェックする
     public bool validChiiRight(Hai suteHai, List<Hai> sarashiHais)
     {
-        if (_fuuros.Count >= FUURO_MAX)
-            return false;
+        //if (_fuuros.Count >= FUURO_MAX)
+        //    return false;
 
         if (suteHai.IsTsuu)
             return false;

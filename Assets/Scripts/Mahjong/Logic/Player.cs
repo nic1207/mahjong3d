@@ -185,9 +185,11 @@ public abstract class Player : Photon.MonoBehaviour
 
     public bool CheckReachPreConditions()
     {
-        return !MahjongAgent.isReach(JiKaze) && 
-            MahjongAgent.getTsumoRemain() >= GameSettings.PlayerCount && 
-            Tenbou >= GameSettings.Reach_Cost;
+        //return !MahjongAgent.isReach(JiKaze) && 
+        //    MahjongAgent.getTsumoRemain() >= GameSettings.PlayerCount 
+		//	&& Tenbou >= GameSettings.Reach_Cost;
+		return !MahjongAgent.isReach(JiKaze) && 
+			MahjongAgent.getTsumoRemain() >= GameSettings.PlayerCount;
     }
 
     #endregion

@@ -203,14 +203,14 @@ public class MahjongMain : Mahjong
         m_kakanHai = new Hai();
 
         // 洗牌する
-        m_yama.Shuffle();
+        //m_yama.Shuffle();
     }
 
     // 山に割れ目を設定する
     protected void setWareme(Sai[] sais)
     {
 		int sum = sais[0].Num + sais[1].Num + sais[2].Num;
-		Debug.Log ("sum="+sum);
+		//Debug.Log ("sum="+sum);
 		int waremePlayer = 0;
 		//Debug.Log ("ChiiChaIndex="+ChiiChaIndex);
 		switch(ChiiChaIndex){
@@ -244,7 +244,7 @@ public class MahjongMain : Mahjong
 				waremePlayer = 1;
 		}
 		*/
-		Debug.Log ("waremePlayer="+waremePlayer);
+		//Debug.Log ("waremePlayer="+waremePlayer);
 		m_wareme = ( (waremePlayer) % 4 ) * 34 + sum * 2;
 		//Debug.Log ("m_wareme="+m_wareme);
 		//startHaisIndex = 0;
@@ -313,7 +313,7 @@ public class MahjongMain : Mahjong
     // Step: 6
     public void PrepareToStart()
     {
-		Debug.Log ("PrepareToStart("+m_oyaIndex+")");
+		//Debug.Log ("PrepareToStart("+m_oyaIndex+")");
 		int i = 0;
 		foreach (Player p in m_playerList) {
 			if (p.JiKaze == EKaze.Ton) {
@@ -1034,8 +1034,8 @@ public class MahjongMain : Mahjong
 
     public void Handle_Reach()
     {
-        if( ActivePlayer.Tenbou < GameSettings.Reach_Cost )
-            throw new MahjongException("Active player has not enough tenbou to reach!!!");
+        //if( ActivePlayer.Tenbou < GameSettings.Reach_Cost )
+        //    throw new MahjongException("Active player has not enough tenbou to reach!!!");
 
         m_isTenhou = false;
         m_isRinshan = false;
