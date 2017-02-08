@@ -8,9 +8,10 @@ public class LoginUI : MonoBehaviour {
 
 	public InputField ClubLoginAccount;// Club登入頁 用戶帳號
 	public InputField ClubLoginPass;   // Club登入頁 用戶密碼
-	public GameObject ClubLoginHint;   // Club登入頁 錯誤提示
+	public GameObject ClubLoginHint_Account;   // Club登入頁 錯誤提示
+    public GameObject ClubLoginHint_Password;   // Club登入頁 錯誤提示
 
-	void Awake () {
+    void Awake () {
 		Instance = this;
 	}
 
@@ -27,20 +28,31 @@ public class LoginUI : MonoBehaviour {
 	public void ClubSigninClick() {
 		string userName = ClubLoginAccount.text;
 		string userPass = ClubLoginPass.text;
-		ClubLoginHint.SetActive(false);
+        ClubLoginHint_Account.SetActive(false);
+        ClubLoginHint_Password.SetActive(false);
 
 
-        if (userName == "" || userPass == "") {
-            ClubLoginHint.GetComponent<Text>().text = "欄位不可空白";
-            ClubLoginHint.SetActive(true);
+
+        if (userPass == "")
+        {
+            ClubLoginHint_Password.GetComponentInChildren<Text>().text = "欄位不可空白";
+            ClubLoginHint_Password.SetActive(true);
+            ClubLoginPass.text = "";
             //Debug.Log("欄位不可空白");
         }
-
+        if (userName == "")
+        {
+            ClubLoginHint_Account.GetComponentInChildren<Text>().text = "欄位不可空白";
+            ClubLoginHint_Account.SetActive(true);
+            ClubLoginAccount.text = "";
+            //Debug.Log("欄位不可空白");
+        }
         //檢查帳號是否合法
-        if (!CheckName (userName)) {
-			ClubLoginHint.GetComponent<Text> ().text = "帳號格式錯誤";	
-			ClubLoginHint.SetActive (true);
-			Debug.Log ("帳號格式錯誤");
+        else if (!CheckName (userName)) {
+            ClubLoginHint_Account.GetComponentInChildren<Text>().text = "帳號格式錯誤";
+            ClubLoginHint_Account.SetActive (true);
+            ClubLoginAccount.text = "";
+            Debug.Log ("帳號格式錯誤");
 		} else {
             //ConnectingPanel.SetActive(true); //畫面顯示連線中
 
@@ -88,9 +100,10 @@ public class LoginUI : MonoBehaviour {
 	{
 		//ConnectingPanel.SetActive(false); //關閉連線畫面
 		if (status!=WebExceptionStatus.Success){
-			ClubLoginHint.GetComponent<Text> ().text = "登入失敗: 輸入資訊錯誤";
-			ClubLoginHint.SetActive (true);
-			Debug.Log("登入失敗: 輸入資訊錯誤");		
+            ClubLoginHint_Password.GetComponentInChildren<Text> ().text = "登入失敗: 輸入資訊錯誤";
+            ClubLoginHint_Password.SetActive (true);
+            ClubLoginPass.text = "";
+            Debug.Log("登入失敗: 輸入資訊錯誤");		
 		} else {	
 			//Debug.Log ("登入成功! Token="+result);
 			//Main.Instance.Token = result;
@@ -104,4 +117,10 @@ public class LoginUI : MonoBehaviour {
 			//PlayerPrefs.SetInt ("LOGOUT", 0);
 		}
 	}
+
+    //點擊錯誤提示區塊 清空欄位並聚焦
+    public void ClickHintBlock(Button targetHint) {
+        targetHint.gameObject.SetActive(false);
+        targetHint.GetComponentInParent<InputField>().ActivateInputField();
+    }
 }

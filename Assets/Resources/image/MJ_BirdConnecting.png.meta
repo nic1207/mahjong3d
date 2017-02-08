@@ -1,0 +1,591 @@
+fileFormatVersion: 2
+guid: 92fa055dac3b6ae4dae45cfef5ad9f2a
+timeCreated: 1486534675
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: bird01
+    21300002: bird02
+    21300004: bird03
+    21300006: bird04
+    21300008: bird05
+    21300010: bird06
+    21300012: bird07
+    21300014: bird08
+    21300016: bird09
+    21300018: bird10
+    21300020: bird11
+    21300022: bird12
+    21300024: bird13
+    21300026: bird14
+    21300028: bird15
+    21300030: bird16
+    21300032: bird17
+    21300034: bird18
+    21300036: bird19
+    21300038: bird20
+    21300040: bird21
+    21300042: bird22
+    21300044: bird23
+    21300046: bird24
+    21300048: bird25
+    21300050: bird26
+    21300052: bird27
+    21300054: bird28
+    21300056: bird29
+    21300058: bird30
+    21300060: bird31
+    21300062: bird32
+    21300064: bird33
+    21300066: bird34
+    21300068: bird35
+    21300070: bird36
+    21300072: bird37
+    21300074: bird38
+    21300076: bird39
+    21300078: bird40
+    21300080: bird41
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bird01
+      rect:
+        serializedVersion: 2
+        x: 1766
+        y: 4
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird02
+      rect:
+        serializedVersion: 2
+        x: 1766
+        y: 256
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird03
+      rect:
+        serializedVersion: 2
+        x: 1514
+        y: 4
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird04
+      rect:
+        serializedVersion: 2
+        x: 1514
+        y: 256
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird05
+      rect:
+        serializedVersion: 2
+        x: 1766
+        y: 508
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird06
+      rect:
+        serializedVersion: 2
+        x: 1514
+        y: 508
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird07
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 4
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird08
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 256
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird09
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 508
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird10
+      rect:
+        serializedVersion: 2
+        x: 1766
+        y: 760
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird11
+      rect:
+        serializedVersion: 2
+        x: 1514
+        y: 760
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird12
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 760
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird13
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 4
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird14
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 256
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird15
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 508
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird16
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 760
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird17
+      rect:
+        serializedVersion: 2
+        x: 1766
+        y: 1012
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird18
+      rect:
+        serializedVersion: 2
+        x: 1514
+        y: 1012
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird19
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 1012
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird20
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 1012
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird21
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 4
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird22
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 256
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird23
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 508
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird24
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 760
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird25
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 1012
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird26
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 4
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird27
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 256
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird28
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 508
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird29
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 760
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird30
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 1012
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird31
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 4
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird32
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 256
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird33
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 508
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird34
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 760
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird35
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 1012
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird36
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 4
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird37
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 256
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird38
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 508
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird39
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 760
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird40
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1012
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bird41
+      rect:
+        serializedVersion: 2
+        x: 1766
+        y: 4
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

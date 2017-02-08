@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour {
     public Transform enterLoadingPanel;
     public GameObject registerPanel;
     public GameObject rulePanel;
+    public GameObject forgotPanel;
     public Image guideImage;
     public Sprite[] guideImages;
 
@@ -160,4 +161,19 @@ public class UIManager : MonoBehaviour {
         janWanLoginButton.SetActive(true);
         janWanLoginPanel.SetActive(false);
     }
+
+    //進入忘記密碼頁
+    public void GoForgotPage() {
+        forgotPanel.SetActive(true);
+    }
+
+    //離開忘記密碼頁
+    public void ExitForgotPage()
+    {
+        //ForgotUI.instance.OOOO();
+        forgotPanel.SetActive(false);
+    }
+
+
+
 }
