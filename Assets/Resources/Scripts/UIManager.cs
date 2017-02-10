@@ -170,8 +170,8 @@ public class UIManager : MonoBehaviour {
     //離開忘記密碼頁
     public void ExitForgotPage()
     {
-        //ForgotUI.instance.OOOO();
         forgotPanel.SetActive(false);
+        ForgotUI.instance.ResetAllInput();
     }
 
 
