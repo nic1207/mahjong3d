@@ -8,6 +8,11 @@ public class HorseLight : MonoBehaviour {
     public Text _horseLightText_1;
     public Text _horseLightText_2;
     public List<string> _rewardLists;
+    public string[] _canMessages; // 當無得獎者 設定的罐頭訊息
+
+    //跑馬燈速度
+    [Range(0, 6)]
+    public int RunSpeed = 2; 
 
     [HideInInspector]
     public bool _acceptPass = true; // 允許放行
@@ -21,6 +26,7 @@ public class HorseLight : MonoBehaviour {
     private bool _horseReadyRun_1 = false;
     private bool _horseReadyRun_2 = false;
 
+    private int _cuurSpeed;
 
     void Start() {
         instance = this;
@@ -55,7 +61,14 @@ public class HorseLight : MonoBehaviour {
     //[0] 進入點
     public void ReadyToStart() {
         if (CheckRewardList())
-            CheckEmptyHorse(); 
+        {
+            CheckEmptyHorse();
+        }
+        else {
+            //無得獎者 設定罐頭訊息
+            PutCanMsgToList();
+        }
+
     }
 
     //[1] 檢查中獎清單
@@ -157,4 +170,32 @@ public class HorseLight : MonoBehaviour {
         ReadyToStart();
         _fixedTimeCheck = true;
     }
+
+    //[8] 罐頭訊息填入播放清單
+    private void PutCanMsgToList() {
+        if (_canMessages.Length == 0)
+        {
+            _rewardLists.Add("恭喜黃大嬸詐胡 獲得9487元");
+        }
+        else {
+            for (int i = 0; i < _canMessages.Length; i++)
+            {
+                _rewardLists.Add(_canMessages[i]);
+            }
+        }
+    }
+
+    //[9] 暫停& 繼續
+    public void IsPlayHorse(bool _isPlay) {
+        if (RunSpeed != 0 && !_isPlay)
+        {
+            _cuurSpeed = RunSpeed;
+            RunSpeed = 0;
+        }
+        else if(RunSpeed == 0 && _isPlay)
+            RunSpeed = _cuurSpeed;
+
+        //Debug.Log("目前跑馬燈速度 = " + RunSpeed);
+    }
+
 }

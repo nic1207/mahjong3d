@@ -7,9 +7,12 @@ public class Lobby_UIManager : MonoBehaviour {
     public Text[] _buttonTexts;
     public Text _buttonMoreText;
     public GameObject birdConnectingMask;
+    public GameObject receviedMask; //獲得禮物畫面
     public GameObject buttonBGMask;
     public Animator moreBtnPanelAnimator;
     public Animator lobbyAnimator;
+    public Animator activityAnimator;
+    public GameObject activityPanel; //活動頁
 
     private Color _duckYellow = new Color(0.952f, 0.596f, 0, 1);
 
@@ -44,7 +47,7 @@ public class Lobby_UIManager : MonoBehaviour {
     //點擊更多按鈕
     private void ClickButtomMore()
     {
-        Debug.Log("!buttonBGMask.activeSelf = " + !buttonBGMask.activeSelf);
+        //Debug.Log("!buttonBGMask.activeSelf = " + !buttonBGMask.activeSelf);
         //開啟背景遮罩
         buttonBGMask.SetActive(!buttonBGMask.activeSelf);
         moreBtnPanelAnimator.SetBool("OpenMorePanel", buttonBGMask.activeSelf);
@@ -68,7 +71,8 @@ public class Lobby_UIManager : MonoBehaviour {
                 break;
             case "Button_Activity":
                 //點擊 活動
-
+                //HorseLight.instance.IsPlayHorse(false); //暫停跑馬燈
+                GoActivity();
                 break;
             case "Button_Charge":
                 //點擊 儲值
@@ -80,6 +84,7 @@ public class Lobby_UIManager : MonoBehaviour {
                 break;
             case "Button_More":
                 //點擊 更多
+                HorseLight.instance.IsPlayHorse(false); //暫停跑馬燈
                 ClickButtomMore();
                 break;
 
@@ -115,6 +120,8 @@ public class Lobby_UIManager : MonoBehaviour {
         foreach (Text _text in _buttonTexts) {
             _text.color = Color.white;
         }
+
+        HorseLight.instance.IsPlayHorse(true); //啟動跑馬燈
     }
 
     IEnumerator DelayCloseBGMask() {
@@ -132,5 +139,25 @@ public class Lobby_UIManager : MonoBehaviour {
     public void SetConnectingDone()
     {
         lobbyAnimator.SetBool("ConnectingDone", true);
+    }
+
+    //開啟活動頁
+    private void GoActivity() {
+        activityPanel.SetActive(true);
+        activityAnimator.SetBool("ActivitySlideIn", true);
+    }
+
+    //離開活動頁
+    public void ExitActivity()
+    {
+        ResetAllBtnColor();
+        activityAnimator.SetBool("ActivitySlideIn", false);
+        //activityPanel.SetActive(false);
+        //HorseLight.instance.IsPlayHorse(true); //啟動跑馬燈
+    }
+
+    //執行獲得獎品面板
+    public void CallReceviedPanel(string _itemType, int _itemNum) {
+        receviedMask.GetComponent<ReceivedMask>().ShowReceived(_itemType, _itemNum);
     }
 }
