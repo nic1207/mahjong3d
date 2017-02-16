@@ -13,6 +13,7 @@ public class Lobby_UIManager : MonoBehaviour {
     public Animator lobbyAnimator;
     public Animator activityAnimator;
     public GameObject activityPanel; //活動頁
+    public GameObject settingPanel;  //設定頁
 
     private Color _duckYellow = new Color(0.952f, 0.596f, 0, 1);
 
@@ -71,7 +72,7 @@ public class Lobby_UIManager : MonoBehaviour {
                 break;
             case "Button_Activity":
                 //點擊 活動
-                //HorseLight.instance.IsPlayHorse(false); //暫停跑馬燈
+                HorseLight.instance.IsPlayHorse(false); //暫停跑馬燈
                 GoActivity();
                 break;
             case "Button_Charge":
@@ -91,6 +92,7 @@ public class Lobby_UIManager : MonoBehaviour {
             case "Button_Setting":
                 //點擊 更多 - 設定
                 RemainMoreBtnTextColor();
+                GoSetting();
                 break;
             case "Button_Explain":
                 //點擊 更多 - 說明
@@ -121,7 +123,7 @@ public class Lobby_UIManager : MonoBehaviour {
             _text.color = Color.white;
         }
 
-        HorseLight.instance.IsPlayHorse(true); //啟動跑馬燈
+        //HorseLight.instance.IsPlayHorse(true); //啟動跑馬燈
     }
 
     IEnumerator DelayCloseBGMask() {
@@ -143,6 +145,7 @@ public class Lobby_UIManager : MonoBehaviour {
 
     //開啟活動頁
     private void GoActivity() {
+        activityPanel.GetComponent<Activity>().ResetPageUI(); //活動頁:卷軸置頂 預設每日禮物
         activityPanel.SetActive(true);
         activityAnimator.SetBool("ActivitySlideIn", true);
     }
@@ -152,12 +155,25 @@ public class Lobby_UIManager : MonoBehaviour {
     {
         ResetAllBtnColor();
         activityAnimator.SetBool("ActivitySlideIn", false);
-        //activityPanel.SetActive(false);
-        //HorseLight.instance.IsPlayHorse(true); //啟動跑馬燈
+        HorseLight.instance.IsPlayHorse(true); //啟動跑馬燈
     }
 
     //執行獲得獎品面板
     public void CallReceviedPanel(string _itemType, int _itemNum) {
         receviedMask.GetComponent<ReceivedMask>().ShowReceived(_itemType, _itemNum);
+    }
+
+    //進入設定頁
+    public void GoSetting() {
+        settingPanel.GetComponent<Setting>().ResetPageUI(); //設定頁:卷軸置頂 預設個人資訊
+        settingPanel.SetActive(true);
+        settingPanel.GetComponent<Animator>().SetBool("ActivitySlideIn", true);
+    }
+
+    //離開設定頁
+    public void ExitSetting() {
+        ResetAllBtnColor();
+        HorseLight.instance.IsPlayHorse(true); //啟動跑馬燈
+        settingPanel.GetComponent<Animator>().SetBool("ActivitySlideIn", false);
     }
 }

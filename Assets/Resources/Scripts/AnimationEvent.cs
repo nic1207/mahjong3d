@@ -10,4 +10,10 @@ public class AnimationEvent : MonoBehaviour {
     {
         Lobby_UIManager.instance.RemainMoreBtnTextColor();
     }
+
+    //Animator 使用 EventTrigger
+    public void HideCuurentPanel()
+    {
+        gameObject.SetActive(false);
+    }
 }

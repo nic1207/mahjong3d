@@ -56,6 +56,8 @@ public class LoginUI : MonoBehaviour {
 		} else {
             //ConnectingPanel.SetActive(true); //畫面顯示連線中
 
+            //把帳號傳給UIManager管理
+            UIManager.instance.userAccount = userName;
 
             //儲存此次帳密
             PlayerPrefs.SetString ("USERNAME", userName);

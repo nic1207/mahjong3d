@@ -21,6 +21,11 @@ public class UIManager : MonoBehaviour {
     public Image guideImage;
     public Sprite[] guideImages;
 
+    [HideInInspector]
+    public string userAccount = "GUEST"; //使用者帳號
+    [HideInInspector]
+    public string userNickname = "路人甲"; //使用者暱稱
+
     private Animator foxGameLogoAnim;
     private Animator gameTitleAnim;
     private Animator enterLoadingAnim;

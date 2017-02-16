@@ -125,8 +125,10 @@ public class Activity : MonoBehaviour {
         }
     }
 
-    //Animator 使用 EventTrigger
-    public void HideActivityPanel() {
-        gameObject.SetActive(false);
+    //離開頁面時 重置UI
+    public void ResetPageUI()
+    {
+        _cuurState = ToggleState.DAILY;
+        ChangeActivityUI();
     }
 }

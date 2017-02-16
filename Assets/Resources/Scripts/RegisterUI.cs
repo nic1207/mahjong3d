@@ -17,6 +17,9 @@ public class RegisterUI : MonoBehaviour {
     public Toggle ClubAgreeRule;            // Club註冊頁 同意條款
     public GameObject ClubRegisterHint;     // Club註冊頁 錯誤提示
 
+    public string[] _canNickName; //罐頭暱稱
+    private string _defaultNickName = "路人甲"; //預設暱稱
+
     void Awake()
     {
         Instance = this;
@@ -74,11 +77,15 @@ public class RegisterUI : MonoBehaviour {
             }
             else
             {
+                //把暱稱傳給UIManager管理
+                UIManager.instance.userAccount = CheckNickName();
+                //Debug.Log("暱稱為 " + CheckNickName());
+
                 //以下呼叫 API(registerMail, registerPass1)
                 //ykiAPI = this.GetComponent<YkiApi>();
-                //ykiAPI.AddMember(registerMail, registerPass1, RegisterCallback);
+                //ykiAPI.AddMember(registerMail, registerPass1, CheckNickName(), RegisterCallback);
                 //ConnectingPanel.SetActive(true); //畫面顯示連線中
-                //Main.Instance.doAddMember(registerMail, registerPass1, RegisterCallback);
+                //Main.Instance.doAddMember(registerMail, registerPass1, CheckNickName(), RegisterCallback);
 
                 UIManager.instance.ExitRegisterPage(); //離開註冊頁面
 
@@ -161,5 +168,21 @@ public class RegisterUI : MonoBehaviour {
         ClubRegisterPhone.text = "";
         ClubAgreeRule.isOn = false;
         ClubRegisterHint.SetActive(false);
-    } 
+    }
+
+    //判斷有無填暱稱欄位
+    private string CheckNickName() {
+        if (ClubRegisterNickname.text != "")
+        {
+            return ClubRegisterNickname.text;
+        }
+        else if (_canNickName.Length == 0)
+        {
+            return _defaultNickName;
+        }
+        else {
+            int _randIndex = Random.Range(0, _canNickName.Length);
+            return _canNickName[_randIndex]; 
+        }
+    }
 }
