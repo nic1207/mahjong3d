@@ -45,7 +45,8 @@ public class EnterLoading : MonoBehaviour {
             yield return null;
         }
 
-        yield return new WaitForSeconds(1.0f);    
+        GetComponent<SoundEffect>().FadeOut();     //背景音樂淡出
+        yield return new WaitForSeconds(1.0f);
         UIManager.instance.SetEnterLoadingDone();  //讀取畫面淡出
         yield return new WaitForSeconds(1.5f);
 

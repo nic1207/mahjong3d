@@ -12,8 +12,9 @@ public class Lobby_UIManager : MonoBehaviour {
     public Animator moreBtnPanelAnimator;
     public Animator lobbyAnimator;
     public Animator activityAnimator;
-    public GameObject activityPanel; //活動頁
-    public GameObject settingPanel;  //設定頁
+    public GameObject activityPanel;    //活動頁
+    public GameObject settingPanel;     //設定頁
+    public GameObject particleEffects;  //粒子特效
 
     private Color _duckYellow = new Color(0.952f, 0.596f, 0, 1);
 
@@ -22,6 +23,8 @@ public class Lobby_UIManager : MonoBehaviour {
 
         //關閉連線視窗
         birdConnectingMask.SetActive(false);
+
+        particleEffects.SetActive(true); //開啟粒子特效
     }
 
 
@@ -134,6 +137,7 @@ public class Lobby_UIManager : MonoBehaviour {
     //點擊開桌 準備進入遊戲畫面
     public void StartSetConnecting() {
         ResetAllBtnColor();
+        particleEffects.SetActive(false); //關閉大廳粒子特效
         birdConnectingMask.SetActive(true);
     }
 
@@ -146,6 +150,7 @@ public class Lobby_UIManager : MonoBehaviour {
     //開啟活動頁
     private void GoActivity() {
         activityPanel.GetComponent<Activity>().ResetPageUI(); //活動頁:卷軸置頂 預設每日禮物
+        particleEffects.SetActive(false); //關閉大廳粒子特效
         activityPanel.SetActive(true);
         activityAnimator.SetBool("ActivitySlideIn", true);
     }
@@ -155,6 +160,7 @@ public class Lobby_UIManager : MonoBehaviour {
     {
         ResetAllBtnColor();
         activityAnimator.SetBool("ActivitySlideIn", false);
+        particleEffects.SetActive(true); //開啟大廳粒子特效
         HorseLight.instance.IsPlayHorse(true); //啟動跑馬燈
     }
 
@@ -166,6 +172,7 @@ public class Lobby_UIManager : MonoBehaviour {
     //進入設定頁
     public void GoSetting() {
         settingPanel.GetComponent<Setting>().ResetPageUI(); //設定頁:卷軸置頂 預設個人資訊
+        particleEffects.SetActive(false); //關閉大廳粒子特效
         settingPanel.SetActive(true);
         settingPanel.GetComponent<Animator>().SetBool("ActivitySlideIn", true);
     }
@@ -173,6 +180,7 @@ public class Lobby_UIManager : MonoBehaviour {
     //離開設定頁
     public void ExitSetting() {
         ResetAllBtnColor();
+        particleEffects.SetActive(true); //開啟大廳粒子特效
         HorseLight.instance.IsPlayHorse(true); //啟動跑馬燈
         settingPanel.GetComponent<Animator>().SetBool("ActivitySlideIn", false);
     }
