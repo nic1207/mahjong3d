@@ -47,8 +47,8 @@ public class LoginUI : MonoBehaviour {
             ClubLoginAccount.text = "";
             //Debug.Log("欄位不可空白");
         }
-        //檢查帳號是否合法
-        else if (!CheckName (userName)) {
+        //檢查帳號是否合法 ※帳號欄位改為信箱 所以 CheckName → CheckEmail
+        else if (!CheckEmail(userName)) {
             ClubLoginHint_Account.GetComponentInChildren<Text>().text = "帳號格式錯誤";
             ClubLoginHint_Account.SetActive (true);
             ClubLoginAccount.text = "";
@@ -91,6 +91,23 @@ public class LoginUI : MonoBehaviour {
         }
     }
 
+    //檢查信箱格式
+    public bool CheckEmail(string Str)
+    {
+        if (Str.IndexOf("@") == -1 || Str.IndexOf("@") < 1 || Str.EndsWith("@") ||
+            Str.IndexOf(".") == -1 || Str.IndexOf(".") < 1 || Str.EndsWith(".") ||
+            Str.IndexOf(".@") > -1 || Str.IndexOf("@.") > -1 || Str == "")
+        {
+            //Debug.Log ("帳號檢查沒過");	
+            return false;
+        }
+        else
+        {
+            //Debug.Log ("帳號檢查有過");	
+            return true;
+        }
+    }
+
     //定義一個函數,作用:判斷strNumber是否為數字,是數字返回True,不是數字返回False
     public bool IsNumeric(string strNumber)
     {
@@ -98,7 +115,7 @@ public class LoginUI : MonoBehaviour {
         return !NumberPattern.IsMatch(strNumber);
     }
 
-	public void LoginCallback(WebExceptionStatus status, string result)
+    public void LoginCallback(WebExceptionStatus status, string result)
 	{
 		//ConnectingPanel.SetActive(false); //關閉連線畫面
 		if (status!=WebExceptionStatus.Success){

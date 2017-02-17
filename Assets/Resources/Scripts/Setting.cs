@@ -89,7 +89,7 @@ public class Setting : MonoBehaviour {
     private void InitialSetting() {
         if (UIManager.instance != null)
         {
-            //※ 之後改成API取得用戶資訊
+            //※ 之後改成API取得用戶資訊 需要有個SceneManager
             accountText.text = UIManager.instance.userAccount;
             accountText.text = UIManager.instance.userNickname;
         }
