@@ -13,7 +13,7 @@ public class LoginUI : MonoBehaviour {
 
     void Awake () {
 		Instance = this;
-	}
+    }
 
     void Start() {
         // 若前次成功登入時 有勾選記憶check-box 則這次自動填入

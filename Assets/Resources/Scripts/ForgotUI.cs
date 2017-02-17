@@ -363,7 +363,7 @@ public class ForgotUI : MonoBehaviour
     private void LockChangeBtn()
     {
         buttonPassAccept.GetComponent<Image>().sprite = changePassButtonBG[0];
-        buttonPassAccept.GetComponent<Button>().enabled = true;
+        buttonPassAccept.GetComponent<Button>().enabled = false;
         buttonPassAccept.GetComponentInChildren<Text>().color = Color.gray;
     }
 
