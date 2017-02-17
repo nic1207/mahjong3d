@@ -47,6 +47,7 @@ public class BirdConnecting : MonoBehaviour {
             yield return null;
         }
 
+        GetComponent<SoundEffect>().FadeOut();     //背景音樂淡出
         yield return new WaitForSeconds(3.0f);
         Lobby_UIManager.instance.SetConnectingDone();  //讀取畫面淡出
         yield return new WaitForSeconds(1.5f);

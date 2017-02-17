@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour {
     public GameObject forgotPanel;
     public Image guideImage;
     public Sprite[] guideImages;
+    public GameObject _3DBGPanel; //3D背景圖
 
     [HideInInspector]
     public string userAccount = "GUEST"; //使用者帳號
@@ -91,17 +92,12 @@ public class UIManager : MonoBehaviour {
         yield return new WaitForSeconds(5f);
         //進入登入畫面
         loginAnim.SetTrigger("loginFlag");
-
-        //enterLoadingAnim.SetTrigger("EnterLoading");
-        //InvokeRepeating("GuideImages", 0f, 5f);
-
-        //yield return new WaitForSeconds(3f);
-        //EnterLoading.instance.StartLoading();
     }
 
     //登入流程正確 準備進入載入畫面
     public void StartSetEnterLoading() {
         loginPanel.gameObject.SetActive(false);
+        _3DBGPanel.SetActive(false); //關閉3D背景圖
         StartCoroutine("EntranceLoading");
     }
 
@@ -150,12 +146,14 @@ public class UIManager : MonoBehaviour {
     //進入服務條款頁
     public void GoRulePage()
     {
+        loginPanel.gameObject.SetActive(false); //關閉3D背景圖
         rulePanel.SetActive(true);
     }
 
     //離開服務條款頁
     public void ExitRulePage()
     {
+        loginPanel.gameObject.SetActive(true); //開啟3D背景圖
         rulePanel.SetActive(false);
     }
 
