@@ -102,7 +102,7 @@ public sealed class AgariScoreManager
         }
     }
 
-
+	/*
     // 流局满贯 //
     public static void SetNagashiMangan(AgariInfo agariInfo)
     {
@@ -115,6 +115,7 @@ public sealed class AgariScoreManager
             new YakuHelper.CheckNagashimangan(null) 
         };
     }
+	*/
 
     // 符を計算します
     public static int CalculateHu(Tehai tehai, Hai addHai, HaiCombi combi, AgariParam param, Yaku yaku)
@@ -279,7 +280,7 @@ public sealed class AgariScoreManager
 
             return agariInfo.scoreInfo.koAgari;
         }
-
+		/*
         /// 2. check Kokushi(国士无双)
         if( formatWorker.isKokushi() )
         {
@@ -298,7 +299,7 @@ public sealed class AgariScoreManager
 
             return 0;
         }
-
+		*/
 
         /// 3. check common combi yaku.
         if( combisCount <= 0 )

@@ -10,10 +10,10 @@ public class AgariUpdateInfo : AgariInfo
 
     public bool isTsumo;
     public Hai agariHai;
-    public Hai[] allOmoteDoraHais;
-    public int openedOmoteDoraCount;
-    public Hai[] allUraDoraHais;
-    public int openedUraDoraCount;
+    //public Hai[] allOmoteDoraHais;
+    //public int openedOmoteDoraCount;
+    //public Hai[] allUraDoraHais;
+    //public int openedUraDoraCount;
 
     public int reachBou;
     public EKaze manKaze;

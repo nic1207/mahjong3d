@@ -257,16 +257,16 @@ public abstract class Mahjong
     }
 
     // 表ドラ、槓ドラの配列を取得する
-    public Hai[] getOpenedOmotoDoras()
-    {
-        return Yama.getOpenedOmoteDoraHais();
-    }
+    //public Hai[] getOpenedOmotoDoras()
+    //{
+    //    return Yama.getOpenedOmoteDoraHais();
+    //}
 
     // 里ドラ、槓ドラの配列を取得する
-    public Hai[] getOpenedUraDoraHais()
-    {
-        return Yama.getOpenedUraDoraHais();
-    }
+    //public Hai[] getOpenedUraDoraHais()
+    //{
+    //    return Yama.getOpenedUraDoraHais();
+    //}
 
     // ツモの残り数を取得する
     public int getTsumoRemainCount()
@@ -322,7 +322,7 @@ public abstract class Mahjong
     {
         if(param == null) {
             param = AgariParam;
-            param.ResetDoraHais();
+            //param.ResetDoraHais();
         }
 
         param.setBakaze( getBaKaze() );

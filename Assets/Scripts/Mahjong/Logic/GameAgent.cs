@@ -73,13 +73,13 @@ public class GameAgent
         return _game.getPlayer(kaze).SuteHaisCount;
     }
 
-    public Hai[] getOmotoDoraHais(){
-        return _game.getOpenedOmotoDoras();
-    }
+    //public Hai[] getOmotoDoraHais(){
+    //    return _game.getOpenedOmotoDoras();
+    //}
 
-    public Hai[] getUraDoraHais() {
-        return _game.getOpenedUraDoraHais();
-    }
+    //public Hai[] getUraDoraHais() {
+    //    return _game.getOpenedUraDoraHais();
+    //}
 
     public EKaze getManKaze() {
         return _game.getManKaze();
@@ -218,7 +218,7 @@ public class GameAgent
         return false;
     }
 
-
+	/*
     public bool CheckHaiTypeOver9( Tehai tehai, Hai addHai )
     {
         if( !_game.isChiHou )
@@ -262,5 +262,6 @@ public class GameAgent
 
         return totalHaiType >= 9;
     }
+    */
     #endregion
 }
