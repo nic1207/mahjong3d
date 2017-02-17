@@ -75,6 +75,7 @@ public abstract class Player : Photon.MonoBehaviour
         set{ _reach = value; }
     }
 
+	/*
     // ダブルリーチ
     protected bool _doubleReach;
     public bool IsDoubleReach
@@ -82,7 +83,8 @@ public abstract class Player : Photon.MonoBehaviour
         get{ return _doubleReach; }
         set{ _doubleReach = value; }
     }
-
+	*/
+	/*
     // 一発
     protected bool _ippatsu;
     public bool IsIppatsu
@@ -90,7 +92,7 @@ public abstract class Player : Photon.MonoBehaviour
         get{ return _ippatsu; }
         set{ _ippatsu = value; }
     }
-
+	*/
     // 捨牌数
     protected int _suteHaisCount;
     public int SuteHaisCount
@@ -117,8 +119,8 @@ public abstract class Player : Photon.MonoBehaviour
 
         // リーチを初期化します。
         _reach = false;
-        _doubleReach = false;
-        _ippatsu = false;
+        //_doubleReach = false;
+        //_ippatsu = false;
 
         _suteHaisCount = 0;
     }

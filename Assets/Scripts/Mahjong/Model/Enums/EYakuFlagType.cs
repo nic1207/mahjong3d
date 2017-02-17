@@ -8,9 +8,9 @@ public enum EYakuFlagType
     // 立直
     REACH = 0,
     // ダブル立直 
-    DOUBLE_REACH = 1,
+    //DOUBLE_REACH = 1,
     // 一発
-    IPPATU = 2,
+    //IPPATU = 2,
     // ツモ 
     TSUMO = 3,
     // 嶺上開放 

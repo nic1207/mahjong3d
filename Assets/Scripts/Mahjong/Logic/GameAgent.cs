@@ -126,9 +126,9 @@ public class GameAgent
     {
         haiIndexList = new List<int>();
 
-        // 鳴いている場合は、リーチできない。
-        if( a_tehai.isNaki() )
-            return false;
+        // 鳴いている場合は、リーチできない。x
+        //if( a_tehai.isNaki() )
+        //    return false;
 
         /// find all reach-enabled hais in a_tehai, also the tsumoHai.
         _reachHaiList.Clear();

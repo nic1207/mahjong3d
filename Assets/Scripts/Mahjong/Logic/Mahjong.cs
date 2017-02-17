@@ -331,12 +331,12 @@ public abstract class Mahjong
         param.ResetYakuFlags(); // should reset params or create a new.
 
         if( m_activePlayer.IsReach ) {
-            if( m_activePlayer.IsDoubleReach ) {
-                param.setYakuFlag(EYakuFlagType.DOUBLE_REACH, true);
-            }
-            else {
+            //if( m_activePlayer.IsDoubleReach ) {
+            //    param.setYakuFlag(EYakuFlagType.DOUBLE_REACH, true);
+            //}
+            //else {
                 param.setYakuFlag(EYakuFlagType.REACH, true);
-            }
+            //}
         }
 
         if( m_isTsumo ) {
@@ -371,9 +371,9 @@ public abstract class Mahjong
             }
         }
 
-        if( m_activePlayer.IsIppatsu ) {
-            param.setYakuFlag(EYakuFlagType.IPPATU, true);
-        }
+        //if( m_activePlayer.IsIppatsu ) {
+        //    param.setYakuFlag(EYakuFlagType.IPPATU, true);
+        //}
 
         if( GameSettings.UseKuitan ) {
             param.setYakuFlag(EYakuFlagType.KUITAN, true);

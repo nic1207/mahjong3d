@@ -69,8 +69,8 @@ public class Yaku
         _yakuHandlers = new YakuHandler[]
         {
             new CheckReach(this),
-            new CheckDoubleReach(this),
-            new CheckIppatsu(this),
+            //new CheckDoubleReach(this),
+            //new CheckIppatsu(this),
             new CheckTsumo(this),
             new CheckHaitei(this),
             new CheckHoutei(this),
@@ -147,8 +147,8 @@ public class Yaku
         _yakuHandlers = new YakuHandler[]
         {
             new CheckReach(this),
-            new CheckDoubleReach(this),
-            new CheckIppatsu(this),
+            //new CheckDoubleReach(this),
+            //new CheckIppatsu(this),
             new CheckTsumo(this),
             new CheckHaitei(this),
             new CheckHoutei(this),
@@ -382,10 +382,10 @@ public class Yaku
     }
 
     // 一发(立直后，轮牌内和了) //
-    public bool checkIppatu()
-    {
-        return AgariParam.getYakuFlag( EYakuFlagType.IPPATU );
-    }
+    //public bool checkIppatu()
+    //{
+    //    return AgariParam.getYakuFlag( EYakuFlagType.IPPATU );
+    //}
 
     // 门前清自摸和 //
     public bool checkTsumo()
@@ -592,10 +592,10 @@ public class Yaku
     #region 2 han
 
     // 双立直 //
-    public bool checkDoubleReach()
-    {
-        return AgariParam.getYakuFlag(EYakuFlagType.DOUBLE_REACH);
-    }
+    //public bool checkDoubleReach()
+    //{
+    //    return AgariParam.getYakuFlag(EYakuFlagType.DOUBLE_REACH);
+    //}
 
     // 七对子(在CountFormat里已经判断过牌型是否成立了) //
     public bool checkChiitoitsu()

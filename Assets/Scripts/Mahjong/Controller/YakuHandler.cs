@@ -146,26 +146,26 @@ namespace YakuHelper
     public class CheckReach : YakuHandler {
         public CheckReach(Yaku owner) {
             this.YakuID = 1;
-            hantei = owner.checkReach() && !owner.checkDoubleReach();
+            hantei = owner.checkReach();
             hanSuu = 1;
         }
     }
     //双立直.
-    public class CheckDoubleReach : YakuHandler {
-        public CheckDoubleReach(Yaku owner) {
-            this.YakuID = 2;
-            hantei = owner.checkDoubleReach();
-            hanSuu = 2;
-        }
-    }
+    //public class CheckDoubleReach : YakuHandler {
+    //    public CheckDoubleReach(Yaku owner) {
+    //        this.YakuID = 2;
+    //        hantei = owner.checkDoubleReach();
+    //        hanSuu = 2;
+    //    }
+    //}
     //一发.
-    public class CheckIppatsu : YakuHandler {
-        public CheckIppatsu(Yaku owner) {
-            this.YakuID = 3;
-            hantei = owner.checkIppatu();
-            hanSuu = 1;
-        }
-    }
+    //public class CheckIppatsu : YakuHandler {
+    //    public CheckIppatsu(Yaku owner) {
+    //        this.YakuID = 3;
+    //        hantei = owner.checkIppatu();
+    //        hanSuu = 1;
+    //    }
+    //}
     //自摸.
     public class CheckTsumo : YakuHandler {
         public CheckTsumo(Yaku owner) {

@@ -908,7 +908,7 @@ public class MahjongMain : Mahjong
         ActivePlayer.Tehai.setAnKan( kanHai );
         ActivePlayer.Tehai.Sort();
 
-        ActivePlayer.IsIppatsu = false;
+        //ActivePlayer.IsIppatsu = false;
 
 
         //PickRinshanHai();
@@ -1043,10 +1043,10 @@ public class MahjongMain : Mahjong
 
         // cost to set reach.
         m_activePlayer.IsReach = true;
-        m_activePlayer.IsIppatsu = true;
+        //m_activePlayer.IsIppatsu = true;
 
-        if( m_isChihou )
-            m_activePlayer.IsDoubleReach = true;
+        //if( m_isChihou )
+        //   m_activePlayer.IsDoubleReach = true;
 
         m_activePlayer.reduceTenbou( GameSettings.Reach_Cost );
         m_reachBou++;
@@ -1096,8 +1096,8 @@ public class MahjongMain : Mahjong
         Player player = getPlayer(m_kazeFrom);
         player.increaseTenbou( GameSettings.Reach_Cost );
         player.IsReach = false;
-        player.IsDoubleReach = false;
-        player.IsIppatsu = false;
+        //player.IsDoubleReach = false;
+        //player.IsIppatsu = false;
 
         m_reachBou--;
     }
@@ -1138,7 +1138,7 @@ public class MahjongMain : Mahjong
         if( !m_activePlayer.IsReach )
             m_activePlayer.SuteHaisCount = m_suteHaiList.Count;
 
-        m_activePlayer.IsIppatsu = false;
+        //m_activePlayer.IsIppatsu = false;
 
         if(m_suteHaiList.Count >= GameSettings.PlayerCount)
             m_isRenhou = false;
@@ -1268,7 +1268,7 @@ public class MahjongMain : Mahjong
         if( !m_activePlayer.IsReach )
             m_activePlayer.SuteHaisCount = m_suteHaiList.Count;
 
-        m_activePlayer.IsIppatsu = false;
+        //m_activePlayer.IsIppatsu = false;
 
         //PostUIEvent(UIEventType.SuteHai);
         //Ask_Handle_SuteHai();
