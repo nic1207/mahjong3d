@@ -29,7 +29,7 @@ public class RegisterUI : MonoBehaviour {
     public void ClubRegisterJoin()
     {
         string registerNickname = ClubRegisterNickname.text;
-        string registerAccount = ClubRegisterAccount.text.ToLower();
+        //string registerAccount = ClubRegisterAccount.text.ToLower();
         string registerPass1 = ClubRegisterPass_1.text;
         string registerPass2 = ClubRegisterPass_2.text;
         string registerMail = ClubRegisterMail.text;
@@ -38,18 +38,18 @@ public class RegisterUI : MonoBehaviour {
         ClubRegisterHint.SetActive(false);
 
         //檢查欄位是否合法
-        if (registerAccount == "") {
-            ClubRegisterHint.GetComponent<Text>().text = "帳號欄位不可空白";
-            ClubRegisterHint.SetActive(true);
-            Debug.Log("帳號欄位不可空白");
-        }
-        else if (!CheckName(registerAccount))
-        {
-            ClubRegisterHint.GetComponent<Text>().text = "帳號格式錯誤";
-            ClubRegisterHint.SetActive(true);
-            Debug.Log("帳號格式錯誤");
-        }
-        else if (!CheckEmail(registerMail))
+        //if (registerAccount == "") {
+        //    ClubRegisterHint.GetComponent<Text>().text = "帳號欄位不可空白";
+        //    ClubRegisterHint.SetActive(true);
+        //    Debug.Log("帳號欄位不可空白");
+        //}
+        //else if (!CheckName(registerAccount))
+        //{
+        //    ClubRegisterHint.GetComponent<Text>().text = "帳號格式錯誤";
+        //    ClubRegisterHint.SetActive(true);
+        //    Debug.Log("帳號格式錯誤");
+        //}
+        if (!CheckEmail(registerMail))
         {
             ClubRegisterHint.GetComponent<Text>().text = "信箱格式錯誤";
             ClubRegisterHint.SetActive(true);
