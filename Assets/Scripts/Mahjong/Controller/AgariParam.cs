@@ -13,10 +13,10 @@ public class AgariParam
     private EKaze _baKaze = EKaze.Ton;
 
     // 表ドラ
-    private Hai[] _omoteDoraHais = null;
+    //private Hai[] _omoteDoraHais = null;
 
     // 裏ドラ
-    private Hai[] _uraDoraHais = null;
+    //private Hai[] _uraDoraHais = null;
 
 
     // 役成立フラグの配列
@@ -36,11 +36,11 @@ public class AgariParam
         for(int i = 0; i < _yakuFlag.Length; i++)
             _yakuFlag[i] = false;
     }
-    public void ResetDoraHais()
-    {
-        _omoteDoraHais = null;
-        _uraDoraHais = null;
-    }
+    //public void ResetDoraHais()
+    //{
+        //_omoteDoraHais = null;
+        //_uraDoraHais = null;
+    //}
 
 
     public void setYakuFlag(EYakuFlagType yakuNum, bool flg) {
@@ -67,18 +67,18 @@ public class AgariParam
     }
 
     // 表ドラ
-    public void setOmoteDoraHais(Hai[] omoteDoraHais) {
-        _omoteDoraHais = omoteDoraHais;
-    }
-    public Hai[] getOmoteDoraHais() {
-        return _omoteDoraHais;
-    }
+    //public void setOmoteDoraHais(Hai[] omoteDoraHais) {
+    //    _omoteDoraHais = omoteDoraHais;
+    //}
+    //public Hai[] getOmoteDoraHais() {
+    //    return _omoteDoraHais;
+    //}
 
     // 裏ドラ
-    public void setUraDoraHais(Hai[] uraDoraHais) {
-        _uraDoraHais = uraDoraHais;
-    }
-    public Hai[] getUraDoraHais() {
-        return _uraDoraHais;
-    }
+    //public void setUraDoraHais(Hai[] uraDoraHais) {
+    //    _uraDoraHais = uraDoraHais;
+    //}
+    //public Hai[] getUraDoraHais() {
+    //    return _uraDoraHais;
+    //}
 }

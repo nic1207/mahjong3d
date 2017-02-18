@@ -166,7 +166,7 @@ namespace YakuHelper
     //        hanSuu = 1;
     //    }
     //}
-    //自摸.
+    //自摸. 1台
     public class CheckTsumo : YakuHandler {
         public CheckTsumo(Yaku owner) {
             this.YakuID = 4;
@@ -174,7 +174,7 @@ namespace YakuHelper
             hanSuu = 1;
         }
     }
-    //海底捞月.
+	//海底捞月.1台
     public class CheckHaitei : YakuHandler {
         public CheckHaitei(Yaku owner) {
             this.YakuID = 5;
@@ -182,7 +182,7 @@ namespace YakuHelper
             hanSuu = 1;
         }
     }
-    //河底捞鱼.
+    //河底捞鱼.1台
     public class CheckHoutei : YakuHandler {
         public CheckHoutei(Yaku owner) {
             this.YakuID = 6;
@@ -190,7 +190,7 @@ namespace YakuHelper
             hanSuu = 1;
         }
     }
-    //杠上开花.
+    //杠上开花.1台
     public class CheckRinshan : YakuHandler {
         public CheckRinshan(Yaku owner) {
             this.YakuID = 7;
@@ -198,7 +198,7 @@ namespace YakuHelper
             hanSuu = 1;
         }
     }
-    //抢扛.
+	//抢扛.1台
     public class CheckChankan : YakuHandler {
         public CheckChankan(Yaku owner) {
             this.YakuID = 8;
@@ -206,7 +206,7 @@ namespace YakuHelper
             hanSuu = 1;
         }
     }
-    //断幺.
+    //断么九 1台
     public class CheckTanyao : YakuHandler {
         public CheckTanyao(Yaku owner) {
             this.YakuID = 9;
@@ -214,14 +214,15 @@ namespace YakuHelper
             hanSuu = 1;
         }
     }
-    //平和.
+    //平胡 2台
     public class CheckPinfu : YakuHandler {
         public CheckPinfu(Yaku owner) {
             this.YakuID = 10;
             hantei = owner.checkPinfu();
-            hanSuu = 1;
+            hanSuu = 2;
         }
     }
+	/*
     //一杯口.
     public class CheckIpeikou : YakuHandler {
         public CheckIpeikou(Yaku owner) {
@@ -230,8 +231,10 @@ namespace YakuHelper
             hanSuu = 1;
         }
     }
+	*/
 
-    //七对子.
+    /*
+	//七对子.
     public class CheckChiitoitsu : YakuHandler {
         public CheckChiitoitsu(Yaku owner) {
             this.YakuID = 12;
@@ -239,6 +242,8 @@ namespace YakuHelper
             hanSuu = 2;
         }
     }
+	*/
+	/*
     //混全带幺九.
     public class CheckChanta : YakuHandler {
         public CheckChanta(Yaku owner) {
@@ -253,6 +258,8 @@ namespace YakuHelper
             }
         }
     }
+	*/
+	/*
     //一气通贯.
     public class CheckIkkituukan : YakuHandler {
         public CheckIkkituukan(Yaku owner) {
@@ -267,7 +274,9 @@ namespace YakuHelper
             }
         }
     }
-    //三色同顺.
+	*/
+	/*
+    //三色同顺.2台
     public class CheckSansyokuDouJun : YakuHandler {
         public CheckSansyokuDouJun(Yaku owner) {
             this.YakuID = 15;
@@ -281,7 +290,9 @@ namespace YakuHelper
             }
         }
     }
-    //三色同刻.
+	*/
+	/*
+    //三色同刻.2台
     public class CheckSansyokuDouKou : YakuHandler {
         public CheckSansyokuDouKou(Yaku owner) {
             this.YakuID = 16;
@@ -289,7 +300,8 @@ namespace YakuHelper
             hanSuu = 2;
         }
     }
-    //对对和.
+	*/
+    //對對胡.2台
     public class CheckToitoi : YakuHandler {
         public CheckToitoi(Yaku owner) {
             this.YakuID = 17;
@@ -297,7 +309,7 @@ namespace YakuHelper
             hanSuu = 2;
         }
     }
-    //三暗刻.
+    //三暗刻.2台
     public class CheckSanankou : YakuHandler {
         public CheckSanankou(Yaku owner) {
             this.YakuID = 18;
@@ -305,6 +317,7 @@ namespace YakuHelper
             hanSuu = 2;
         }
     }
+	/*
     //三杠子.
     public class CheckSankantsu : YakuHandler {
         public CheckSankantsu(Yaku owner) {
@@ -313,6 +326,8 @@ namespace YakuHelper
             hanSuu = 2;
         }
     }
+	*/
+	/*
     //混老头.
     public class CheckHonroutou : YakuHandler {
         public CheckHonroutou(Yaku owner) {
@@ -321,6 +336,8 @@ namespace YakuHelper
             hanSuu = 2;
         }
     }
+	*/
+	/*
     //混老头七对子.
     public class CheckHonroutou_Chiitoitsu : YakuHandler {
         public CheckHonroutou_Chiitoitsu(Yaku owner) {
@@ -329,15 +346,16 @@ namespace YakuHelper
             hanSuu = 2;
         }
     }
-    //小三元.
+	*/
+    //小三元.4台
     public class CheckShousangen : YakuHandler {
         public CheckShousangen(Yaku owner) {
             this.YakuID = 21;
             hantei = owner.checkSyousangen();
-            hanSuu = 2;
+            hanSuu = 4;
         }
     }
-
+	/*
     //二杯口.
     public class CheckRyanpeikou : YakuHandler {
         public CheckRyanpeikou(Yaku owner) {
@@ -346,20 +364,22 @@ namespace YakuHelper
             hanSuu = 3;
         }
     }
-    //混一色.
+	*/
+	//混一色.4台
     public class CheckHonitsu : YakuHandler {
         public CheckHonitsu(Yaku owner) {
             this.YakuID = 23;
             hantei = owner.checkHonisou() && !owner.checkTinisou();
 
-            if( owner.isNaki == true ) {
-                hanSuu = 2;
-            }
-            else {
-                hanSuu = 3;
-            }
+            //if( owner.isNaki == true ) {
+            hanSuu = 4;
+            //}
+            //else {
+            //    hanSuu = 3;
+            //}
         }
     }
+	/*
     //纯全带幺九.
     public class CheckJyunChan : YakuHandler {
         public CheckJyunChan(Yaku owner) {
@@ -374,58 +394,60 @@ namespace YakuHelper
             }
         }
     }
+	*/
 
-    //清一色.
+	//清一色.8台
     public class CheckChinitsu : YakuHandler {
         public CheckChinitsu(Yaku owner) {
             this.YakuID = 25;
             hantei = owner.checkTinisou();
 
-            if( owner.isNaki == true ) {
-                hanSuu = 5;
-            }
-            else {
-                hanSuu = 6;
-            }
+            //if( owner.isNaki == true ) {
+            hanSuu = 8;
+            //}
+            //else {
+            //    hanSuu = 6;
+            //}
         }
     }
 
-    //天和.
+    //天胡.24台
     public class CheckTenhou : YakuHandler {
         public CheckTenhou(Yaku owner) {
             this.YakuID = 26;
             hantei = owner.checkTenhou();
-            hanSuu = 13;
+            hanSuu = 24;
             yakuman = true;
         }
     }
-    //地和.
+    //地胡.16台
     public class CheckChihou : YakuHandler {
         public CheckChihou(Yaku owner) {
             this.YakuID = 27;
             hantei = owner.checkTihou();
-            hanSuu = 13;
+            hanSuu = 16;
             yakuman = true;
         }
     }
-    //人和.
+    //人胡.16台
     public class CheckRenhou : YakuHandler{
         public CheckRenhou(Yaku owner) {
             this.YakuID = 28;
             hantei = owner.checkRenhou();
-            hanSuu = 13;
+            hanSuu = 16;
             yakuman = true;
         }
     }
-    //四暗刻.
+    //四暗刻.5台
     public class CheckSuuankou : YakuHandler {
         public CheckSuuankou(Yaku owner) {
             this.YakuID = 29;
             hantei = owner.checkSuuankou() && !owner.checkSuuankou_Tanki();
-            hanSuu = 13;
+			hanSuu = 5;
             yakuman = true;
         }
     }
+	/*
     //清老头.
     public class CheckChinroutou : YakuHandler {
         public CheckChinroutou(Yaku owner) {
@@ -435,6 +457,8 @@ namespace YakuHelper
             yakuman = true;
         }
     }
+	*/
+	/*
     //绿一色.
     public class CheckRyuiisou : YakuHandler {
         public CheckRyuiisou(Yaku owner) {
@@ -444,6 +468,8 @@ namespace YakuHelper
             yakuman = true;
         }
     }
+	*/
+	/*
     //四杠子.
     public class CheckSuukantsu : YakuHandler {
         public CheckSuukantsu(Yaku owner) {
@@ -453,33 +479,35 @@ namespace YakuHelper
             yakuman = true;
         }
     }
-    //大三元.
+	*/
+    //大三元.8台
     public class CheckDaisangen : YakuHandler {
         public CheckDaisangen(Yaku owner) {
             this.YakuID = 33;
             hantei = owner.checkDaisangen();
-            hanSuu = 13;
+            hanSuu = 8;
             yakuman = true;
         }
     }
-    //小四喜.
+    //小四喜.8台
     public class CheckShousuushii : YakuHandler {
         public CheckShousuushii(Yaku owner) {
             this.YakuID = 34;
             hantei = owner.checkSyousuushi();
-            hanSuu = 13;
+            hanSuu = 8;
             yakuman = true;
         }
     }
-    //字一色(对对和)
+    //字一色(对对和) 8台
     public class CheckTsuiisou : YakuHandler {
         public CheckTsuiisou(Yaku owner) {
             this.YakuID = 35;
             hantei = owner.checkTsuisou();
-            hanSuu = 13;
+            hanSuu = 8;
             yakuman = true;
         }
     }
+	/*
     //字一色(七对子)
     public class CheckTsuiisou_Chiitoitsu : YakuHandler {
         public CheckTsuiisou_Chiitoitsu(Yaku owner) {
@@ -489,7 +517,9 @@ namespace YakuHelper
             yakuman = true;
         }
     }
+	*/
 
+	/*
     //九连宝灯.
     public class CheckChuurenpoutou : YakuHandler {
         public CheckChuurenpoutou(Yaku owner) {
@@ -499,6 +529,8 @@ namespace YakuHelper
             yakuman = true;
         }
     }
+	*/
+	/*
     //国士无双.
     public class CheckKokushiMusou : YakuHandler {
         public CheckKokushiMusou(Yaku owner) {
@@ -508,17 +540,19 @@ namespace YakuHelper
             yakuman = true;
         }
     }
+	*/
 
-    //大四喜.
+    //大四喜.16台
     public class CheckDaisuushii : YakuHandler {
         public CheckDaisuushii(Yaku owner) {
             this.YakuID = 38;
             hantei = owner.checkDaisuushi();
-            hanSuu = 13;
+            hanSuu = 16;
             yakuman = true;
             doubleYakuman = true;
         }
     }
+	/*
     //四暗刻单骑.
     public class CheckSuuankou_Tanki : YakuHandler {
         public CheckSuuankou_Tanki(Yaku owner) {
@@ -529,6 +563,8 @@ namespace YakuHelper
             doubleYakuman = true;
         }
     }
+	*/
+	/*
     //纯正九连宝灯.
     public class CheckChuurenpoutou_Jyunsei : YakuHandler {
         public CheckChuurenpoutou_Jyunsei(Yaku owner) {
@@ -539,6 +575,8 @@ namespace YakuHelper
             doubleYakuman = true;
         }
     }
+	*/
+	/*
     //国士无双十三面.
     public class CheckKokushiMusou_13Men : YakuHandler {
         public CheckKokushiMusou_13Men(Yaku owner) {
@@ -549,6 +587,7 @@ namespace YakuHelper
             doubleYakuman = true;
         }
     }
+	*/
 
 
     // 连风牌.
@@ -574,6 +613,7 @@ namespace YakuHelper
             } 
         }
     }
+
 
     // 役牌.
     public class CheckYakuHai : YakuHandler {
@@ -660,6 +700,7 @@ namespace YakuHelper
         }
     }
 
+	/*
     //宝牌.
     public class CheckDora : YakuHandler {
         public CheckDora(Yaku owner) {
@@ -668,7 +709,8 @@ namespace YakuHelper
             hanSuu = 1;
         }
     }
-
+	*/
+	/*
     // 流局满贯(不能在Yaku里面判断！).
     public class CheckNagashimangan : YakuHandler {
         public CheckNagashimangan(Yaku owner) {
@@ -677,4 +719,5 @@ namespace YakuHelper
             hanSuu = 5;
         }
     }
+	*/
 }

@@ -171,7 +171,7 @@ public class Yama
         return rinshanHai;
     }
 
-
+	/*
     // 表ドラの配列を取得する
     public Hai[] getOpenedOmoteDoraHais()
     {
@@ -184,6 +184,8 @@ public class Yama
         }
         return omoteDoraHais;
     }
+	*/
+	/*
     public Hai[] getAllOmoteDoraHais()
     {
         int length = OmoteDoraHaiIndex_InYama.Length;
@@ -225,6 +227,7 @@ public class Yama
 
         return allHais;
     }
+	*/
 
 
     /**

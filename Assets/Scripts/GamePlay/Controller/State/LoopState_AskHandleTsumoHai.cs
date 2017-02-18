@@ -127,6 +127,7 @@ public class LoopState_AskHandleTsumoHai : GameStateBase
             // This is only enable when any players select ERyuuKyokuReason.HaiTypeOver9
             case EResponse.Nagashi: 
             {
+				/*
                 if( logicOwner.checkHaiTypeOver9() ){
                     logicOwner.Handle_Invalid_RyuuKyoku(); // must.
 
@@ -135,6 +136,7 @@ public class LoopState_AskHandleTsumoHai : GameStateBase
                 } else {
                     //throw new MahjongException("Invalid response on ERyuuKyokuReason.HaiTypeOver9 not established");
                 }
+                */
             }
             break;
         }

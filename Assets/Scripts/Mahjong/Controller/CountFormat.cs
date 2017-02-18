@@ -131,7 +131,7 @@ public class CountFormat
     {
         _combiHelper.initialize( getTotalCounterLength() );
         searchCombi(0);
-
+		/*
         if( _combiHelper.combis.Count == 0 ) 
         {
             _chiitoitsu = checkChiitoitsu();
@@ -147,6 +147,7 @@ public class CountFormat
                     return 1;
             }
         }
+        */
 
         if( outCombis != null )
             outCombis = _combiHelper.combis.ToArray();
@@ -154,7 +155,7 @@ public class CountFormat
         return _combiHelper.combis.Count;
     }
 
-
+	/*
     // 七对子.
     private bool _chiitoitsu;
     public bool isChiitoitsu()
@@ -176,10 +177,11 @@ public class CountFormat
             }
         }
 
-        return count == 7;
+        return count == 8;
     }
+	*/
 
-
+	/*
     // 国士无双.
     private bool _kokushi;
     public bool isKokushi()
@@ -225,6 +227,7 @@ public class CountFormat
 
         return atama;
     }
+	*/
 
 
     void searchCombi(int startIndex)

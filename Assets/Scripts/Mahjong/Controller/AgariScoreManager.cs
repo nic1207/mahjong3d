@@ -102,7 +102,7 @@ public sealed class AgariScoreManager
         }
     }
 
-
+	/*
     // 流局满贯 //
     public static void SetNagashiMangan(AgariInfo agariInfo)
     {
@@ -115,6 +115,7 @@ public sealed class AgariScoreManager
             new YakuHelper.CheckNagashimangan(null) 
         };
     }
+	*/
 
     // 符を計算します
     public static int CalculateHu(Tehai tehai, Hai addHai, HaiCombi combi, AgariParam param, Yaku yaku)
@@ -265,7 +266,7 @@ public sealed class AgariScoreManager
         // あがりの組み合わせを取得します
         int combisCount = formatWorker.calculateCombisCount( combis );
         combis = formatWorker.getCombis();
-
+		/*
         /// 1. check Chiitoitsu(七对子)
         if( formatWorker.isChiitoitsu() )
         {
@@ -279,7 +280,8 @@ public sealed class AgariScoreManager
 
             return agariInfo.scoreInfo.koAgari;
         }
-
+		*/
+		/*
         /// 2. check Kokushi(国士无双)
         if( formatWorker.isKokushi() )
         {
@@ -298,7 +300,7 @@ public sealed class AgariScoreManager
 
             return 0;
         }
-
+		*/
 
         /// 3. check common combi yaku.
         if( combisCount <= 0 )
@@ -323,7 +325,7 @@ public sealed class AgariScoreManager
             if( scoreArr[i] > maxAgariScore )
             {
                 agariInfo.han = hanSuuArr[i];
-                agariInfo.fu = huSuuArr[i];
+                //agariInfo.fu = huSuuArr[i];
                 agariInfo.hanteiYakus = yaku.getHanteiYakus();
 
                 agariInfo.scoreInfo = scoreInfo;

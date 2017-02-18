@@ -10,7 +10,7 @@ public static class GameSettings
     //public static bool UseRedDora = false;
 
     // if allow furiten
-    public static bool AllowFuriten = false;
+    public static bool AllowFuriten = true;
 
 
     public const bool AllowRon3 = false;

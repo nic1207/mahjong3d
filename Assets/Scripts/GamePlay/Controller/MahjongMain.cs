@@ -101,10 +101,10 @@ public class MahjongMain : Mahjong
         //m_playerList.Add( new AI("電腦C", EVoiceType.W_C) );
         //m_playerList.Add( new AI("電腦D", EVoiceType.W_D) );
 
-        for( int i = 0; i < m_playerList.Count; i++ )
-        {
-            m_playerList[i].Tenbou = GameSettings.Init_Tenbou;
-        }
+        //for( int i = 0; i < m_playerList.Count; i++ )
+        //{
+        //    m_playerList[i].Tenbou = GameSettings.Init_Tenbou;
+        //}
 
         GameSettings.PlayerCount = m_playerList.Count;
 
@@ -546,10 +546,9 @@ public class MahjongMain : Mahjong
         {
             this.RyuuKyokuReason = ERyuuKyokuReason.NoTsumoHai;
 
-            if( HandleNagashiMangan() ){
-                
-            }
-            else{
+            //if( HandleNagashiMangan() ){  
+            //}
+            //else{
                 if( HandleRyuukyokuTenpai() ){
                     
                 }
@@ -561,7 +560,7 @@ public class MahjongMain : Mahjong
                         GoToNextKyoku();
                     }
                 }
-            }
+            //}
         }
         else
         {
@@ -1000,10 +999,12 @@ public class MahjongMain : Mahjong
 
         return true;
     }
+	/*
     public bool checkHaiTypeOver9()
     {
         return GameAgent.Instance.CheckHaiTypeOver9( ActivePlayer.Tehai, TsumoHai );
     }
+    */
 
     // for ERyuuKyokuReason enums
     public void Handle_Invalid_RyuuKyoku()
@@ -1279,7 +1280,7 @@ public class MahjongMain : Mahjong
     #region Handle Game Result
 
     #region RyuuKyoku
-
+	/*
     /// <summary>
     /// Handles the ryuukyoku man gan.
     /// Only one player who is the nearest to Oya can perform nagashimangan
@@ -1323,6 +1324,7 @@ public class MahjongMain : Mahjong
 
         return false;
     }
+	*/
 
     public List<int> GetTenpaiPlayerIndex()
     {
@@ -1487,11 +1489,11 @@ public class MahjongMain : Mahjong
             m_isRenhou = false;
         }
 
-        AgariParam.ResetDoraHais(); // should reset params or create a new.
+        //AgariParam.ResetDoraHais(); // should reset params or create a new.
 
-        AgariParam.setOmoteDoraHais( getOpenedOmotoDoras() );
-        if( m_activePlayer.IsReach )
-            AgariParam.setUraDoraHais( getOpenedUraDoraHais() );
+        //AgariParam.setOmoteDoraHais( getOpenedOmotoDoras() );
+        //if( m_activePlayer.IsReach )
+        //    AgariParam.setUraDoraHais( getOpenedUraDoraHais() );
 
         GetAgariScore(ActivePlayer.Tehai, SuteHai, ActivePlayer.JiKaze, AgariParam);
 
@@ -1514,11 +1516,11 @@ public class MahjongMain : Mahjong
         aupdateInfo.isTsumo = false;
         aupdateInfo.agariHai = m_suteHai;
 
-        aupdateInfo.allOmoteDoraHais = Yama.getAllOmoteDoraHais();
-        aupdateInfo.allUraDoraHais = Yama.getAllUraDoraHais();
-        aupdateInfo.openedOmoteDoraCount = AgariParam.getOmoteDoraHais().Length;
-        if( m_activePlayer.IsReach )
-            aupdateInfo.openedUraDoraCount = aupdateInfo.openedOmoteDoraCount;
+        //aupdateInfo.allOmoteDoraHais = Yama.getAllOmoteDoraHais();
+        //aupdateInfo.allUraDoraHais = Yama.getAllUraDoraHais();
+        //aupdateInfo.openedOmoteDoraCount = AgariParam.getOmoteDoraHais().Length;
+        //if( m_activePlayer.IsReach )
+        //    aupdateInfo.openedUraDoraCount = aupdateInfo.openedOmoteDoraCount;
 
 
         if( getPlayerIndex( m_kazeFrom ) == m_oyaIndex ) {
@@ -1590,11 +1592,11 @@ public class MahjongMain : Mahjong
     {
         this.RyuuKyokuReason = ERyuuKyokuReason.None;
 
-        AgariParam.ResetDoraHais(); // should reset params or create a new.
+        //AgariParam.ResetDoraHais(); // should reset params or create a new.
 
-        AgariParam.setOmoteDoraHais( getOpenedOmotoDoras() );
-        if( m_activePlayer.IsReach )
-            AgariParam.setUraDoraHais( getOpenedUraDoraHais() );
+        //AgariParam.setOmoteDoraHais( getOpenedOmotoDoras() );
+        //if( m_activePlayer.IsReach )
+        //    AgariParam.setUraDoraHais( getOpenedUraDoraHais() );
 
         GetAgariScore(ActivePlayer.Tehai, TsumoHai, ActivePlayer.JiKaze, AgariParam);
 
@@ -1618,11 +1620,11 @@ public class MahjongMain : Mahjong
         aupdateInfo.isTsumo = true;
         aupdateInfo.agariHai = m_tsumoHai;
 
-        aupdateInfo.allOmoteDoraHais = Yama.getAllOmoteDoraHais();
-        aupdateInfo.allUraDoraHais = Yama.getAllUraDoraHais();
-        aupdateInfo.openedOmoteDoraCount = AgariParam.getOmoteDoraHais().Length;
-        if( m_activePlayer.IsReach )
-            aupdateInfo.openedUraDoraCount = aupdateInfo.openedOmoteDoraCount;
+        //aupdateInfo.allOmoteDoraHais = Yama.getAllOmoteDoraHais();
+        //aupdateInfo.allUraDoraHais = Yama.getAllUraDoraHais();
+        //aupdateInfo.openedOmoteDoraCount = AgariParam.getOmoteDoraHais().Length;
+        //if( m_activePlayer.IsReach )
+        //    aupdateInfo.openedUraDoraCount = aupdateInfo.openedOmoteDoraCount;
 
 
         int playerIndex = getPlayerIndex( m_kazeFrom );

@@ -13,6 +13,7 @@ public class LoopState_HandleRyuuKyoKu : GameStateBase
 
         if( logicOwner.RyuuKyokuReason == ERyuuKyokuReason.NoTsumoHai )
         {
+			/*
             if( logicOwner.HandleNagashiMangan() )
             {
                 logicOwner.AgariResult = EAgariType.NagashiMangan;
@@ -23,10 +24,10 @@ public class LoopState_HandleRyuuKyoKu : GameStateBase
             }
             else
             {
-                logicOwner.HandleRyuukyokuTenpai();
-
-                EventManager.Get().SendEvent(UIEventType.RyuuKyoku, ERyuuKyokuReason.NoTsumoHai, logicOwner.AgariUpdateInfoList);
-            }
+            */
+            logicOwner.HandleRyuukyokuTenpai();
+            EventManager.Get().SendEvent(UIEventType.RyuuKyoku, ERyuuKyokuReason.NoTsumoHai, logicOwner.AgariUpdateInfoList);
+            //}
         }
         else
         {

@@ -15,15 +15,15 @@ public class Yaku
     protected HaiCombi _combi;
     protected AgariParam _agariParam;
 
-    protected int _doraCount = 0;
+    //protected int _doraCount = 0;
     protected YakuHandler[] _yakuHandlers;
 
     protected bool _nakiFlag = false;
     protected bool _kokushi = false;
 
-    public bool isKokushi { get { return _kokushi; } }
+    //public bool isKokushi { get { return _kokushi; } }
     public bool isNaki { get { return _nakiFlag; } }
-    public int DoraCount{ get{ return _doraCount; } }
+    //public int DoraCount{ get{ return _doraCount; } }
 
     public Tehai Tehai{ get{ return _tehai; } }
     public Hai AddHai{ get{ return _addHai; } }
@@ -79,23 +79,23 @@ public class Yaku
             
             new CheckTanyao(this),
             new CheckPinfu(this),
-            new CheckIpeikou(this),
+            //new CheckIpeikou(this),
 
             //new CheckChiitoitsu(this), // Mustn't handle here.
             //new CheckHonroutou_Chiitoitsu(this), // Mustn't handle here.
-            new CheckChanta(this),
-            new CheckIkkituukan(this),
-            new CheckSansyokuDouJun(this),
-            new CheckSansyokuDouKou(this),
+            //new CheckChanta(this),
+            //new CheckIkkituukan(this),
+            //new CheckSansyokuDouJun(this),
+            //new CheckSansyokuDouKou(this),
             new CheckToitoi(this),
             new CheckSanankou(this),
-            new CheckSankantsu(this),
-            new CheckHonroutou(this),
+            //new CheckSankantsu(this),
+            //new CheckHonroutou(this),
             new CheckShousangen(this),
 
-            new CheckRyanpeikou(this),
+            //new CheckRyanpeikou(this),
             new CheckHonitsu(this),
-            new CheckJyunChan(this),
+            //new CheckJyunChan(this),
 
             new CheckChinitsu(this),
 
@@ -103,28 +103,28 @@ public class Yaku
             new CheckChihou(this),
             new CheckRenhou(this),
             new CheckSuuankou(this),//四暗刻
-            new CheckChinroutou(this),
-            new CheckRyuiisou(this),
-            new CheckSuukantsu(this),
+            //new CheckChinroutou(this),
+            //new CheckRyuiisou(this),
+            //new CheckSuukantsu(this),
             new CheckDaisangen(this),
             new CheckShousuushii(this),
             new CheckTsuiisou(this),
             //new CheckTsuisou_Chiitoitsu(this), // Mustn't handle here.
-            new CheckChuurenpoutou(this),
+            //new CheckChuurenpoutou(this),
             //new CheckKokushi(this), // Mustn't handle here.
 
             new CheckDaisuushii(this),
-            new CheckSuuankou_Tanki(this),
-            new CheckChuurenpoutou_Jyunsei(this),
+            //new CheckSuuankou_Tanki(this),
+            //new CheckChuurenpoutou_Jyunsei(this),
             //new CheckKokushi_13Men(this), // Mustn't handle here.
 
             new CheckLenFonHai(this),
             new CheckYakuHai(this),
-            new CheckDora(this)
+            //new CheckDora(this)
         };
         #endregion
 
-        _yakuHandlers[_yakuHandlers.Length - 1].setHanSuu(_doraCount);
+        //_yakuHandlers[_yakuHandlers.Length - 1].setHanSuu(_doraCount);
 
         FilterYakuPiece();
     }
@@ -156,21 +156,21 @@ public class Yaku
             new CheckTanyao(this),
             new CheckHonitsu(this),
 
-            new CheckChiitoitsu(this), //七对子.
-            new CheckHonroutou_Chiitoitsu(this),//七对子混老头.
+            //new CheckChiitoitsu(this), //七对子.
+            //new CheckHonroutou_Chiitoitsu(this),//七对子混老头.
 
             new CheckChinitsu(this),
 
             new CheckTenhou(this),
             new CheckChihou(this),
             new CheckRenhou(this),
-            new CheckTsuiisou_Chiitoitsu(this), //七对子字一色.
+            //new CheckTsuiisou_Chiitoitsu(this), //七对子字一色.
 
-            new CheckDora(this)
+            //new CheckDora(this)
         };
         #endregion
 
-        _yakuHandlers[_yakuHandlers.Length - 1].setHanSuu(_doraCount);
+        //_yakuHandlers[_yakuHandlers.Length - 1].setHanSuu(_doraCount);
 
         FilterYakuPiece();
     }
@@ -194,8 +194,8 @@ public class Yaku
             new CheckChihou(this),
             new CheckRenhou(this),
 
-            new CheckKokushiMusou(this),
-            new CheckKokushiMusou_13Men(this), //国士无双十三面.
+            //new CheckKokushiMusou(this),
+            //new CheckKokushiMusou_13Men(this), //国士无双十三面.
         };
         #endregion
 
@@ -375,7 +375,7 @@ public class Yaku
 
     #region 1 han
 
-    // 立直 //
+    // 立直 1台
     public bool checkReach()
     {
         return AgariParam.getYakuFlag( EYakuFlagType.REACH );
@@ -387,7 +387,7 @@ public class Yaku
     //    return AgariParam.getYakuFlag( EYakuFlagType.IPPATU );
     //}
 
-    // 门前清自摸和 //
+    // 门前清自摸和 3台
     public bool checkTsumo()
     {
         if(_nakiFlag == true)
@@ -396,7 +396,7 @@ public class Yaku
         return AgariParam.getYakuFlag(EYakuFlagType.TSUMO);
     }
 
-    // 岭上开花 //
+    // 岭上开花 1台
     public bool checkRinsyan()
     {
         return AgariParam.getYakuFlag(EYakuFlagType.RINSYAN);
@@ -408,19 +408,19 @@ public class Yaku
         return AgariParam.getYakuFlag(EYakuFlagType.CHANKAN);
     }
 
-    // 海底捞月 //
+    // 海底捞月 1台
     public bool checkHaitei()
     {
         return AgariParam.getYakuFlag(EYakuFlagType.HAITEI);
     }
 
-    // 河底捞鱼 //
+    // 河底捞鱼 1台
     public bool checkHoutei()
     {
         return AgariParam.getYakuFlag(EYakuFlagType.HOUTEI);
     }
 
-    // 断幺九. //
+    // 断幺九. 1台
     public bool checkTanyao() 
     {
         /// 追加牌をチェック
@@ -482,7 +482,7 @@ public class Yaku
         return true;
     }
 
-    // 平和
+    // 平胡 2台
     public bool checkPinfu()
     {
         //鳴きが入っている場合は成立しない
@@ -569,6 +569,7 @@ public class Yaku
         return ryanmenFlag;
     }
 
+	/*
     // 一杯口 //
     public bool checkIpeikou()
     {
@@ -585,6 +586,7 @@ public class Yaku
 
         return false;
     }
+	*/
 
     #endregion
 
@@ -596,7 +598,7 @@ public class Yaku
     //{
     //    return AgariParam.getYakuFlag(EYakuFlagType.DOUBLE_REACH);
     //}
-
+	/*
     // 七对子(在CountFormat里已经判断过牌型是否成立了) //
     public bool checkChiitoitsu()
     {
@@ -604,7 +606,6 @@ public class Yaku
         if( _nakiFlag == true )
             return false;
 
-        /*
         Tehai tehaiCopy = new Tehai(_tehai);
         tehaiCopy.addJyunTehai( AddHai );
         tehaiCopy.Sort();
@@ -633,11 +634,12 @@ public class Yaku
                 }
             }
         }
-        */
 
         return true;
     }
+	*/
 
+	/*
     // 混全带幺九 //
     public bool checkCyanta()
     {
@@ -703,7 +705,8 @@ public class Yaku
 
         return true;
     }
-
+	*/
+	/*
     // 一气通贯 //
     public bool checkIkkituukan()
     {
@@ -758,6 +761,7 @@ public class Yaku
             return false;
         }
     }
+	*/
 
 
     //三色ができているかどうかの判定に使う補助メソッド
@@ -775,8 +779,8 @@ public class Yaku
             }
         }
     }
-
-    // 三色同顺 //
+	/*
+    // 三色同顺 
     public bool checkSansyokuDoujun()
     {
         const int Column = 9;
@@ -831,6 +835,7 @@ public class Yaku
 
         return false;
     }
+	*/
 
     // 三色同刻 //
     public bool checkSansyokuDoukou()
@@ -891,7 +896,7 @@ public class Yaku
         return false;
     }
 
-    // 对对和 //
+    // 對對胡 4台
     public bool checkToitoi()
     {
         int minShunCount = 0;
@@ -913,7 +918,7 @@ public class Yaku
         }
     }
 
-    // 三暗刻 //
+    // 三暗刻 台
     public bool checkSanankou()
     {
         //対々形で鳴きがなければ成立している【ツモ和了りや単騎の場合、四暗刻が優先される）
@@ -1041,6 +1046,7 @@ public class Yaku
 
     }
 
+	/*
     // 三杠子 //
     public bool checkSankantsu()
     {
@@ -1067,7 +1073,9 @@ public class Yaku
             return false;
         }
     }
+	*/
 
+	/*
     // 混老头(对对和) //
     public bool checkHonroutou()
     {
@@ -1102,8 +1110,9 @@ public class Yaku
 
         return checkChiitoitsu();
     }
+	*/
 
-    // 小三元 //
+    // 小三元 台
     public bool checkSyousangen()
     {
         //三元牌役が成立している個数を調べる
@@ -1135,6 +1144,7 @@ public class Yaku
 
     #region 3 han
 
+	/*
     // 二杯口 //
     public bool checkRyanpeikou()
     {
@@ -1156,8 +1166,9 @@ public class Yaku
             return false;
         }
     }
+	*/
 
-    // 混一色 //
+    // 混一色 台
     public bool checkHonisou()
     {
         //萬子、筒子、索子をチェック
@@ -1208,6 +1219,7 @@ public class Yaku
         return false;
     }
 
+	/*
     // 纯全带幺九 //
     public bool checkJyunCyan()
     {
@@ -1288,13 +1300,14 @@ public class Yaku
 
         return true;
     }
+	*/
 
     #endregion
 
 
     #region 6 han
 
-    // 清一色 //
+    // 清一色 台
     public bool checkTinisou()
     {
         //萬子、筒子、索子をチェック
@@ -1340,24 +1353,25 @@ public class Yaku
 
     #region Yakuman
 
-    // 天和 //
+    // 天胡 //
     public bool checkTenhou()
     {
         return AgariParam.getYakuFlag(EYakuFlagType.TENHOU);
     }
 
-    // 地和 //
+    // 地胡 //
     public bool checkTihou()
     {
         return AgariParam.getYakuFlag(EYakuFlagType.TIHOU);
     }
 
-    // 人和 //
+    // 人胡 //
     public bool checkRenhou()
     {
         return AgariParam.getYakuFlag(EYakuFlagType.RENHOU);
     }
 
+	/*
     // 清老头 //
     public bool checkChinroutou()
     {
@@ -1371,7 +1385,9 @@ public class Yaku
 
         return true;
     }
+	*/
 
+	/*
     // 绿一色 //
     public bool checkRyuuisou()
     {
@@ -1436,7 +1452,9 @@ public class Yaku
 
         return true;
     }
+	*/
 
+	/*
     // 四杠子 //
     public bool checkSuukantsu()
     {
@@ -1458,8 +1476,9 @@ public class Yaku
 
         return kanCount >= 4;
     }
+	*/
 
-    // 大三元 //
+    // 大三元 台
     public bool checkDaisangen()
     {
         //三元牌役が成立している個数を調べる
@@ -1481,7 +1500,7 @@ public class Yaku
         return sangenCount >= 3;
     }
 
-    // 小四喜 //
+    // 小四喜 台
     public bool checkSyousuushi()
     {
         //風牌役が成立している個数を調べる
@@ -1512,7 +1531,7 @@ public class Yaku
         return false;
     }
 
-    // 字一色(对对和) //
+    // 字一色(对对和) 台
     public bool checkTsuisou()
     {
         if( _addHai.IsTsuu == false )
@@ -1539,7 +1558,8 @@ public class Yaku
         return checkToitoi();
     }
 
-    // 字一色(七对子) //
+	/*
+    // 字一色(七对子) 台
     public bool checkTsuisou_Chiitoitsu()
     {
         if( _addHai.IsTsuu == false )
@@ -1565,8 +1585,9 @@ public class Yaku
         // 七对子が, 順子が
         return checkChiitoitsu();
     }
+	*/
 
-    // 四暗刻 //
+    // 四暗刻 台
     public bool checkSuuankou()
     {
         int anKanCount = 0;
@@ -1643,6 +1664,7 @@ public class Yaku
         return false;
     }
 
+	/*
     // 国士无双(跟七对子一样，在CountFormat里面判断过了，这里应该不用再判断) //
     public bool checkKokushi()
     {
@@ -1650,7 +1672,6 @@ public class Yaku
         if( _nakiFlag == true )
             return false;
 
-        /*
         //牌の数を調べるための配列 (0番地は使用しない）
         int[] checkId = { 
             Hai.ID_WAN_1, Hai.ID_WAN_9,Hai.ID_PIN_1,Hai.ID_PIN_9,Hai.ID_SOU_1,Hai.ID_SOU_9,
@@ -1695,9 +1716,9 @@ public class Yaku
 
         //条件を満たしていれば成立
         return atama;
-        */
         return true;
     }
+	*/
 
     #endregion
 
@@ -1800,6 +1821,7 @@ public class Yaku
         return false;
     }
 
+	/*
     // 国士无双十三面 //
     public bool checkKokushi_13Men()
     {
@@ -1843,11 +1865,12 @@ public class Yaku
 
         return false;
     }
+	*/
 
     #endregion
 
     #region Dora
-
+	/*
     // 悬赏牌 //
     public bool checkDora()
     {
@@ -1986,6 +2009,7 @@ public class Yaku
 
         return false;
     }
+	*/
     #endregion
 
 

@@ -87,9 +87,9 @@ public class RPCMan : Player
         }
 
         // 九种九牌check
-        if( MahjongAgent.CheckHaiTypeOver9(Tehai, tsumoHai) ){
-            _action.MenuList.Add( EActionType.RyuuKyoku );
-        }
+        //if( MahjongAgent.CheckHaiTypeOver9(Tehai, tsumoHai) ){
+        //    _action.MenuList.Add( EActionType.RyuuKyoku );
+        //}
 
         // check enable Reach
         if( CheckReachPreConditions() == true ) 
