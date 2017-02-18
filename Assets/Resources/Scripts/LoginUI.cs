@@ -19,6 +19,8 @@ public class LoginUI : MonoBehaviour {
         // 若前次成功登入時 有勾選記憶check-box 則這次自動填入
         //if (PlayerPrefs.GetInt("USERKEEP") == 1)
         //{
+		ClubLoginAccount.text = PlayerPrefs.GetString ("USERNAME");
+		ClubLoginPass.text = PlayerPrefs.GetString ("USERPASS");
         //    YkiApi.Login("0", PlayerPrefs.GetString("USERNAME"), PlayerPrefs.GetString("USERPASS"), LoginCallback);
         //    Debug.Log("讀取 PlayerPrefs");
         //}
@@ -64,11 +66,16 @@ public class LoginUI : MonoBehaviour {
             PlayerPrefs.SetString ("USERPASS", userPass);
 
             //以下呼叫 API(userName, userPass)
-            //YkiApi.Login("0", userMail, userPass, LoginCallback);
+			MainDataManager.Instance.Account =  userName;
+			MainDataManager.Instance.Passwd = userPass;
+			PlayerPrefs.SetString ("USERNAME", userName);
+			PlayerPrefs.SetString ("USERPASS", userPass);
+			//YkiApi.Login("0", userName, userPass, LoginCallback);
+			MainDataManager.Instance.doLogin(userName, userPass, LoginCallback);
             //Main.Instance.doLogin0(userName, userPass, LoginCallback);
             //StartCoroutine(CheckLoginStatus());
 
-            UIManager.instance.StartSetEnterLoading();
+            //UIManager.instance.StartSetEnterLoading();
 		}
 	}
 
@@ -124,8 +131,9 @@ public class LoginUI : MonoBehaviour {
             ClubLoginPass.text = "";
             Debug.Log("登入失敗: 輸入資訊錯誤");		
 		} else {	
-			//Debug.Log ("登入成功! Token="+result);
-			//Main.Instance.Token = result;
+			Debug.Log ("登入成功! Token="+result);
+			MainDataManager.Instance.Token = result;
+			UIManager.instance.StartSetEnterLoading();
 			//hide login panel
 //			if(Main.Instance.loginPanel && Main.Instance.loginPanel.activeSelf){
 //              ClubLoginAccount.text = "";

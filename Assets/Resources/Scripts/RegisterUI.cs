@@ -78,18 +78,18 @@ public class RegisterUI : MonoBehaviour {
             else
             {
                 //把暱稱傳給UIManager管理
-                UIManager.instance.userAccount = CheckNickName();
+                //UIManager.instance.userAccount = CheckNickName();
                 //Debug.Log("暱稱為 " + CheckNickName());
 
                 //以下呼叫 API(registerMail, registerPass1)
                 //ykiAPI = this.GetComponent<YkiApi>();
-                //ykiAPI.AddMember(registerMail, registerPass1, CheckNickName(), RegisterCallback);
+				//YkiApi.AddMember(registerMail, registerPass1, RegisterCallback);
                 //ConnectingPanel.SetActive(true); //畫面顯示連線中
-                //Main.Instance.doAddMember(registerMail, registerPass1, CheckNickName(), RegisterCallback);
+                MainDataManager.Instance.doAddMember(registerMail, registerPass1, RegisterCallback);
 
-                UIManager.instance.ExitRegisterPage(); //離開註冊頁面
+                //UIManager.instance.ExitRegisterPage(); //離開註冊頁面
 
-                ResetAllInput();
+                //ResetAllInput();
             }
         }
     }
@@ -152,7 +152,8 @@ public class RegisterUI : MonoBehaviour {
         else
         {
             Debug.Log("註冊成功! " + result);
-
+			MainDataManager.Instance.Account = ClubRegisterAccount.text;
+			MainDataManager.Instance.Passwd = ClubRegisterPass_1.text;
             UIManager.instance.ExitRegisterPage(); //離開註冊頁面
 
             ResetAllInput();
