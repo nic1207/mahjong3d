@@ -84,7 +84,7 @@ public class PlayerInputPanel : UIObject
 		enp = isMenuEnable (EActionType.Pon);
 		btn_Pon.gameObject.SetActive (enp);
 		if (enp) {
-			Debug.Log ("!!!");
+			//Debug.Log ("!!!");
 			enableCount++;
 		}
 		//btn_Pon.interactable = isMenuEnable(EActionType.Pon);
@@ -93,7 +93,7 @@ public class PlayerInputPanel : UIObject
 		enc = isMenuEnable (EActionType.Chii);
 		btn_Chii.gameObject.SetActive (enc);
 		if (enc) {
-			Debug.Log ("!!!");
+			//Debug.Log ("!!!");
 			enableCount++;
 		}
         //btn_Chii.SetTag( ResManager.getString("button_chii") );
@@ -102,7 +102,7 @@ public class PlayerInputPanel : UIObject
 		//btn_Kan.interactable = isMenuEnable(EActionType.Kan);
 		btn_Kan.gameObject.SetActive (enk);
 		if (enk) {
-			Debug.Log ("!!!");
+			//Debug.Log ("!!!");
 			enableCount++;
 		}
         //btn_Kan.SetTag( ResManager.getString("button_kan") );
@@ -111,7 +111,7 @@ public class PlayerInputPanel : UIObject
 		//btn_Reach.interactable = isMenuEnable(EActionType.Reach);
 		btn_Reach.gameObject.SetActive (enr);
 		if (enr) {
-			Debug.Log ("!!!");
+			//Debug.Log ("!!!");
 			enableCount++;
 		}
 		bool ena = false;
@@ -119,7 +119,7 @@ public class PlayerInputPanel : UIObject
         //btn_Reach.SetTag( ResManager.getString("button_reach") );
 		btn_Agari.gameObject.SetActive (ena);
 		if (ena) {
-			Debug.Log ("!!!");
+			//Debug.Log ("!!!");
 			enableCount++;
 		}
 		//btn_Agari.interactable = isMenuEnable(EActionType.Ron) || isMenuEnable(EActionType.Tsumo);
@@ -135,7 +135,7 @@ public class PlayerInputPanel : UIObject
 		//btn_Reach.SetTag( ResManager.getString("button_reach") );
 		btn_Nagashi.gameObject.SetActive (enn);
 		if (enn) {
-			Debug.Log ("!!!");
+			//Debug.Log ("!!!");
 			enableCount++;
 		}
 
@@ -143,7 +143,7 @@ public class PlayerInputPanel : UIObject
 		gameObject.SetActive (allhide);
 		RectTransform rt = this.GetComponent<RectTransform> ();
 		rt.sizeDelta = new Vector2 (enableCount * 100, 100);
-		Debug.Log (enableCount);
+		//Debug.Log (enableCount);
     }
     void DisableButtonsExcept( EActionType type )
     {

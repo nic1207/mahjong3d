@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 /// <summary>
 /// 玩家
@@ -178,6 +179,8 @@ public class Man : Player
 
     protected override EResponse OnHandle_SuteHai(EKaze fromPlayerKaze, Hai haiToHandle)
     {
+		string pp = ResManager.getMagjongName (haiToHandle.Kind, haiToHandle.Num);
+		Debug.Log ("OnHandle_SuteHai("+fromPlayerKaze.ToString()+" "+pp+")");
         _action.Reset();
 
         //if(inTest){
@@ -189,6 +192,7 @@ public class Man : Player
 
         // check Ron
         int agariScore = MahjongAgent.getAgariScore(Tehai, suteHai, JiKaze);
+		Debug.Log ("agariScore=" + agariScore);
         if( agariScore > 0 ) // Ron
         {
             if( GameSettings.AllowFuriten || !isFuriten() )
@@ -197,12 +201,12 @@ public class Man : Player
                 _action.MenuList.Add( EActionType.Ron );
 
                 if( MahjongAgent.isReach(JiKaze) ){
-                    //_action.MenuList.Add( EActionType.Nagashi );
-                    return DisplayMenuList();
-					//return DoResponse(EResponse.Ron_Agari);
+					//_action.MenuList.Add( EActionType.Ron );
+                    //return DisplayMenuList();
+					return DoResponse(EResponse.Ron_Agari);
                 }
                 else{
-                    _action.MenuList.Add( EActionType.Nagashi );
+					_action.MenuList.Add( EActionType.Ron );
                 }
             }
             else{

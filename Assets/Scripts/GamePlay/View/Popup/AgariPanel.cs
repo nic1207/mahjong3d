@@ -175,33 +175,32 @@ public class AgariPanel : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
 
         var yakuArr = currentAgari.hanteiYakus;
+		if (yakuArr != null) {
+			for (int i = 0; i < yakuArr.Length; i++) {
+				var yaku = yakuArr [i];
 
-        for( int i = 0; i < yakuArr.Length; i++ )
-        {
-            var yaku = yakuArr[i];
+				string yakuName = yaku.getYakuNameKey ();
 
-            string yakuName = yaku.getYakuNameKey();
+				UIYakuItem item;
 
-            UIYakuItem item;
+				if (yaku.isYakuman ()) {
+					item = CreateYakuItem_Yakuman (yakuName, yaku.isDoubleYakuman ());
+				} else {
+					item = CreateYakuItem (yakuName, yaku.getHanSuu ());
+				}
+				if (item) {
+					item.transform.parent = yakuRoot;
+					item.transform.localScale = yakuItemPrefab.transform.localScale;
+					item.transform.localPosition = new Vector3 (yakuItemPosOffset.x, yakuItemPosOffset.y * (i + 1), 0f);
 
-            if( yaku.isYakuman() ){
-                item = CreateYakuItem_Yakuman( yakuName, yaku.isDoubleYakuman() );
-            }
-            else{
-                item = CreateYakuItem( yakuName, yaku.getHanSuu() );
-            }
-			if (item) {
-				item.transform.parent = yakuRoot;
-				item.transform.localScale = yakuItemPrefab.transform.localScale;
-				item.transform.localPosition = new Vector3 (yakuItemPosOffset.x, yakuItemPosOffset.y * (i + 1), 0f);
+					_yakuItems.Add (item);
+				}
 
-				_yakuItems.Add (item);
+				AudioManager.Get ().PlaySFX (AudioConfig.GetSEPath (ESeType.Yaku));
+
+				yield return new WaitForSeconds (yakuDisplayTime);
 			}
-
-            AudioManager.Get().PlaySFX( AudioConfig.GetSEPath(ESeType.Yaku) );
-
-            yield return new WaitForSeconds( yakuDisplayTime );
-        }
+		}
 
         yield return new WaitForSeconds( yakuDisplayTime * 0.5f );
 
@@ -213,18 +212,17 @@ public class AgariPanel : MonoBehaviour
         int yakumanCount = 0;
 
         var yakuArr = currentAgari.hanteiYakus;
+		if (yakuArr != null) {
+			for (int i = 0; i < yakuArr.Length; i++) {
+				var yaku = yakuArr [i];
 
-        for( int i = 0; i < yakuArr.Length; i++ )
-        {
-            var yaku = yakuArr[i];
-
-            if( yaku.isDoubleYakuman() ){
-                yakumanCount += 2;
-            }
-            else if( yaku.isYakuman() ){
-                yakumanCount += 1;
-            }
-        }
+				if (yaku.isDoubleYakuman ()) {
+					yakumanCount += 2;
+				} else if (yaku.isYakuman ()) {
+					yakumanCount += 1;
+				}
+			}
+		}
 
 
         bool isOya = currentAgari.agariPlayerIsOya;

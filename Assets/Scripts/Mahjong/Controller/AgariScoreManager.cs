@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Math = UnityEngine.Mathf;
+using UnityEngine;
 
 
 /// <summary>
@@ -265,6 +266,7 @@ public sealed class AgariScoreManager
 
         // あがりの組み合わせを取得します
         int combisCount = formatWorker.calculateCombisCount( combis );
+		Debug.Log ("GetAgariScore() combisCount="+combisCount);
         combis = formatWorker.getCombis();
 		/*
         /// 1. check Chiitoitsu(七对子)
@@ -301,22 +303,24 @@ public sealed class AgariScoreManager
             return 0;
         }
 		*/
-
+		return combisCount;
+		/*
         /// 3. check common combi yaku.
         if( combisCount <= 0 )
             return 0;
 
-        int[] hanSuuArr = new int[combisCount]; // 役
-        int[] huSuuArr  = new int[combisCount]; // 符
-        int[] scoreArr = new int[combisCount]; // 点数（子のロン上がり）
+		int[] hanSuuArr = new int[combisCount]; // 役 計算台數
+        //int[] huSuuArr  = new int[combisCount]; // 符
+        //int[] scoreArr = new int[combisCount]; // 点数（子のロン上がり）
 
         int maxAgariScore = 0; // 最大の点数
 
         for(int i = 0; i < combisCount; i++)
         {
             Yaku yaku = Yaku.NewYaku_Common(tehai, addHai, combis[i], param);
-            hanSuuArr[i] = yaku.calculateHanSuu();
-            huSuuArr[i] = CalculateHu(tehai, addHai, combis[i], param, yaku);
+            hanSuuArr[i] = yaku.calculateHanSuu();//計算台數
+			maxAgariScore += hanSuuArr[i];
+            //huSuuArr[i] = CalculateHu(tehai, addHai, combis[i], param, yaku);
 
             Score scoreInfo = GetScoreInfo(hanSuuArr[i], huSuuArr[i]);
 
@@ -332,19 +336,18 @@ public sealed class AgariScoreManager
 
                 maxAgariScore = scoreArr[i];
             }
+            
         }
-
-
         // 最大値を探す
-        maxAgariScore = 0;
+        //maxAgariScore = 0;
 
         for(int i = 0; i < combisCount; i++) 
         {
             if( scoreArr[i] > maxAgariScore )
                 maxAgariScore = scoreArr[i];
         }
-
         return maxAgariScore;
+		*/
     }
 
 

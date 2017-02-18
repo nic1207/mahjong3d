@@ -37,10 +37,11 @@ public class AgariUpdateInfo : AgariInfo
     {
         dest.han = src.han;
         dest.fu = src.fu;
-
-        dest.hanteiYakus = new YakuHelper.YakuHandler[src.hanteiYakus.Length];
-        for( int i = 0; i < dest.hanteiYakus.Length; i++ )
-            dest.hanteiYakus[i] = src.hanteiYakus[i].Clone();
+		if (src.hanteiYakus != null) {
+			dest.hanteiYakus = new YakuHelper.YakuHandler[src.hanteiYakus.Length];
+			for (int i = 0; i < dest.hanteiYakus.Length; i++)
+				dest.hanteiYakus [i] = src.hanteiYakus [i].Clone ();
+		}
 
         dest.scoreInfo = new Score( src.scoreInfo );
         dest.agariScore = src.agariScore;
