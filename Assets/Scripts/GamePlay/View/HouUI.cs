@@ -113,7 +113,8 @@ public class HouUI : UIObject
             if(indexInLine > 0)
                 _curLineRightAligPosX += MahjongPai.Width + HaiPosOffsetX;
         }
-		pai.gameObject.layer = LayerMask.NameToLayer ("Hou");
+		//pai.gameObject.layer = LayerMask.NameToLayer ("Hou");
+		Utils.SetLayerRecursively (pai.gameObject, LayerMask.NameToLayer ("Hou"));
         pai.transform.parent = lineParents[_curLine];
         pai.transform.localPosition = new Vector3(_curLineRightAligPosX, 0, 0);
 

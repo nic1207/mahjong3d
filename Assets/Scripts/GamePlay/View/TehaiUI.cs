@@ -103,7 +103,8 @@ public class TehaiUI : UIObject
         }
 
 		if (OwnerPlayer.IsAI == false) {
-			pai.gameObject.layer = LayerMask.NameToLayer("PlayerTehai");
+			//pai.gameObject.layer = LayerMask.NameToLayer("PlayerTehai");
+			Utils.SetLayerRecursively (pai.gameObject, LayerMask.NameToLayer ("PlayerTehai"));
 			pai.SetOnClick (OnClickMahjong);
 			pai.isPlayer = true;
 		}
