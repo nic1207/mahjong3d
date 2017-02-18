@@ -76,8 +76,10 @@ public class PlayerUI : UIObject
         {
             playerInfo = transform.Find("Info").GetComponent<PlayerInfoUI>();
             tehai = transform.Find("Tehai").GetComponent<TehaiUI>();
+			//tehai.gameObject.layer = LayerMask.NameToLayer("PlayerTehai");
             yama = transform.Find("Yama").GetComponent<YamaUI>();
             hou = transform.Find("Hou").GetComponent<HouUI>();
+			hou.gameObject.layer = LayerMask.NameToLayer("Hou");
             fuuro = transform.Find("Fuuro").GetComponent<FuuroUI>();
 
             tehai.Init();

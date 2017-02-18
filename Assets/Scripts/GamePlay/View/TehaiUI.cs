@@ -85,7 +85,6 @@ public class TehaiUI : UIObject
     public void AddPai( Hai hai, bool newPicked = false, bool isShow = false )
     {
         MahjongPai pai = PlayerUI.CreateMahjongPai( transform, Vector3.zero, hai, isShow );
-
         AddPai(pai, newPicked, isShow);
     }
 
@@ -104,6 +103,7 @@ public class TehaiUI : UIObject
         }
 
 		if (OwnerPlayer.IsAI == false) {
+			pai.gameObject.layer = LayerMask.NameToLayer("PlayerTehai");
 			pai.SetOnClick (OnClickMahjong);
 			pai.isPlayer = true;
 		}
