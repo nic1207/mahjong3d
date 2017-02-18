@@ -66,7 +66,7 @@ public class Man : Player
             }
         }
 
-        // 制限事項。リーチ後のカンをさせない
+		// 制限事項。リーチ後のカンをさせない 立直後不能槓
         if( !MahjongAgent.isReach(JiKaze) ) 
         {
             if( MahjongAgent.getTotalKanCount() < GameSettings.KanCountMax )
