@@ -155,7 +155,7 @@ public class CountFormat
         return _combiHelper.combis.Count;
     }
 
-
+	/*
     // 七对子.
     private bool _chiitoitsu;
     public bool isChiitoitsu()
@@ -179,6 +179,7 @@ public class CountFormat
 
         return count == 8;
     }
+	*/
 
 	/*
     // 国士无双.

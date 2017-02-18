@@ -101,10 +101,10 @@ public class MahjongMain : Mahjong
         //m_playerList.Add( new AI("電腦C", EVoiceType.W_C) );
         //m_playerList.Add( new AI("電腦D", EVoiceType.W_D) );
 
-        for( int i = 0; i < m_playerList.Count; i++ )
-        {
-            m_playerList[i].Tenbou = GameSettings.Init_Tenbou;
-        }
+        //for( int i = 0; i < m_playerList.Count; i++ )
+        //{
+        //    m_playerList[i].Tenbou = GameSettings.Init_Tenbou;
+        //}
 
         GameSettings.PlayerCount = m_playerList.Count;
 
