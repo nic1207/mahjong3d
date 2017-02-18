@@ -303,8 +303,8 @@ public sealed class AgariScoreManager
             return 0;
         }
 		*/
-		return combisCount;
-		/*
+		//return combisCount;
+
         /// 3. check common combi yaku.
         if( combisCount <= 0 )
             return 0;
@@ -319,35 +319,41 @@ public sealed class AgariScoreManager
         {
             Yaku yaku = Yaku.NewYaku_Common(tehai, addHai, combis[i], param);
             hanSuuArr[i] = yaku.calculateHanSuu();//計算台數
-			maxAgariScore += hanSuuArr[i];
+			//maxAgariScore += hanSuuArr[i];
             //huSuuArr[i] = CalculateHu(tehai, addHai, combis[i], param, yaku);
 
-            Score scoreInfo = GetScoreInfo(hanSuuArr[i], huSuuArr[i]);
+            //Score scoreInfo = GetScoreInfo(hanSuuArr[i], huSuuArr[i]);
 
-            scoreArr[i] = scoreInfo.koAgari;
+            //scoreArr[i] = scoreInfo.koAgari;
 
-            if( scoreArr[i] > maxAgariScore )
+            if( hanSuuArr[i] > maxAgariScore )
             {
                 agariInfo.han = hanSuuArr[i];
                 //agariInfo.fu = huSuuArr[i];
                 agariInfo.hanteiYakus = yaku.getHanteiYakus();
 
-                agariInfo.scoreInfo = scoreInfo;
+                //agariInfo.scoreInfo = scoreInfo;
 
-                maxAgariScore = scoreArr[i];
+                maxAgariScore = hanSuuArr[i];
             }
             
+            
         }
+		//agariInfo.han = maxAgariScore;
+		//agariInfo.fu = 0;
+		//agariInfo.scoreInfo = GetScoreInfo(5, 30);
+
+		//agariInfo.hanteiYakus = yaku.getHanteiYakus();
         // 最大値を探す
         //maxAgariScore = 0;
 
-        for(int i = 0; i < combisCount; i++) 
-        {
-            if( scoreArr[i] > maxAgariScore )
-                maxAgariScore = scoreArr[i];
-        }
-        return maxAgariScore;
-		*/
+        //for(int i = 0; i < combisCount; i++) 
+        //{
+        //    if( scoreArr[i] > maxAgariScore )
+        //        maxAgariScore = scoreArr[i];
+        //}
+        //return maxAgariScore;
+		return combisCount;
     }
 
 

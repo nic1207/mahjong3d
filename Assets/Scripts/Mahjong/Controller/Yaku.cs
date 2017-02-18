@@ -226,6 +226,10 @@ public class Yaku
     #endregion
 
     #region Yaku Method
+	/// <summary>
+	/// Calculates the han suu.
+	/// </summary>
+	/// <returns>The han suu.</returns>
     public int calculateHanSuu()
     {
         int hanSuu = 0;
