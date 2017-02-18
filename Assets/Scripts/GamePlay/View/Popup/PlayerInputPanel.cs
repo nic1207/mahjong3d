@@ -141,8 +141,8 @@ public class PlayerInputPanel : UIObject
 
 		allhide = enp || enc || enk || enr || ena || enn;
 		gameObject.SetActive (allhide);
-		RectTransform rt = this.GetComponent<RectTransform> ();
-		rt.sizeDelta = new Vector2 (enableCount * 100, 100);
+		//RectTransform rt = this.GetComponent<RectTransform> ();
+		//rt.sizeDelta = new Vector2 (enableCount * 100, 100);
 		//Debug.Log (enableCount);
     }
     void DisableButtonsExcept( EActionType type )
