@@ -107,6 +107,8 @@ public class TehaiUI : UIObject
 			Utils.SetLayerRecursively (pai.gameObject, LayerMask.NameToLayer ("PlayerTehai"));
 			pai.SetOnClick (OnClickMahjong);
 			pai.isPlayer = true;
+		} else {
+			Utils.SetLayerRecursively (pai.gameObject, LayerMask.NameToLayer ("Default"));
 		}
 
         pai.gameObject.name = pai.ID.ToString();

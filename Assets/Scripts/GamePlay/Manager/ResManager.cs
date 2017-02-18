@@ -105,7 +105,7 @@ public class ResManager
             poolRoot = new GameObject("MahjongPoolRoot").transform;
 
         pai.transform.parent = poolRoot;
-
+		Utils.SetLayerRecursively (pai.gameObject, LayerMask.NameToLayer ("Default"));
         pai.gameObject.SetActive(false);
         _mahjongPaiPool.Add( pai.gameObject );
 
