@@ -12,7 +12,7 @@ public class PlayerInputPanel : UIObject
 	public Button btn_Reach;
 	public Button btn_Agari;
 	public Button btn_Nagashi;
-
+	private int enableCount = 0;
     private PlayerUI playerUI;
 
 
@@ -78,34 +78,84 @@ public class PlayerInputPanel : UIObject
 
     void RefreshMenuButtons()
     {
-		
-		btn_Pon.interactable = isMenuEnable(EActionType.Pon);
-		btn_Chii.interactable = isMenuEnable(EActionType.Chii);
+		bool allhide = true;
+		bool enp = false;
+		enableCount = 0;
+		enp = isMenuEnable (EActionType.Pon);
+		btn_Pon.gameObject.SetActive (enp);
+		if (enp) {
+			Debug.Log ("!!!");
+			enableCount++;
+		}
+		//btn_Pon.interactable = isMenuEnable(EActionType.Pon);
+		//btn_Chii.interactable = isMenuEnable(EActionType.Chii);
+		bool enc = false;
+		enc = isMenuEnable (EActionType.Chii);
+		btn_Chii.gameObject.SetActive (enc);
+		if (enc) {
+			Debug.Log ("!!!");
+			enableCount++;
+		}
         //btn_Chii.SetTag( ResManager.getString("button_chii") );
-
-		btn_Kan.interactable = isMenuEnable(EActionType.Kan);
+		bool enk = false;
+		enk = isMenuEnable (EActionType.Kan);
+		//btn_Kan.interactable = isMenuEnable(EActionType.Kan);
+		btn_Kan.gameObject.SetActive (enk);
+		if (enk) {
+			Debug.Log ("!!!");
+			enableCount++;
+		}
         //btn_Kan.SetTag( ResManager.getString("button_kan") );
-
-		btn_Reach.interactable = isMenuEnable(EActionType.Reach);
+		bool enr = false;
+		enr = isMenuEnable (EActionType.Reach);
+		//btn_Reach.interactable = isMenuEnable(EActionType.Reach);
+		btn_Reach.gameObject.SetActive (enr);
+		if (enr) {
+			Debug.Log ("!!!");
+			enableCount++;
+		}
+		bool ena = false;
+		ena = isMenuEnable (EActionType.Ron) || isMenuEnable (EActionType.Tsumo);
         //btn_Reach.SetTag( ResManager.getString("button_reach") );
-
-		btn_Agari.interactable = isMenuEnable(EActionType.Ron) || isMenuEnable(EActionType.Tsumo);
+		btn_Agari.gameObject.SetActive (ena);
+		if (ena) {
+			Debug.Log ("!!!");
+			enableCount++;
+		}
+		//btn_Agari.interactable = isMenuEnable(EActionType.Ron) || isMenuEnable(EActionType.Tsumo);
 
         //if( isMenuEnable(EActionType.Ron) || OwnerPlayer.Action.State != EActionState.Select_Sutehai )
         //    btn_Agari.SetTag( ResManager.getString("button_ron") );
         //if( isMenuEnable(EActionType.Tsumo) || OwnerPlayer.Action.State == EActionState.Select_Sutehai )
         //    btn_Agari.SetTag( ResManager.getString("button_tsumo") );
         //btn_Nagashi.SetEnable( isMenuEnable(EActionType.Nagashi) );
+		//btn_Nagashi.interactable = isMenuEnable(EActionType.Nagashi);
+		bool enn = false;
+		enn = isMenuEnable(EActionType.Nagashi);
+		//btn_Reach.SetTag( ResManager.getString("button_reach") );
+		btn_Nagashi.gameObject.SetActive (enn);
+		if (enn) {
+			Debug.Log ("!!!");
+			enableCount++;
+		}
+
+		allhide = enp || enc || enk || enr || ena || enn;
+		gameObject.SetActive (allhide);
+		RectTransform rt = this.GetComponent<RectTransform> ();
+		rt.sizeDelta = new Vector2 (enableCount * 100, 100);
+		Debug.Log (enableCount);
     }
     void DisableButtonsExcept( EActionType type )
     {
-		
+		Debug.Log ("DisableButtonsExcept()");
+		/*
 		btn_Pon.interactable = (type == EActionType.Pon );
 		btn_Chii.interactable = ( type == EActionType.Chii );
 		btn_Kan.interactable = ( type == EActionType.Kan );
 		btn_Reach.interactable = ( type == EActionType.Reach );
 		btn_Agari.interactable = ( type == EActionType.Ron || type == EActionType.Tsumo );
-        //btn_Nagashi.SetEnable( type == EActionType.Nagashi );
+		btn_Nagashi.interactable = ( type == EActionType.Nagashi );
+		*/
     }
 
     public void OnClick_Pon()
@@ -301,6 +351,7 @@ public class PlayerInputPanel : UIObject
 
     public void Onclick_Nagashi()
     {
+		Debug.Log("+ Onclick_Nagashi()");
         if( isMenuEnable(EActionType.Nagashi) || isMenuEnable(EActionType.RyuuKyoku) ){
             //Debug.Log("+ Onclick_Nagashi()");
 
