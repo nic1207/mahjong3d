@@ -92,19 +92,23 @@ public class YamaUI : UIObject
 		this._index = idx;
 		switch(_index) {
 		case 0://player
-			transform.localPosition = new Vector3 (-0.73f, 0, 2);
-			transform.localRotation = Quaternion.Euler (0, 0, 0);
+			//transform.localPosition = new Vector3 (-0.73f, 0, 2);
+            transform.localPosition = new Vector3(-0.73f, -0.26f, 1.34f);
+            transform.localRotation = Quaternion.Euler (0, 0, 0);
 			break;
 		case 1://down
-			transform.localPosition = new Vector3 (-9.53f, 0, -0.65f);
+			//transform.localPosition = new Vector3 (-9.53f, 0, -0.65f);
+            transform.localPosition = new Vector3 (-9.53f, -0.26f, -0.03f);
 			transform.localRotation = Quaternion.Euler (0, -180, 0);
 			break;
 		case 2://opp
-			transform.localPosition = new Vector3 (-8.72f, 0, -1.33f);
-			transform.localRotation = Quaternion.Euler (0,-180, 0);
+               //transform.localPosition = new Vector3 (-8.72f, 0, -1.33f);
+               transform.localPosition = new Vector3 (-8.72f, -0.26f, -0.3f);
+               transform.localRotation = Quaternion.Euler (0,-180, 0);
 			break;
 		case 3://up
-			transform.localPosition = new Vector3 (-1.25f, 0, 2.2f);
+			//transform.localPosition = new Vector3 (-1.25f, 0, 2.2f);
+            transform.localPosition = new Vector3 (-1.25f, -0.26f, 1.2f);
 			transform.localRotation = Quaternion.Euler (0, 0, 0);
 			break;
 		}

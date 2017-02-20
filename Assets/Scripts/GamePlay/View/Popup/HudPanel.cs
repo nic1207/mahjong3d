@@ -26,7 +26,7 @@ public class HudPanel : MonoBehaviour {
 
 	public void SetRemainCount(int num) {
 		if (RemainTxt)
-			RemainTxt.text = "剩餘"+num.ToString();
+			RemainTxt.text = "剩餘"+num.ToString()+"張";
 	}
 
 	public void setWindTxt(string str) {

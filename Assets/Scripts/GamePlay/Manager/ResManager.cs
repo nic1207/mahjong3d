@@ -115,8 +115,9 @@ public class ResManager
 
     public static GameObject CreatePlayerUIObject()
     {
-		GameObject go = Object.Instantiate (Resources.Load<GameObject> ("Prefabs/PlayerUI")) as GameObject;
-		go.name = "PlayerUI";
+		//GameObject go = Object.Instantiate (Resources.Load<GameObject> ("Prefabs/PlayerUI")) as GameObject;
+        GameObject go = Object.Instantiate(Resources.Load<GameObject>("Prefabs/PlayerUI_New")) as GameObject;
+        go.name = "PlayerUI";
         return go;
     }
 

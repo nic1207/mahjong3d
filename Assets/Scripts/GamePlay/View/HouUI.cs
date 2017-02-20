@@ -14,8 +14,11 @@ public class HouUI : UIObject
 	public float Line_PosY_2 = -85;
 	public float Line_PosY_3 = -170;
 
-    public const int Max_Lines = 3;
-    public const int MaxCoutPerLine = 6;
+    //public const int Max_Lines = 3;
+    //public const int MaxCoutPerLine = 6;
+    public const int Max_Lines = 6;
+    public const int MaxCoutPerLine = 10;
+
 
     private List<Transform> lineParents;
     private List<MahjongPai> _allHais = new List<MahjongPai>(Hou.SUTE_HAIS_LENGTH_MAX);
@@ -24,6 +27,8 @@ public class HouUI : UIObject
     private float _curLineRightAligPosX = 0f;
 	private int _index = -1;
 
+    private Transform _AllHouParent;
+    private Transform _AllHouLocalPosX;
 
     // Use this for initialization
     void Start () {
@@ -35,7 +40,7 @@ public class HouUI : UIObject
 
         if(isInit == false){
             lineParents = new List<Transform>(Max_Lines);
-            for( int i = 0; i < Max_Lines; i++ ) {
+            for ( int i = 0; i < Max_Lines; i++ ) {
                 Transform line = transform.FindChild("Line_" + (i+1));
                 if(line != null){
                     lineParents.Add(line);
@@ -46,9 +51,10 @@ public class HouUI : UIObject
         }
 
         _curLineRightAligPosX = AlignLeftLocalPos.x;
+
     }
 
-	//根據索引值決定位置
+	//根據索引值決定扔牌起始位置
 	public void SetPlayerIndex(int idx) {
 		_index = idx;
 		switch(_index) {
@@ -69,7 +75,7 @@ public class HouUI : UIObject
 			//transform.localRotation = Quaternion.Euler (90, 0, 0);
 			break;
 		}
-	}
+    }
 
     public override void Clear() {
         base.Clear();
@@ -79,6 +85,7 @@ public class HouUI : UIObject
             PlayerUI.CollectMahjongPai(_allHais[i]);
         }
         _allHais.Clear();
+        AllHouUI.instance._cuurIndex = 0;
     }
 
     //public override void SetParentPanelDepth( int depth ) {
@@ -115,14 +122,17 @@ public class HouUI : UIObject
         }
 		//pai.gameObject.layer = LayerMask.NameToLayer ("Hou");
 		Utils.SetLayerRecursively (pai.gameObject, LayerMask.NameToLayer ("Hou"));
-        pai.transform.parent = lineParents[_curLine];
-        pai.transform.localPosition = new Vector3(_curLineRightAligPosX, 0, 0);
+        //pai.transform.parent = lineParents[_curLine];
+        //pai.transform.localPosition = new Vector3(_curLineRightAligPosX, 0, 0);
+
+        pai.transform.parent = AllHouUI.instance.GiveHouParent();
+        pai.transform.localPosition = new Vector3(AllHouUI.instance.GiveHouPoistion(_allHais.Count), 0, 0);
 
         pai.DisableInput();
         pai.SetEnableStateColor(true);
         _allHais.Add(pai);
 
-        pai.Show();
+        pai.Show(); //轉90度
         //lineParents[_curLine].GetComponent<UIPanel>().Update();
     }
 
@@ -177,5 +187,4 @@ public class HouUI : UIObject
 
         return true;
     }
-
 }
