@@ -180,7 +180,7 @@ public class Man : Player
     protected override EResponse OnHandle_SuteHai(EKaze fromPlayerKaze, Hai haiToHandle)
     {
 		string pp = ResManager.getMagjongName (haiToHandle.Kind, haiToHandle.Num);
-		Debug.Log ("OnHandle_SuteHai("+fromPlayerKaze.ToString()+" "+pp+")");
+		//Debug.Log ("OnHandle_SuteHai("+fromPlayerKaze.ToString()+" "+pp+")");
         _action.Reset();
 
         //if(inTest){
@@ -192,7 +192,7 @@ public class Man : Player
 
         // check Ron
         int agariScore = MahjongAgent.getAgariScore(Tehai, suteHai, JiKaze);
-		Debug.Log ("agariScore=" + agariScore);
+		//Debug.Log ("agariScore=" + agariScore);
         if( agariScore > 0 ) // Ron
         {
             if( GameSettings.AllowFuriten || !isFuriten() )

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //[RequireComponent (typeof (PhotonView))]
-public abstract class Player : Photon.MonoBehaviour
+public abstract class Player : MonoBehaviour
 {
     protected string _name;
     protected EVoiceType _voiceType = EVoiceType.W_B;

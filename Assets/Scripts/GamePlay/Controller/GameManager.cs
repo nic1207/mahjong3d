@@ -60,6 +60,7 @@ public class GameManager : StateMachine, IObserver
     }
 
 	public void startGame() {
+		/*
 		if (PhotonNetwork.isMasterClient) {
 			ChangeState<GameStartState> ();
 			//}
@@ -78,6 +79,11 @@ public class GameManager : StateMachine, IObserver
 				StartCoroutine (checkState ());
 			}
 		}
+		*/
+		ChangeState<GameStartState> ();
+		//}
+		waitTime = MaxWaitTime;
+		StartCoroutine (checkState ());
 	}
 
 	IEnumerator checkState() {

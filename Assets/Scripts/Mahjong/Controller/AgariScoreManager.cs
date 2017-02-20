@@ -266,7 +266,7 @@ public sealed class AgariScoreManager
 
         // あがりの組み合わせを取得します
         int combisCount = formatWorker.calculateCombisCount( combis );
-		Debug.Log ("GetAgariScore() combisCount="+combisCount);
+		//Debug.Log ("GetAgariScore() combisCount="+combisCount);
         combis = formatWorker.getCombis();
 		/*
         /// 1. check Chiitoitsu(七对子)
