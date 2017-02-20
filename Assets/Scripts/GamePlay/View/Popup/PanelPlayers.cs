@@ -79,10 +79,12 @@ public class PanelPlayers : MonoBehaviour {
 	//秀碰字
 	public void ShowPon(int index) {
 		Image im = null;
-		Sprite sp = ResManager.getSprite("eff_peng");
-		if (index < Actions.Count) {
+		//Sprite sp = ResManager.getSprite("eff_peng");
+        Sprite sp = ResManager.getChiiPonGanSprite(index);
+        if (index < Actions.Count) {
 			im = Actions [index];
-			im.sprite = sp;
+            im.gameObject.GetComponentInChildren<Text>().text = "碰";
+            im.sprite = sp;
 			im.gameObject.SetActive (true);
 		}
 		StartCoroutine (HideAction(index));
@@ -91,10 +93,12 @@ public class PanelPlayers : MonoBehaviour {
 	//秀槓字
 	public void ShowKan(int index) {
 		Image im = null;
-		Sprite sp = ResManager.getSprite("eff_gang");
-		if (index < Actions.Count) {
+		//Sprite sp = ResManager.getSprite("eff_gang");
+        Sprite sp = ResManager.getChiiPonGanSprite(index);
+        if (index < Actions.Count) {
 			im = Actions [index];
-			im.sprite = sp;
+            im.gameObject.GetComponentInChildren<Text>().text = "槓";
+            im.sprite = sp;
 			im.gameObject.SetActive (true);
 		}
 		StartCoroutine (HideAction(index));
@@ -103,11 +107,14 @@ public class PanelPlayers : MonoBehaviour {
 	//秀吃字
 	public void ShowChii(int index) {
 		Image im = null;
-		Sprite sp = ResManager.getSprite("eff_chi");
-		if (index < Actions.Count) {
+        //Sprite sp = ResManager.getSprite("eff_chi");
+        Sprite sp = ResManager.getChiiPonGanSprite(index);
+        if (index < Actions.Count) {
+            Debug.Log("ShowChii.index= "+ index);
 			im = Actions [index];
-			im.sprite = sp;
-			im.gameObject.SetActive (true);
+            im.gameObject.GetComponentInChildren<Text>().text = "吃";
+            im.sprite = sp;
+            im.gameObject.SetActive (true);
 		}
 		StartCoroutine (HideAction(index));
 	}
@@ -115,10 +122,12 @@ public class PanelPlayers : MonoBehaviour {
 	//秀胡字
 	public void ShowRon(int index) {
 		Image im = null;
-		Sprite sp = ResManager.getSprite("eff_hu");
-		if (index < Actions.Count) {
+		//Sprite sp = ResManager.getSprite("eff_hu");
+        Sprite sp = ResManager.getChiiPonGanSprite(index);
+        if (index < Actions.Count) {
 			im = Actions [index];
-			im.sprite = sp;
+            im.gameObject.GetComponentInChildren<Text>().text = "胡";
+            im.sprite = sp;
 			im.gameObject.SetActive (true);
 		}
 		//StartCoroutine (HideAction(index));

@@ -257,4 +257,19 @@ public class ResManager
 			Debug.LogError (path +" not found!!");
 		return s;
 	}
+
+    public static Sprite getChiiPonGanSprite(int _index)
+    {
+        string path = null;
+
+        if (_index == 0)
+            path = "image/playing-04";
+        else
+            path = "image/playing-09";
+
+        Sprite s = Resources.Load<Sprite>(path) as Sprite;
+        if (s == null)
+            Debug.LogError(path + " not found!!");
+        return s;
+    }
 }
