@@ -601,7 +601,8 @@ public class MahjongView : UIObject, IObserver
                 for( int i = 0; i < ronPlayers.Count; i++ )
                 {
                     PlayerUI ui = playerUIDict_Kaze[ronPlayers[i]];
-					Debug.Log (ui.OwnerPlayer.Name+ " 胡牌");
+                    Debug.Log (ui.OwnerPlayer.Name+ " 胡牌");
+                    RecordPreTedasi._instance.RonPlayerIndex = ui.OwnerPlayer.Order;
                     ui.PickHai( ronHai, true, false );
                     ui.SetTehaiVisiable(true);
 
@@ -625,6 +626,7 @@ public class MahjongView : UIObject, IObserver
 
                 Player activePlayer = (Player)args[0];
 				Debug.Log (activePlayer.Name+"自摸!!!");
+                RecordPreTedasi._instance.TsumoPlayerIndex = activePlayer.Order;
                 PlayerUI ui = playerUIDict_Kaze[ activePlayer.JiKaze ];
                 ui.SetTehaiVisiable(true);
 

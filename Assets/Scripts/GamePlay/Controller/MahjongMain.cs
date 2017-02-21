@@ -77,25 +77,29 @@ public class MahjongMain : Mahjong
 		Man a  = go1.AddComponent<Man> ();
 		a.VoiceType = EVoiceType.W_A;
 		a.Name = "玩家A";
+        a.Order = 0;
 		m_playerList.Add (a);
 
 		GameObject go2 = new GameObject ("AI_B");
 		AI b  = go2.AddComponent<AI> ();
 		b.VoiceType = EVoiceType.W_B;
 		b.Name = "電腦B";
-		m_playerList.Add (b);
+        b.Order = 1;
+        m_playerList.Add (b);
 
 		GameObject go3 = new GameObject ("AI_C");
 		AI c  = go3.AddComponent<AI> ();
 		c.VoiceType = EVoiceType.W_C;
 		c.Name = "電腦C";
-		m_playerList.Add (c);
+        c.Order = 2;
+        m_playerList.Add (c);
 
 		GameObject go4 = new GameObject ("AI_D");
 		AI d  = go4.AddComponent<AI> ();
 		d.VoiceType = EVoiceType.W_D;
 		d.Name = "電腦D";
-		m_playerList.Add (d);
+        d.Order = 3;
+        m_playerList.Add (d);
         //m_playerList.Add( new Man("玩家A", EVoiceType.W_A) );
 		//m_playerList.Add( new RPCMan("玩家B", EVoiceType.W_B) );
         //m_playerList.Add( new AI("電腦C", EVoiceType.W_C) );

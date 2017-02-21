@@ -187,7 +187,7 @@ public class TehaiUI : UIObject
             break;
 
             case EActionState.Select_Kan:
-            {//乾
+            {//槓
                 Hai kanHai = new Hai( MahjongPai.current.ID );
 				//Hai kanHai = new Hai( 0);
 

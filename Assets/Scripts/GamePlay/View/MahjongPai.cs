@@ -62,6 +62,7 @@ public class MahjongPai : UIObject
 
 
     protected EFrontBack curFrontBack = EFrontBack.Front;
+
     public bool IsShownOut 
     {
         get { return curFrontBack == EFrontBack.Front; }
@@ -227,10 +228,11 @@ public class MahjongPai : UIObject
         this.isReach = state;
 
         if(isReach == true){
-            SetOrientation(EOrientation.Landscape_Left);
-            transform.localPosition += new Vector3((Height-Width)*0.5f, MahjongPai.LandHaiPosOffsetY, 0);
+            //SetOrientation(EOrientation.Landscape_Left); //喊聽牌將扔出去的牌側翻 
+            //transform.localPosition += new Vector3((Height-Width)*0.5f, MahjongPai.LandHaiPosOffsetY, 0);  //喊聽牌將扔出去的牌位移
         }
-        else{
+        else
+        {
             SetOrientation(EOrientation.Portrait);
         }
     }

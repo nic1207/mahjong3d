@@ -8,6 +8,7 @@ public abstract class Player : MonoBehaviour
 {
     protected string _name;
     protected EVoiceType _voiceType = EVoiceType.W_B;
+    protected int _playerOrder; //順序 0玩家 1下 2對 3上 
 
     //public Player(string name)
     //{
@@ -23,6 +24,14 @@ public abstract class Player : MonoBehaviour
     {
 		set{ this._name = value;}
         get{ return _name; }
+    }
+    public int Order
+    {
+        get { return _playerOrder; }
+        set
+        {
+            this._playerOrder = value;
+        }
     }
     public EVoiceType VoiceType
     {
