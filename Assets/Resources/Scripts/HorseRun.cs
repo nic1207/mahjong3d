@@ -25,7 +25,7 @@ public class HorseRun : MonoBehaviour {
 	void Update () {
         if (_horseRun) {
             
-            if (_HorseText.rectTransform.anchoredPosition.x > _horseLength * (-1))
+			if (_HorseText && _HorseText.rectTransform.anchoredPosition.x > _horseLength * (-1))
             {
                 _HorseText.rectTransform.anchoredPosition = new Vector2(_HorseText.rectTransform.anchoredPosition.x - HorseLight.instance.RunSpeed, _HorseText.rectTransform.anchoredPosition.y);
 
@@ -39,13 +39,16 @@ public class HorseRun : MonoBehaviour {
             {
                 _horseRun = false;
                 _passFlag = false;
-                HorseLight.instance.HorseGoal(name);
+				if(HorseLight.instance)
+                	HorseLight.instance.HorseGoal(name);
             }
         }
 	}
 
     private void CheckTailPass() {
-        HorseLight.instance._acceptPass = true;
-        HorseLight.instance.ReadyToStart();
+		if (HorseLight.instance) {
+			HorseLight.instance._acceptPass = true;
+			HorseLight.instance.ReadyToStart ();
+		}
     }
 }

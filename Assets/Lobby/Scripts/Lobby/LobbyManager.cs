@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 using UnityEngine.Networking.Types;
 using UnityEngine.Networking.Match;
 using System.Collections;
+//using Prototype.NetworkLobby;
 
 
 namespace Prototype.NetworkLobby
@@ -25,7 +26,8 @@ namespace Prototype.NetworkLobby
         public LobbyTopPanel topPanel;
 
         public RectTransform mainMenuPanel;
-        public RectTransform lobbyPanel;
+        public RectTransform roomPanel;
+		public RectTransform lobbyPanel;
 
         public LobbyInfoPanel infoPanel;
         public LobbyCountdownPanel countdownPanel;
@@ -56,15 +58,16 @@ namespace Prototype.NetworkLobby
         void Start()
         {
             s_Singleton = this;
-            _lobbyHooks = GetComponent<Prototype.NetworkLobby.LobbyHook>();
+            _lobbyHooks = GetComponent<LobbyHook>();
             currentPanel = mainMenuPanel;
-
-            backButton.gameObject.SetActive(false);
+			if(backButton)
+            	backButton.gameObject.SetActive(false);
             GetComponent<Canvas>().enabled = true;
 
             DontDestroyOnLoad(gameObject);
 
             SetServerInfo("Offline", "None");
+			ChangeTo (lobbyPanel);
         }
 
         public override void OnLobbyClientSceneChanged(NetworkConnection conn)
@@ -73,7 +76,7 @@ namespace Prototype.NetworkLobby
             {
                 if (topPanel.isInGame)
                 {
-                    ChangeTo(lobbyPanel);
+                    ChangeTo(roomPanel);
                     if (_isMatchmaking)
                     {
                         if (conn.playerControllers[0].unetView.isServer)
@@ -99,7 +102,7 @@ namespace Prototype.NetworkLobby
                 }
                 else
                 {
-                    ChangeTo(mainMenuPanel);
+                    ChangeTo(lobbyPanel);
                 }
 
                 topPanel.ToggleVisibility(true);
@@ -146,13 +149,15 @@ namespace Prototype.NetworkLobby
         public void DisplayIsConnecting()
         {
             var _this = this;
-            infoPanel.Display("Connecting...", "Cancel", () => { _this.backDelegate(); });
+            infoPanel.Display("連線中...", "取消", () => { _this.backDelegate(); });
         }
 
         public void SetServerInfo(string status, string host)
         {
-            statusInfo.text = status;
-            hostInfo.text = host;
+			if(statusInfo)
+            	statusInfo.text = status;
+			if(hostInfo)
+				hostInfo.text = host;
         }
 
 
@@ -177,7 +182,7 @@ namespace Prototype.NetworkLobby
 
         public void SimpleBackClbk()
         {
-            ChangeTo(mainMenuPanel);
+            ChangeTo(lobbyPanel);
         }
                  
         public void StopHostClbk()
@@ -193,7 +198,7 @@ namespace Prototype.NetworkLobby
             }
 
             
-            ChangeTo(mainMenuPanel);
+            ChangeTo(lobbyPanel);
         }
 
         public void StopClientClbk()
@@ -205,13 +210,13 @@ namespace Prototype.NetworkLobby
                 StopMatchMaker();
             }
 
-            ChangeTo(mainMenuPanel);
+			ChangeTo(lobbyPanel);
         }
 
         public void StopServerClbk()
         {
             StopServer();
-            ChangeTo(mainMenuPanel);
+			ChangeTo(lobbyPanel);
         }
 
         class KickMsg : MessageBase { }
@@ -235,7 +240,7 @@ namespace Prototype.NetworkLobby
         {
             base.OnStartHost();
 
-            ChangeTo(lobbyPanel);
+            ChangeTo(roomPanel);
             backDelegate = StopHostClbk;
             SetServerInfo("Hosting", networkAddress);
         }
@@ -397,7 +402,7 @@ namespace Prototype.NetworkLobby
 
             if (!NetworkServer.active)
             {//only to do on pure client (not self hosting client)
-                ChangeTo(lobbyPanel);
+                ChangeTo(roomPanel);
                 backDelegate = StopClientClbk;
                 SetServerInfo("Client", networkAddress);
             }
@@ -407,12 +412,12 @@ namespace Prototype.NetworkLobby
         public override void OnClientDisconnect(NetworkConnection conn)
         {
             base.OnClientDisconnect(conn);
-            ChangeTo(mainMenuPanel);
+            ChangeTo(lobbyPanel);
         }
 
         public override void OnClientError(NetworkConnection conn, int errorCode)
         {
-            ChangeTo(mainMenuPanel);
+            ChangeTo(lobbyPanel);
             infoPanel.Display("Cient error : " + (errorCode == 6 ? "timeout" : errorCode.ToString()), "Close", null);
         }
     }

@@ -14,7 +14,7 @@ public class BirdConnecting : MonoBehaviour {
     public void StartConnecting()
     {
         // 準備進入遊戲場景
-        StartCoroutine(DisplayLoadingScreen("main"));
+        //StartCoroutine(DisplayLoadingScreen("main"));
     }
 
     IEnumerator DisplayLoadingScreen(string sceneName)

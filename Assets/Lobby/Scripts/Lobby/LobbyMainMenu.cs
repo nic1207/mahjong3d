@@ -17,13 +17,16 @@ namespace Prototype.NetworkLobby
 
         public void OnEnable()
         {
-            lobbyManager.topPanel.ToggleVisibility(true);
-
-            ipInput.onEndEdit.RemoveAllListeners();
-            ipInput.onEndEdit.AddListener(onEndEditIP);
-
-            matchNameInput.onEndEdit.RemoveAllListeners();
-            matchNameInput.onEndEdit.AddListener(onEndEditGameName);
+			if(lobbyManager && lobbyManager.topPanel)
+            	lobbyManager.topPanel.ToggleVisibility(true);
+			if (ipInput) {
+				ipInput.onEndEdit.RemoveAllListeners ();
+				ipInput.onEndEdit.AddListener (onEndEditIP);
+			}
+			if (matchNameInput) {
+				matchNameInput.onEndEdit.RemoveAllListeners ();
+				matchNameInput.onEndEdit.AddListener (onEndEditGameName);
+			}
         }
 
         public void OnClickHost()
@@ -41,7 +44,7 @@ namespace Prototype.NetworkLobby
             lobbyManager.backDelegate = lobbyManager.StopClientClbk;
             lobbyManager.DisplayIsConnecting();
 
-            lobbyManager.SetServerInfo("Connecting...", lobbyManager.networkAddress);
+            lobbyManager.SetServerInfo("連線中...", lobbyManager.networkAddress);
         }
 
         public void OnClickDedicated()
@@ -58,7 +61,8 @@ namespace Prototype.NetworkLobby
         {
             lobbyManager.StartMatchMaker();
             lobbyManager.matchMaker.CreateMatch(
-                matchNameInput.text,
+                //matchNameInput.text,
+				"oekfewodkosdkcosdf",
                 (uint)lobbyManager.maxPlayers,
                 true,
                 "",

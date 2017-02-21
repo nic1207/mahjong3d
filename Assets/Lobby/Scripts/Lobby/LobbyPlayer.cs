@@ -15,8 +15,8 @@ namespace Prototype.NetworkLobby
         //used on server to avoid assigning the same color to two player
         static List<int> _colorInUse = new List<int>();
 
-        public Button colorButton;
-        public InputField nameInput;
+        public Image colorButton;
+        public Text nameInput;
         public Button readyButton;
         public Button waitingPlayerButton;
         public Button removePlayerButton;
@@ -88,7 +88,7 @@ namespace Prototype.NetworkLobby
 
         void SetupOtherPlayer()
         {
-            nameInput.interactable = false;
+            //nameInput.interactable = false;
             removePlayerButton.interactable = NetworkServer.active;
 
             ChangeReadyButtonColor(NotReadyColor);
@@ -101,7 +101,7 @@ namespace Prototype.NetworkLobby
 
         void SetupLocalPlayer()
         {
-            nameInput.interactable = true;
+            //nameInput.interactable = true;
             remoteIcone.gameObject.SetActive(false);
             localIcone.gameObject.SetActive(true);
 
@@ -112,22 +112,22 @@ namespace Prototype.NetworkLobby
 
             ChangeReadyButtonColor(JoinColor);
 
-            readyButton.transform.GetChild(0).GetComponent<Text>().text = "JOIN";
+            readyButton.transform.GetChild(0).GetComponent<Text>().text = "READY";
             readyButton.interactable = true;
 
             //have to use child count of player prefab already setup as "this.slot" is not set yet
             if (playerName == "")
-                CmdNameChanged("Player" + (LobbyPlayerList._instance.playerListContentTransform.childCount-1));
+                CmdNameChanged("玩家" + (LobbyPlayerList._instance.playerListContentTransform.childCount-1));
 
             //we switch from simple name display to name input
-            colorButton.interactable = true;
-            nameInput.interactable = true;
+            //colorButton.interactable = true;
+            //nameInput.interactable = true;
 
-            nameInput.onEndEdit.RemoveAllListeners();
-            nameInput.onEndEdit.AddListener(OnNameChanged);
+            //nameInput.onEndEdit.RemoveAllListeners();
+            //nameInput.onEndEdit.AddListener(OnNameChanged);
 
-            colorButton.onClick.RemoveAllListeners();
-            colorButton.onClick.AddListener(OnColorClicked);
+            //colorButton.onClick.RemoveAllListeners();
+            //colorButton.onClick.AddListener(OnColorClicked);
 
             readyButton.onClick.RemoveAllListeners();
             readyButton.onClick.AddListener(OnReadyClicked);
@@ -157,22 +157,22 @@ namespace Prototype.NetworkLobby
                 ChangeReadyButtonColor(TransparentColor);
 
                 Text textComponent = readyButton.transform.GetChild(0).GetComponent<Text>();
-                textComponent.text = "READY";
+                textComponent.text = "OK";
                 textComponent.color = ReadyColor;
                 readyButton.interactable = false;
-                colorButton.interactable = false;
-                nameInput.interactable = false;
+                //colorButton.interactable = false;
+                //nameInput.interactable = false;
             }
             else
             {
                 ChangeReadyButtonColor(isLocalPlayer ? JoinColor : NotReadyColor);
 
                 Text textComponent = readyButton.transform.GetChild(0).GetComponent<Text>();
-                textComponent.text = isLocalPlayer ? "JOIN" : "...";
+                textComponent.text = isLocalPlayer ? "READY" : "...";
                 textComponent.color = Color.white;
                 readyButton.interactable = isLocalPlayer;
-                colorButton.interactable = isLocalPlayer;
-                nameInput.interactable = isLocalPlayer;
+                //colorButton.interactable = isLocalPlayer;
+                //nameInput.interactable = isLocalPlayer;
             }
         }
 
@@ -192,7 +192,7 @@ namespace Prototype.NetworkLobby
         public void OnMyColor(Color newColor)
         {
             playerColor = newColor;
-            colorButton.GetComponent<Image>().color = newColor;
+            colorButton.color = newColor;
         }
 
         //===== UI Handler
@@ -234,7 +234,7 @@ namespace Prototype.NetworkLobby
         [ClientRpc]
         public void RpcUpdateCountdown(int countdown)
         {
-            LobbyManager.s_Singleton.countdownPanel.UIText.text = "Match Starting in " + countdown;
+            LobbyManager.s_Singleton.countdownPanel.UIText.text = "準備開桌: " + countdown+" 秒";
             LobbyManager.s_Singleton.countdownPanel.gameObject.SetActive(countdown != 0);
         }
 

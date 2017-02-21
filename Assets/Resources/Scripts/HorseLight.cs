@@ -85,13 +85,15 @@ public class HorseLight : MonoBehaviour {
     //[2] 檢查目前 Text 何者為空
     private void CheckEmptyHorse() {
         if (_horseEmpty_1) {
-            _horseLightText_1.text = _rewardLists[0];
+			if(_horseLightText_1)
+            	_horseLightText_1.text = _rewardLists[0];
             _horseEmpty_1 = false;
             StartCoroutine("CalculateHorseLength", 1);
             _rewardLists.RemoveAt(0);
         }
         else if (_horseEmpty_2) {
-            _horseLightText_2.text = _rewardLists[0];
+			if(_horseLightText_2)
+            	_horseLightText_2.text = _rewardLists[0];
             _horseEmpty_2 = false;
             StartCoroutine("CalculateHorseLength", 2);
             _rewardLists.RemoveAt(0);
@@ -103,13 +105,17 @@ public class HorseLight : MonoBehaviour {
         yield return new WaitForSeconds(0.5f);
 
         switch (index) {
-            case 1:
-                _horseLightLength_1 = _horseLightText_1.rectTransform.sizeDelta.x;
-                _horseLightText_1.GetComponent<HorseRun>()._horseLength = _horseLightLength_1;
+			case 1:
+			if (_horseLightText_1) {
+				_horseLightLength_1 = _horseLightText_1.rectTransform.sizeDelta.x;
+				_horseLightText_1.GetComponent<HorseRun> ()._horseLength = _horseLightLength_1;
+			}
                 break;
-            case 2:
-                _horseLightLength_2 = _horseLightText_2.rectTransform.sizeDelta.x;
-                _horseLightText_2.GetComponent<HorseRun>()._horseLength = _horseLightLength_2;
+			case 2:
+			if (_horseLightText_2) {
+				_horseLightLength_2 = _horseLightText_2.rectTransform.sizeDelta.x;
+				_horseLightText_2.GetComponent<HorseRun> ()._horseLength = _horseLightLength_2;
+			}
                 break;
             default:
                 break;
@@ -149,14 +155,18 @@ public class HorseLight : MonoBehaviour {
     public void HorseGoal(string textName) {
         switch (textName)
         {
-            case "Text_Msg1":
-                _horseLightText_1.text = "";
-                _horseLightText_1.rectTransform.anchoredPosition = new Vector2(750, _horseLightText_1.rectTransform.anchoredPosition.y);
+		case "Text_Msg1":
+			if (_horseLightText_1) {
+				_horseLightText_1.text = "";
+				_horseLightText_1.rectTransform.anchoredPosition = new Vector2 (750, _horseLightText_1.rectTransform.anchoredPosition.y);
+			}
                 _horseEmpty_1 = true;
                 break;
-            case "Text_Msg2":
-                _horseLightText_2.text = "";
-                _horseLightText_2.rectTransform.anchoredPosition = new Vector2(750, _horseLightText_2.rectTransform.anchoredPosition.y);
+		case "Text_Msg2":
+			if (_horseLightText_2) {
+				_horseLightText_2.text = "";
+				_horseLightText_2.rectTransform.anchoredPosition = new Vector2 (750, _horseLightText_2.rectTransform.anchoredPosition.y);
+			}
                 _horseEmpty_2 = true;
                 break;
             default:

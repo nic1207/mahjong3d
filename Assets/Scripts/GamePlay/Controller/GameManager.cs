@@ -56,32 +56,11 @@ public class GameManager : StateMachine, IObserver
 			StartCoroutine (checkState ());
 		}
 		*/
-		startGame ();
+		//startGame ();
     }
 
 	public void startGame() {
-		/*
-		if (PhotonNetwork.isMasterClient) {
-			ChangeState<GameStartState> ();
-			//}
-			waitTime = MaxWaitTime;
-			StartCoroutine (checkState ());
-		} else {
-			if (JUMP.JUMPMultiplayer.GameServer && JUMP.JUMPMultiplayer.GameServer.IsOfflinePlayMode) {
-				ChangeState<GameStartState> ();
-				//}
-				waitTime = MaxWaitTime;
-				StartCoroutine (checkState ());
-			} else {
-				ChangeState<GameStartState> ();
-				//}
-				waitTime = MaxWaitTime;
-				StartCoroutine (checkState ());
-			}
-		}
-		*/
 		ChangeState<GameStartState> ();
-		//}
 		waitTime = MaxWaitTime;
 		StartCoroutine (checkState ());
 	}

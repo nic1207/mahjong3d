@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Prototype.NetworkLobby;
 
 public class Lobby_UIManager : MonoBehaviour {
     public static Lobby_UIManager instance;
+	public LobbyManager lobbyManager;
     public Text[] _buttonTexts;
     public Text _buttonMoreText;
     public GameObject birdConnectingMask;
@@ -24,8 +26,18 @@ public class Lobby_UIManager : MonoBehaviour {
         //關閉連線視窗
         birdConnectingMask.SetActive(false);
 
-        particleEffects.SetActive(true); //開啟粒子特效
+        //particleEffects.SetActive(true); //開啟粒子特效
     }
+
+	void OnEnable() {
+		print("OnEnable()");
+		particleEffects.SetActive(true);
+	}
+
+	void OnDisable() {
+		print("OnDisable()");
+		particleEffects.SetActive(false);
+	}
 
 
     //大廳-按鈕點擊變色
@@ -59,7 +71,7 @@ public class Lobby_UIManager : MonoBehaviour {
 
     //點擊 更多-排行榜
     public void ClickToolbarBtn(Button targetBtn) {
-
+		Debug.Log ("ClickToolbarBtn()");
         if (targetBtn.name != "Button_More" && buttonBGMask.activeSelf) {
             //ClickBackgroundMask();
             StartCoroutine("DelayCloseBGMask");
@@ -75,7 +87,7 @@ public class Lobby_UIManager : MonoBehaviour {
                 break;
             case "Button_Activity":
                 //點擊 活動
-                HorseLight.instance.IsPlayHorse(false); //暫停跑馬燈
+                //HorseLight.instance.IsPlayHorse(false); //暫停跑馬燈
                 GoActivity();
                 break;
             case "Button_Charge":
@@ -88,7 +100,7 @@ public class Lobby_UIManager : MonoBehaviour {
                 break;
             case "Button_More":
                 //點擊 更多
-                HorseLight.instance.IsPlayHorse(false); //暫停跑馬燈
+                //HorseLight.instance.IsPlayHorse(false); //暫停跑馬燈
                 ClickButtomMore();
                 break;
 
@@ -136,9 +148,25 @@ public class Lobby_UIManager : MonoBehaviour {
 
     //點擊開桌 準備進入遊戲畫面
     public void StartSetConnecting() {
+		Debug.Log ("StartSetConnecting()");
         ResetAllBtnColor();
         particleEffects.SetActive(false); //關閉大廳粒子特效
-        birdConnectingMask.SetActive(true);
+
+		lobbyManager.StartMatchMaker();
+		lobbyManager.matchMaker.CreateMatch(
+			//matchNameInput.text,
+			"oekfewodkosdkcosdf",
+			(uint)lobbyManager.maxPlayers,
+			true,
+			"",
+			lobbyManager.OnMatchCreate);
+
+		lobbyManager.backDelegate = lobbyManager.StopHost;
+		lobbyManager._isMatchmaking = true;
+		lobbyManager.DisplayIsConnecting();
+
+		lobbyManager.SetServerInfo("Matchmaker Host", lobbyManager.matchHost);
+        //birdConnectingMask.SetActive(true);
     }
 
     //載入畫面載入完畢
@@ -160,8 +188,8 @@ public class Lobby_UIManager : MonoBehaviour {
     {
         ResetAllBtnColor();
         activityAnimator.SetBool("ActivitySlideIn", false);
-        particleEffects.SetActive(true); //開啟大廳粒子特效
-        HorseLight.instance.IsPlayHorse(true); //啟動跑馬燈
+        //particleEffects.SetActive(true); //開啟大廳粒子特效
+        //HorseLight.instance.IsPlayHorse(true); //啟動跑馬燈
     }
 
     //執行獲得獎品面板
@@ -180,8 +208,8 @@ public class Lobby_UIManager : MonoBehaviour {
     //離開設定頁
     public void ExitSetting() {
         ResetAllBtnColor();
-        particleEffects.SetActive(true); //開啟大廳粒子特效
-        HorseLight.instance.IsPlayHorse(true); //啟動跑馬燈
+        //particleEffects.SetActive(true); //開啟大廳粒子特效
+        //HorseLight.instance.IsPlayHorse(true); //啟動跑馬燈
         settingPanel.GetComponent<Animator>().SetBool("ActivitySlideIn", false);
     }
 }
