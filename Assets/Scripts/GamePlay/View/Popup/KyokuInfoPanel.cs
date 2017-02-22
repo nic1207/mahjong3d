@@ -70,7 +70,7 @@ public class KyokuInfoPanel : MonoBehaviour
         yield return new WaitForSeconds(Duration);
 
         // stay time.
-        yield return new WaitForSeconds(1f);
+        //yield return new WaitForSeconds(1f);
 
         //TweenAlpha.Begin(gameObject, Duration, 0f).method = UITweener.Method.EaseOut;
         //if (uiPanel) {

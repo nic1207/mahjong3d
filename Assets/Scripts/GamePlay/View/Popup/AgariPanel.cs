@@ -23,21 +23,20 @@ public class AgariPanel : MonoBehaviour
 	public Text lab_point;
 	public Text lab_level;
 
-    public Text _totalHan;     //總台數標題
-    public Text _totalHanNum;  //總台數
-    public Text _totalWin;     //當手贏得標題
-    public Text _totalWinNum;  //當手贏得
-    public Text _totalCoin;    //共得醬幣標題
-    public Text _totalCoinNum; //共得醬幣
+    public GameObject _totalHan;     //總台數
+    public GameObject _totalWin;     //當手贏得
+    public GameObject _totalCoin;    //共得醬幣
     public Transform[] agariPlayers;
 
     public Button btn_Continue;
+    public Text CountDownText;
 
     private const float haiOffset = 2f;
     private const int DoraHaisColumn = 5;
 
     private int _coinRate =  60;    // 1台多少
     private float _coinFee = 0.9f;  //手續費抽成
+    private int countDownTime = 0; //CountDown second
 
     //private List<MahjongPai> _omoteDoraHais = new List<MahjongPai>();
     //private List<MahjongPai> _uraDoraHais = new List<MahjongPai>();
@@ -308,8 +307,8 @@ public class AgariPanel : MonoBehaviour
             //	fu, ResManager.getString ("fu"),
             //	han, ResManager.getString ("han"));
 
-            _totalHan.text = "總台數:";
-            _totalHanNum.text = string.Format("{0}", han);
+            TotalScoreToggle(true);
+            _totalHan.transform.GetChild(0).GetComponent<Text>().text = string.Format("{0}", han);
             CaculateHanToMoney(han);
         }
 
@@ -411,31 +410,67 @@ public class AgariPanel : MonoBehaviour
     {
 		if (btn_Continue) {
 			btn_Continue.gameObject.SetActive (true);
-			TweenAlpha.Begin (btn_Continue.gameObject, 0.5f, 1f).SetOnFinished (() => {
-				//btn_Continue.GetComponent<BoxCollider> ().enabled = true;
-				btn_Continue.interactable = true;
-			});
-		}
+            // 按鈕透明度轉變
+            //TweenAlpha.Begin(btn_Continue.gameObject, 0.5f, 1f).SetOnFinished(() =>  
+            //{
+                //btn_Continue.GetComponent<BoxCollider> ().enabled = true;
+                btn_Continue.interactable = true;
+            //});
+
+            ShowCountDown(9); //按鈕倒數
+        }
+    }
+
+    private void ShowCountDown(int num)
+    {
+        countDownTime = num;
+        CountDownText.text = countDownTime.ToString();
+        StopCoroutine("countDown");
+        StartCoroutine("countDown");
+    }
+
+    //確定鈕的倒數計時
+    private IEnumerator countDown()
+    {
+        while (countDownTime > 0)
+        {
+            yield return new WaitForSeconds(1);
+            countDownTime--;
+            if (countDownTime > 0 && CountDownText != null && countDownTime < 10)
+                CountDownText.text = countDownTime.ToString();
+            else {
+                OnClickContinue();
+            }
+        }
+    }
+
+    //是否顯示結算總分
+    private void TotalScoreToggle(bool _isShowT) {
+        _totalHan.SetActive(_isShowT);
+        _totalWin.SetActive(_isShowT);
+        _totalCoin.SetActive(_isShowT);
     }
 
 
     void OnClickContinue()
     {
+        StopCoroutine("countDown");
+
         Hide();
 
         EventManager.Get().SendEvent(UIEventType.End_Kyoku);
 
         RecordPreTedasi._instance.Clear(); //重置贏家
+        TotalScoreToggle(false);
     }
 
     //轉換台數為醬幣
     private void CaculateHanToMoney(int _han) {
         int _getCoin = (int) Math.Ceiling( _han * _coinRate  * _coinFee);
         //Debug.Log("_getCoin = " + _getCoin);
-        _totalWin.text = "當手贏的:";
-        _totalWinNum.text = string.Format("{0}", _getCoin);
-        _totalCoin.text = "共得醬幣:";
-        _totalCoinNum.text = string.Format("{0}", _getCoin);
+
+        _totalWin.transform.GetChild(0).GetComponent<Text>().text = string.Format("{0}", _han * _coinRate);
+        _totalCoin.transform.GetChild(0).GetComponent<Text>().text = string.Format("{0}", _getCoin);
 
         CaculateCoin(_getCoin);
     }
@@ -448,7 +483,7 @@ public class AgariPanel : MonoBehaviour
         Debug.Log("胡的人 = " + _ronPlayer);      //列出誰胡
         Debug.Log("自摸的人 = " + _tsumonPlayer); //列出誰自摸
 
-        if (_tsumonPlayer != 4)
+        if (_tsumonPlayer != -1)
         {
             for (int i = 0; i < agariPlayers.Length; i++)
             {
@@ -476,7 +511,7 @@ public class AgariPanel : MonoBehaviour
         int _ronPlayer = RecordPreTedasi._instance.RonPlayerIndex;
         int _tsumonPlayer = RecordPreTedasi._instance.TsumoPlayerIndex;
 
-        if (_tsumonPlayer != 4)
+        if (_tsumonPlayer != -1)
         {
             for (int i = 0; i < agariPlayers.Length; i++)
             {

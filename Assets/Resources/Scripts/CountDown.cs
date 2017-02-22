@@ -52,10 +52,9 @@ public class CountDown : MonoBehaviour {
 		StopCoroutine ("countDown");
 		transform.localScale = Vector3.one;
 		StartCoroutine ("countDown");
-
     }
 
-	public void Hide() {
+    public void Hide() {
 		countDownTime = 0;
 		//Debug.Log("countDownTime = " + countDownTime);
 		gameObject.SetActive (false);
@@ -74,7 +73,7 @@ public class CountDown : MonoBehaviour {
 				gameObject.SetActive (true);
 				CountDownText.text = countDownTime.ToString ();
 			} else {
-				Anim.enabled = false;
+                Anim.enabled = false;
 				gameObject.SetActive (false);
 				StopCoroutine ("countDown");
 			}
