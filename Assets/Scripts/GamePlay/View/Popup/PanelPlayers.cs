@@ -11,8 +11,11 @@ public class PanelPlayers : MonoBehaviour {
 	public List<Image> Homes = new List<Image>();
 	public List<Image> Listeners = new List<Image>();
 	public List<Image> Actions = new List<Image>();
-	// Use this for initialization
-	void Start () {
+    public List<Image> Photos = new List<Image>();
+    public List<Text> Names = new List<Text>();
+
+    // Use this for initialization
+    void Start () {
 		hideAll ();
 		//ShowArrow (0);
 	}
@@ -23,7 +26,7 @@ public class PanelPlayers : MonoBehaviour {
 		hideAllHome ();
 		hideAllListeners ();
 		hideAllPon ();
-	}
+    }
 
 
 	public void ShowHomeba(int index) {
@@ -130,8 +133,9 @@ public class PanelPlayers : MonoBehaviour {
             im.sprite = sp;
 			im.gameObject.SetActive (true);
 		}
-		//StartCoroutine (HideAction(index));
-	}
+
+        //StartCoroutine (HideAction(index));
+    }
 
 	public IEnumerator HideAction(int index) {
 		yield return new WaitForSeconds (2);
@@ -172,8 +176,24 @@ public class PanelPlayers : MonoBehaviour {
 			im.gameObject.SetActive (false);
 		}
 	}
-	// Update is called once per frame
-	void Update () {
+    public void hideAllPhoto()
+    {
+        foreach (Image im in Photos)
+        {
+            if (im)
+                im.gameObject.SetActive(false);
+        }
+    }
+    public void hideAllName()
+    {
+        foreach (Text txt in Names)
+        {
+            if (txt)
+                txt.transform.parent.gameObject.SetActive(false);
+        }
+    }
+    // Update is called once per frame
+    void Update () {
 	
 	}
 }

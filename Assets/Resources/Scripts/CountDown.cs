@@ -69,11 +69,13 @@ public class CountDown : MonoBehaviour {
 			yield return new WaitForSeconds (1);
 			countDownTime--;
 			if (countDownTime > 0 && CountDownText != null && countDownTime < 10) {
-				Anim.enabled = true;
+                if(Anim)
+				    Anim.enabled = true;
 				gameObject.SetActive (true);
 				CountDownText.text = countDownTime.ToString ();
 			} else {
-                Anim.enabled = false;
+                if (Anim)
+                    Anim.enabled = false;
 				gameObject.SetActive (false);
 				StopCoroutine ("countDown");
 			}
