@@ -55,7 +55,7 @@ public class KyokuInfoPanel : MonoBehaviour
 
     IEnumerator Show_Internel()
     {
-        float Duration = 1.4f;
+        float Duration = 1.5f;
 
         // ready to start time.
         yield return new WaitForSeconds(1f);
@@ -64,24 +64,24 @@ public class KyokuInfoPanel : MonoBehaviour
 
         //TweenAlpha.Begin(gameObject, Duration, 1f).method = UITweener.Method.EaseIn;
         //if (uiPanel) {
-		//	uiPanel.CrossFadeAlpha (1, Duration, false);
-		//	uiPanel.gameObject.SetActive (true);
-		//}
+        //	uiPanel.CrossFadeAlpha (1, Duration, false);
+        //	uiPanel.gameObject.SetActive (true);
+        //}
         yield return new WaitForSeconds(Duration);
 
         // stay time.
-        //yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         //TweenAlpha.Begin(gameObject, Duration, 0f).method = UITweener.Method.EaseOut;
         //if (uiPanel) {
         //	uiPanel.CrossFadeAlpha (0.1f, Duration, false);
         //	uiPanel.gameObject.SetActive (true);
         //}
-        yield return new WaitForSeconds(Duration);
+        //yield return new WaitForSeconds(Duration);
 
         kyokuAnim.SetBool("KyokuInfoShow", false);
 
-        yield return new WaitForSeconds(Duration);
+        yield return new WaitForSeconds(1f);
         
         OnEnd();
     }

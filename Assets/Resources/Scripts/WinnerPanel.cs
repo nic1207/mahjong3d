@@ -6,6 +6,7 @@ public class WinnerPanel : MonoBehaviour {
     //public static WinnerPanel instance;
     public Image _head;
     public Text _name;
+    public GameObject _main;
     public GameObject _winnerEffect;
     public GameObject _ronObject;
     public GameObject _tsumoObject;
@@ -38,12 +39,12 @@ public class WinnerPanel : MonoBehaviour {
         _ronObject.SetActive(!_isTsumo);
         _tsumoObject.SetActive(_isTsumo);
 
-        gameObject.SetActive(true);
+        _main.SetActive(true);
     }
 
     public void Hide() {
         _winnerEffect.SetActive(false); //背景特效
-        gameObject.SetActive(false);
+        _main.SetActive(false);
     }
         
 }

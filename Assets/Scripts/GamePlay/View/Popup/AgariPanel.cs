@@ -116,6 +116,8 @@ public class AgariPanel : MonoBehaviour
     public void Hide()
     {
         gameObject.SetActive(false);
+
+        ClearAgariEffect();
     }
 
     public void Show( List<AgariUpdateInfo> agariList )
@@ -532,6 +534,13 @@ public class AgariPanel : MonoBehaviour
                 else
                     agariPlayers[i].GetComponent<AgariPlayer>().ClearCoin();
             }
+        }
+    }
+
+    private void ClearAgariEffect() {
+        for (int i = 0; i < agariPlayers.Length; i++)
+        {
+            agariPlayers[i].GetComponent<AgariPlayer>().HideEffect();
         }
     }
 }

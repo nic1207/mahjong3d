@@ -609,9 +609,10 @@ public class MahjongView : UIObject, IObserver
 
                     ui.Speak( ECvType.Ron );
 
-                    //if (panelPlayers) {  // 已改為顯示 Winnerpanel
-                    //	panelPlayers.ShowRon (ui.Index);
-                    //}
+                        //if (panelPlayers)
+                        //{  // 已改為顯示 Winnerpanel
+                        //    panelPlayers.ShowRon(ui.Index);
+                        //}
                     }
 
                     PlayerUI fromUI = playerUIDict_Kaze[fromKaze];

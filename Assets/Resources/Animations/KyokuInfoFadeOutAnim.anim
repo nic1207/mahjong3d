@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: KyokuInfoIdleAnim
+  m_Name: KyokuInfoFadeOutAnim
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,14 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
+        value: 1
+        inSlope: -1.3333334
+        outSlope: -1.3333334
+        tangentMode: 10
+      - time: 0.75
         value: 0
-        inSlope: 1.3333334
-        outSlope: 1.3333334
+        inSlope: -1.3333334
+        outSlope: -1.3333334
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -51,7 +56,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0
+    m_StopTime: 0.75
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -71,9 +76,14 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
+        value: 1
+        inSlope: -1.3333334
+        outSlope: -1.3333334
+        tangentMode: 10
+      - time: 0.75
         value: 0
-        inSlope: 1.3333334
-        outSlope: 1.3333334
+        inSlope: -1.3333334
+        outSlope: -1.3333334
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
