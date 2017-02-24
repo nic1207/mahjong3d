@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.Networking;
 
 
-public class EventManager: NetworkBehaviour
+public class EventManager: MonoBehaviour
 {
 	public List<IObserver> _observerList = new List<IObserver>();
 
@@ -38,8 +38,8 @@ public class EventManager: NetworkBehaviour
     }
 
 	/*[Client]*/
-	/*[ClientRpc]*/
-	public void RpcAddObserver(IObserver observer) 
+	/*[Client]*/
+	public void AddObserver(IObserver observer) 
     {
 		Debug.Log ("addObserver("+observer+")");
         if(observer == null)
@@ -50,8 +50,8 @@ public class EventManager: NetworkBehaviour
     }
 
 	/*[Client]*/
-	/*[ClientRpc]*/
-	public void RpcRemoveObserver(IObserver observer) 
+	/*[Client]*/
+	public void RemoveObserver(IObserver observer) 
     {
 		Debug.Log ("removeObserver("+observer+")");
         if(observer == null)
@@ -67,7 +67,7 @@ public class EventManager: NetworkBehaviour
     // send ui event.
     public void RpcSendEvent(UIEventType eventType, params object[] args) 
     {
-		Debug.Log ("SendEvent(_observerList.Count="+_observerList.Count+")");
+		//Debug.Log ("SendEvent(_observerList.Count="+_observerList.Count+")");
         for( int i = 0; i < _observerList.Count; i++ ) 
         {
             IObserver observer = (IObserver)_observerList[i];

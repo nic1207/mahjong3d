@@ -4,7 +4,7 @@ using UnityEngine.Networking;
 /// <summary>
 /// State machine.
 /// </summary>
-public class StateMachine : NetworkBehaviour
+public class StateMachine: NetworkBehaviour
 {
 	public virtual State CurrentState
 	{

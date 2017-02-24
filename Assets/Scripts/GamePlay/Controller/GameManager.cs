@@ -32,36 +32,27 @@ public class GameManager : StateMachine, IObserver
 
     void OnEnable() 
     {
-		if(isLocalPlayer)
-			EventManager.Instance.RpcAddObserver(this);
+		//if(isLocalPlayer)
+		EventManager.Instance.AddObserver(this);
     }
     void OnDisable() 
     {
-		if(isLocalPlayer)
-			EventManager.Instance.RpcRemoveObserver(this);
+		//if(isLocalPlayer)
+		EventManager.Instance.RemoveObserver(this);
     }
 
 
     void Awake() {
         _instance = this;
-        mahjong = new MahjongMain();
-		//DontDestroyOnLoad (this.gameObject);
-		//mahjong = gameObject.AddComponent<MahjongMain>();
     }
 
     void Start() {
-		/*
-		if (PhotonNetwork.isMasterClient) {
-			ChangeState<GameStartState> ();
-			//}
-			waitTime = MaxWaitTime;
-			StartCoroutine (checkState ());
-		}
-		*/
-		//startGame ();
-		//if (isServer) {
+		//if(isLocalPlayer) {
+		if (isServer) {
+			mahjong = new MahjongMain();
+			//if (isServer) {
 			startGame ();
-		//}
+		}
     }
 
 	public void startGame() {

@@ -63,11 +63,11 @@ public class MahjongView : UIObject, IObserver
     void OnEnable() {
 		//Debug.Log ("OnEnable()");
 		if(EventManager.Instance)
-			EventManager.Instance.RpcAddObserver(this);
+			EventManager.Instance.AddObserver(this);
     }
     void OnDisable() {
 		if(EventManager.Instance)
-			EventManager.Instance.RpcRemoveObserver(this);
+			EventManager.Instance.RemoveObserver(this);
     }
 
 

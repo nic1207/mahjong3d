@@ -164,7 +164,7 @@ public class Tehai
     {
         if( index >= _jyunTehais.Count )
             return null;
-        Debug.Log("_jyunTehais.Count = " + _jyunTehais.Count + "Hai index = " + index); //CSU
+        //Debug.Log("_jyunTehais.Count = " + _jyunTehais.Count + "Hai index = " + index); //CSU
         Hai hai = _jyunTehais[index];
         _jyunTehais.RemoveAt(index);
 
