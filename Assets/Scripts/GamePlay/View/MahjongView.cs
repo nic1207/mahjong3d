@@ -46,6 +46,8 @@ public class MahjongView : UIObject, IObserver
 	public HudPanel hudPanel;
 	public CountDown panelCountDown;
     public WinnerPanel winnerPanel;
+    public ExitRoomPanel exitRoomPanel;
+    public MessagePanel messagePanel;
 
     protected EKaze shiningKaze = EKaze.Ton;
     protected bool hasShining = false;

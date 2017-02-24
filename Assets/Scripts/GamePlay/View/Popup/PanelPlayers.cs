@@ -13,6 +13,7 @@ public class PanelPlayers : MonoBehaviour {
 	public List<Image> Actions = new List<Image>();
     public List<Image> Photos = new List<Image>();
     public List<Text> Names = new List<Text>();
+    public List<Text> Messages = new List<Text>();
 
     // Use this for initialization
     void Start () {
@@ -26,6 +27,7 @@ public class PanelPlayers : MonoBehaviour {
 		hideAllHome ();
 		hideAllListeners ();
 		hideAllPon ();
+        hideAllMessage();
     }
 
 
@@ -176,6 +178,7 @@ public class PanelPlayers : MonoBehaviour {
 			im.gameObject.SetActive (false);
 		}
 	}
+
     public void hideAllPhoto()
     {
         foreach (Image im in Photos)
@@ -192,8 +195,13 @@ public class PanelPlayers : MonoBehaviour {
                 txt.transform.parent.gameObject.SetActive(false);
         }
     }
-    // Update is called once per frame
-    void Update () {
-	
-	}
+    public void hideAllMessage()
+    {
+        foreach (Text txt in Messages)
+        {
+            if (txt)
+                txt.transform.parent.gameObject.SetActive(false);
+        }
+    }
+
 }
