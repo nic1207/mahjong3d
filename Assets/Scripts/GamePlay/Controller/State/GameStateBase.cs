@@ -5,14 +5,14 @@ using System.Collections;
 public class GameStateBase : State 
 {
     public MahjongMain logicOwner;
-    protected GameManager owner;
+	protected GameClientManager owner;
 
     protected Coroutine waitingOperation;
 
 
     protected virtual void Awake()
     {
-        owner = GetComponent<GameManager>();
+		owner = GetComponent<GameClientManager>();
         logicOwner = owner.LogicMain;
     }
 

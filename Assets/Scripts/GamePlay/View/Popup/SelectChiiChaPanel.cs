@@ -20,7 +20,8 @@ public class SelectChiiChaPanel : MonoBehaviour
 	//private Hai[] init_hais;
 
 
-    void Start(){
+    void Start() {
+		Debug.Log("SelectChiiChaPanel.Start()");
 		Vector3 pos0 = new Vector3 (0, -Screen.height*2/3, 0);//self
 		Vector3 pos1 = new Vector3 (-Screen.width*2/3, 0, 0);//prev
 		Vector3 pos2 = new Vector3 (0, Screen.height*2/3, 0);//upp

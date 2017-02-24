@@ -20,6 +20,7 @@ public class LoopState_AskHandleTsumoHai : GameStateBase
     }
 
 	public override void Handle() {
+		//Debug.Log ("LoopState_AskHandleTsumoHai.OnHandleEvent("+evtID+")");
 		base.Handle();
 		//Player activePlayer = logicOwner.ActivePlayer;
 		//logicOwner.ActivePlayer.Action.SutehaiIndex = 0;
@@ -36,6 +37,7 @@ public class LoopState_AskHandleTsumoHai : GameStateBase
 
     void OnHandle_ResponseTsumoHai()
     {
+		Debug.Log ("OnHandle_ResponseTsumoHai()");
         Player activePlayer = logicOwner.ActivePlayer;
 		//Debug.Log ("OnHandle_ResponseTsumoHai(activePlayer.Action.Response="+activePlayer.Action.Response+")");
         switch( activePlayer.Action.Response )

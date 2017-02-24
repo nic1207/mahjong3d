@@ -30,12 +30,12 @@ public class Lobby_UIManager : MonoBehaviour {
     }
 
 	void OnEnable() {
-		print("OnEnable()");
+		//print("Lobby_UIManager.OnEnable()");
 		particleEffects.SetActive(true);
 	}
 
 	void OnDisable() {
-		print("OnDisable()");
+		//print("Lobby_UIManager.OnDisable()");
 		particleEffects.SetActive(false);
 	}
 

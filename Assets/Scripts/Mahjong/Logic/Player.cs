@@ -228,7 +228,7 @@ public abstract class Player : MonoBehaviour
         ResponseDelayTime = Math.Max(ResponseDelayTime, 0.1f);
 
         if( ResponseDelayTime > 0f )
-            GameManager.Get().StartCoroutine( DoResponseDelay(ResponseDelayTime) );
+			GameClientManager.Get().StartCoroutine( DoResponseDelay(ResponseDelayTime) );
         else
             DoResponseDirectly();
 

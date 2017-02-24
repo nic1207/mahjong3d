@@ -22,6 +22,7 @@ public class GamePrepareState : GameStateBase
 
     public override void OnHandleEvent(UIEventType evtID, object[] args)
     {
+		Debug.Log ("GamePrepareState.OnHandleEvent("+evtID+")");
         switch(evtID)
         {
             case UIEventType.On_Select_ChiiCha_End:
@@ -38,6 +39,7 @@ public class GamePrepareState : GameStateBase
 
     void OnSaifuriForOyaEnd()
     {
+		Debug.Log ("OnSaifuriForOyaEnd()");
         logicOwner.PrepareKyoku();
 
 		EventManager.Instance.RpcSendEvent(UIEventType.Init_PlayerInfoUI);

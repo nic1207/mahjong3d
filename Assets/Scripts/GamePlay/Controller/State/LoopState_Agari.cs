@@ -55,6 +55,7 @@ public class LoopState_Agari : GameStateBase
 
     public override void OnHandleEvent(UIEventType evtID, object[] args)
     {
+		Debug.Log ("LoopState_Agari.OnHandleEvent("+evtID+")");
         if( evtID == UIEventType.On_UIAnim_End )
         {
             OnAgariAnimEnd();

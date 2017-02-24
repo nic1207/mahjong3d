@@ -69,6 +69,7 @@ public class HaiPaiState : GameStateBase
 
     public override void OnHandleEvent(UIEventType evtID, object[] args)
     {
+		Debug.Log ("HaiPaiState.OnHandleEvent("+evtID+")");
         switch(evtID)
         {
             case UIEventType.On_UIAnim_End:

@@ -96,7 +96,7 @@ public class RyuuKyokuPanel : MonoBehaviour
         else if( ryuuKyokuReason == ERyuuKyokuReason.Ron3 ){
             cv = ECvType.RKK_Ron3;
         }
-        GameManager.Get().Speak(cv);
+		GameClientManager.Get().Speak(cv);
     }
 
     void OnConfirm()

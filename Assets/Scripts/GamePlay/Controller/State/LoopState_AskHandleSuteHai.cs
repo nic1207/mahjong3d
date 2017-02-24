@@ -53,6 +53,7 @@ public class LoopState_AskHandleSuteHai : GameStateBase
 
     public override void OnHandleEvent(UIEventType evtID, object[] args)
     {
+		Debug.Log ("LoopState_AskHandleSuteHai.OnHandleEvent("+evtID+")");
         if( evtID == UIEventType.On_UIAnim_End )
             OnSuteHaiAnimEnd();
     }

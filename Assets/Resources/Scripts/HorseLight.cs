@@ -100,6 +100,10 @@ public class HorseLight : MonoBehaviour {
         }
     }
 
+	void OnDisable() {
+		StopCoroutine ("CalculateHorseLength");
+	}
+
     //[3] 計算跑馬燈長度
     IEnumerator CalculateHorseLength(int index) {
         yield return new WaitForSeconds(0.5f);

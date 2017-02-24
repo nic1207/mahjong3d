@@ -30,6 +30,7 @@ public class LoopState_AskHandleKakanHai : GameStateBase
 
     public override void OnHandleEvent(UIEventType evtID, object[] args)
     {
+		Debug.Log ("LoopState_AskHandleKakanHai.OnHandleEvent("+evtID+")");
         if( evtID == UIEventType.On_UIAnim_End )
             OnKakanAnimEnd();
     }

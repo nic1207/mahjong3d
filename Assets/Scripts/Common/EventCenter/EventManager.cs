@@ -8,28 +8,22 @@ public class EventManager: MonoBehaviour
 {
 	public List<IObserver> _observerList = new List<IObserver>();
 
-    //private EventManager() 
-    //{
-    //    _observerList = new List<IObserver>();
-    //}
+	private static EventManager s_Instance = null;
+    
+	public static EventManager Instance
+	{
+		get {
+			if (s_Instance == null) {
+				s_Instance = GameObject.FindObjectOfType (typeof(EventManager)) as EventManager;
+			}
+			//if (s_Instance == null) {
+			//	GameObject go = new GameObject ("EventManager");
+			//	s_Instance = go.AddComponent<EventManager> () as EventManager;
+			//}
 
-    public static EventManager Instance = null;
-    /*
-	public static EventManager Get()
-    {
-		if (instance == null) {
-			GameObject go = new GameObject ("EventManager");
-			instance = go.AddComponent<EventManager> ();
-			//instance = new EventManager ();
+			return s_Instance;
 		}
-        return instance;
     }
-    */
-	void Awake() {
-		Instance = this;
-		//DontDestroyOnLoad ();
-	}
-
 
     public static void CleanUp()
     {
@@ -41,7 +35,7 @@ public class EventManager: MonoBehaviour
 	/*[Client]*/
 	public void AddObserver(IObserver observer) 
     {
-		Debug.Log ("addObserver("+observer+")");
+		Debug.Log ("EventManager.addObserver("+observer+")");
         if(observer == null)
             return;
         
@@ -53,7 +47,7 @@ public class EventManager: MonoBehaviour
 	/*[Client]*/
 	public void RemoveObserver(IObserver observer) 
     {
-		Debug.Log ("removeObserver("+observer+")");
+		Debug.Log ("EventManager.removeObserver("+observer+")");
         if(observer == null)
             return;
         
@@ -67,7 +61,7 @@ public class EventManager: MonoBehaviour
     // send ui event.
     public void RpcSendEvent(UIEventType eventType, params object[] args) 
     {
-		//Debug.Log ("SendEvent(_observerList.Count="+_observerList.Count+")");
+		Debug.Log ("SendEvent(_observerList.Count="+_observerList.Count+")");
         for( int i = 0; i < _observerList.Count; i++ ) 
         {
             IObserver observer = (IObserver)_observerList[i];

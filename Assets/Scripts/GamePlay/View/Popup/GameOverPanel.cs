@@ -57,7 +57,7 @@ public class GameOverPanel : MonoBehaviour
     {
         Hide();
 
-        GameManager.Get().Restart();
+		GameClientManager.Get().Restart();
     }
 
 }

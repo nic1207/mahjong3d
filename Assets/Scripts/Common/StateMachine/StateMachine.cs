@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.Networking;
 /// <summary>
 /// State machine.
 /// </summary>
-public class StateMachine: NetworkBehaviour
+public class StateMachine: MonoBehaviour
 {
 	public virtual State CurrentState
 	{

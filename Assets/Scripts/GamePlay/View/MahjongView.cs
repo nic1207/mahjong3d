@@ -54,18 +54,26 @@ public class MahjongView : UIObject, IObserver
 
     private MahjongMain Model
     {
-        get { return GameManager.Get().LogicMain; }
+		get { return GameClientManager.Get().LogicMain; }
     }
 
-	void start() {
-		DontDestroyOnLoad (this.gameObject);
+	void Awake() {
+		//DontDestroyOnLoad (this.gameObject);
+	}
+
+	void Start() {
+		Debug.Log ("MahjongView.Start()");
+		//DontDestroyOnLoad (this.gameObject);
+		//if(EventManager.Instance)
+		//	EventManager.Instance.AddObserver(this);
 	}
     void OnEnable() {
-		//Debug.Log ("OnEnable()");
-		if(EventManager.Instance)
-			EventManager.Instance.AddObserver(this);
+		Debug.Log ("MahjongView.OnEnable()");
+		//if(EventManager.Instance)
+		EventManager.Instance.AddObserver(this);
     }
     void OnDisable() {
+		Debug.Log ("MahjongView.OnDisable()");
 		if(EventManager.Instance)
 			EventManager.Instance.RemoveObserver(this);
     }
