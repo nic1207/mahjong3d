@@ -188,7 +188,7 @@ public class Lobby_UIManager : MonoBehaviour {
     {
         ResetAllBtnColor();
         activityAnimator.SetBool("ActivitySlideIn", false);
-        //particleEffects.SetActive(true); //開啟大廳粒子特效
+        particleEffects.SetActive(true); //開啟大廳粒子特效
         //HorseLight.instance.IsPlayHorse(true); //啟動跑馬燈
     }
 
@@ -208,7 +208,7 @@ public class Lobby_UIManager : MonoBehaviour {
     //離開設定頁
     public void ExitSetting() {
         ResetAllBtnColor();
-        //particleEffects.SetActive(true); //開啟大廳粒子特效
+        particleEffects.SetActive(true); //開啟大廳粒子特效
         //HorseLight.instance.IsPlayHorse(true); //啟動跑馬燈
         settingPanel.GetComponent<Animator>().SetBool("ActivitySlideIn", false);
     }
