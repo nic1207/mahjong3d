@@ -4,7 +4,7 @@ using System.Collections;
 
 public class AgariPlayer : MonoBehaviour {
     public GameObject _effect;
-    public Image _glow;
+    public GameObject _glow;
     public Image _crow;
     public Image _head;
     public Image _flag;
@@ -21,7 +21,7 @@ public class AgariPlayer : MonoBehaviour {
 
     public void SetPlayerWinUI() {
         _effect.SetActive(true);
-        _glow.enabled = true;
+        _glow.SetActive(true);
         _crow.enabled = true;
         _flag.enabled = true;
         _flag.sprite = _winOrLose[0];
@@ -31,7 +31,7 @@ public class AgariPlayer : MonoBehaviour {
     public void SetPlayerLoseUI()
     {
         _effect.SetActive(false);
-        _glow.enabled = false;
+        _glow.SetActive(false);
         _crow.enabled = false;
         _flag.enabled = true;
         _flag.sprite = _winOrLose[1];
@@ -41,7 +41,7 @@ public class AgariPlayer : MonoBehaviour {
     public void SetPlayerDrawUI()
     {
         _effect.SetActive(false);
-        _glow.enabled = false;
+        _glow.SetActive(false);
         _crow.enabled = false;
         _flag.enabled = false;
         SetCoinBlockDraw();
