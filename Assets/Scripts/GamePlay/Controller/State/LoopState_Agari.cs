@@ -49,7 +49,7 @@ public class LoopState_Agari : GameStateBase
     {
         StopWaitingOperation();
 
-        EventManager.Get().SendEvent(UIEventType.Display_Agari_Panel, logicOwner.AgariUpdateInfoList);
+		EventManager.Instance.RpcSendEvent(UIEventType.Display_Agari_Panel, logicOwner.AgariUpdateInfoList);
     }
 
 

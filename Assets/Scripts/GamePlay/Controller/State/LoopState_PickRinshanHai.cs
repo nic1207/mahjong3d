@@ -15,7 +15,7 @@ public class LoopState_PickRinshanHai : GameStateBase
         int lastPickIndex = logicOwner.Yama.getPreRinshanHaiIndex();
         int newDoraHaiIndex = logicOwner.Yama.getLastOmoteHaiIndex();
 
-        EventManager.Get().SendEvent(UIEventType.PickRinshanHai, logicOwner.ActivePlayer, lastPickIndex, rinshanHai, newDoraHaiIndex );
+		EventManager.Instance.RpcSendEvent(UIEventType.PickRinshanHai, logicOwner.ActivePlayer, lastPickIndex, rinshanHai, newDoraHaiIndex );
 
         owner.ChangeState<LoopState_AskHandleTsumoHai>();
     }

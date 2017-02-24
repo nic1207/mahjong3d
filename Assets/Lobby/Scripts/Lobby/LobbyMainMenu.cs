@@ -57,7 +57,22 @@ namespace Prototype.NetworkLobby
             lobbyManager.SetServerInfo("Dedicated Server", lobbyManager.networkAddress);
         }
 
-        public void OnClickCreateMatchmakingGame()
+		/// <summary>
+		/// Create or Join Matchmaking Game
+		/// </summary>
+		public void OnClickCreateOrJoinGame()
+		{
+			lobbyManager.StartMatchMaker();
+			//lobbyManager.matchMaker.
+			//lobbyManager.matchMaker.get
+
+			//lobbyManager.matchMaker.JoinMatch( networkID, "", lobbyManager.OnMatchJoined);
+		}
+
+		/// <summary>
+        /// Create Matchmaking Game
+        /// </summary>
+		public void OnClickCreateMatchmakingGame()
         {
             lobbyManager.StartMatchMaker();
             lobbyManager.matchMaker.CreateMatch(

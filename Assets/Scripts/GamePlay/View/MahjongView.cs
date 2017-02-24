@@ -59,10 +59,12 @@ public class MahjongView : UIObject, IObserver
 	}
     void OnEnable() {
 		//Debug.Log ("OnEnable()");
-        EventManager.Get().addObserver(this);
+		if(EventManager.Instance)
+			EventManager.Instance.RpcAddObserver(this);
     }
     void OnDisable() {
-        EventManager.Get().removeObserver(this);
+		if(EventManager.Instance)
+			EventManager.Instance.RpcRemoveObserver(this);
     }
 
 
@@ -72,7 +74,7 @@ public class MahjongView : UIObject, IObserver
     }
     void OnUIAnimEnd()
     {
-        EventManager.Get().SendEvent(UIEventType.On_UIAnim_End);
+		EventManager.Instance.RpcSendEvent(UIEventType.On_UIAnim_End);
     }
 
 

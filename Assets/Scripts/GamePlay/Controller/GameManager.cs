@@ -32,11 +32,13 @@ public class GameManager : StateMachine, IObserver
 
     void OnEnable() 
     {
-        EventManager.Get().addObserver(this);
+		if(isLocalPlayer)
+			EventManager.Instance.RpcAddObserver(this);
     }
     void OnDisable() 
     {
-        EventManager.Get().removeObserver(this);
+		if(isLocalPlayer)
+			EventManager.Instance.RpcRemoveObserver(this);
     }
 
 
@@ -57,6 +59,9 @@ public class GameManager : StateMachine, IObserver
 		}
 		*/
 		//startGame ();
+		//if (isServer) {
+			startGame ();
+		//}
     }
 
 	public void startGame() {
@@ -87,7 +92,7 @@ public class GameManager : StateMachine, IObserver
 					waitTime--;
 					if (!_send && waitTime <= 10 ) {
 						//Debug.Log (_currentState+"!!!" + waitTime);
-						EventManager.Get ().SendEvent (UIEventType.Display_Countdown_Panel, waitTime);
+						EventManager.Instance.RpcSendEvent (UIEventType.Display_Countdown_Panel, waitTime);
 						_send = true;
 					}
 				} else {

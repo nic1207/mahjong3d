@@ -1,44 +1,59 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 
 
-public class EventManager 
+public class EventManager: NetworkBehaviour
 {
-    private List<IObserver> _observerList = null;
+	public List<IObserver> _observerList = new List<IObserver>();
 
-    private EventManager() 
-    {
-        _observerList = new List<IObserver>();
-    }
+    //private EventManager() 
+    //{
+    //    _observerList = new List<IObserver>();
+    //}
 
-    private static EventManager instance = null;
-    public static EventManager Get()
+    public static EventManager Instance = null;
+    /*
+	public static EventManager Get()
     {
-        if(instance == null)
-            instance = new EventManager();
+		if (instance == null) {
+			GameObject go = new GameObject ("EventManager");
+			instance = go.AddComponent<EventManager> ();
+			//instance = new EventManager ();
+		}
         return instance;
     }
+    */
+	void Awake() {
+		Instance = this;
+		//DontDestroyOnLoad ();
+	}
 
 
     public static void CleanUp()
     {
-        instance._observerList.Clear();
-        instance = null;
+		Instance._observerList.Clear();
+		//Instance = null;
     }
 
-
-    public void addObserver(IObserver observer) 
+	/*[Client]*/
+	/*[ClientRpc]*/
+	public void RpcAddObserver(IObserver observer) 
     {
-		//Debug.Log ("addObserver("+observer+")");
+		Debug.Log ("addObserver("+observer+")");
         if(observer == null)
             return;
         
         if(!_observerList.Contains(observer))
             _observerList.Add(observer);
     }
-    public void removeObserver(IObserver observer) 
+
+	/*[Client]*/
+	/*[ClientRpc]*/
+	public void RpcRemoveObserver(IObserver observer) 
     {
+		Debug.Log ("removeObserver("+observer+")");
         if(observer == null)
             return;
         
@@ -46,11 +61,13 @@ public class EventManager
             _observerList.Remove(observer);
     }
 
-
+	/*[ClientRpc]*/
+	/*[Client]*/
+	/*[ClientRpc]*/
     // send ui event.
-    public void SendEvent(UIEventType eventType, params object[] args) 
+    public void RpcSendEvent(UIEventType eventType, params object[] args) 
     {
-		//Debug.Log ("SendEvent(_observerList.Count="+_observerList.Count+")");
+		Debug.Log ("SendEvent(_observerList.Count="+_observerList.Count+")");
         for( int i = 0; i < _observerList.Count; i++ ) 
         {
             IObserver observer = (IObserver)_observerList[i];

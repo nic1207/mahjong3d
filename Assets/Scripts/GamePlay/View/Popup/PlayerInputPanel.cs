@@ -62,7 +62,7 @@ public class PlayerInputPanel : UIObject
 
     protected void NotifyHide()
     {
-        EventManager.Get().SendEvent(UIEventType.HideMenuList);
+		EventManager.Instance.RpcSendEvent(UIEventType.HideMenuList);
     }
 
     public void Hide()

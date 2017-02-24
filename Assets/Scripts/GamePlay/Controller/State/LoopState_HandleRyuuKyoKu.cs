@@ -26,12 +26,12 @@ public class LoopState_HandleRyuuKyoKu : GameStateBase
             {
             */
             logicOwner.HandleRyuukyokuTenpai();
-            EventManager.Get().SendEvent(UIEventType.RyuuKyoku, ERyuuKyokuReason.NoTsumoHai, logicOwner.AgariUpdateInfoList);
+			EventManager.Instance.RpcSendEvent(UIEventType.RyuuKyoku, ERyuuKyokuReason.NoTsumoHai, logicOwner.AgariUpdateInfoList);
             //}
         }
         else
         {
-            EventManager.Get().SendEvent(UIEventType.RyuuKyoku, logicOwner.RyuuKyokuReason, logicOwner.AgariUpdateInfoList);
+			EventManager.Instance.RpcSendEvent(UIEventType.RyuuKyoku, logicOwner.RyuuKyokuReason, logicOwner.AgariUpdateInfoList);
         }
     }
 

@@ -137,7 +137,7 @@ public class SelectChiiChaPanel : MonoBehaviour
     void OnEnd()
     {
         Hide();
-        EventManager.Get().SendEvent(UIEventType.On_Select_ChiiCha_End, chiiChaIndex);
+		EventManager.Instance.RpcSendEvent(UIEventType.On_Select_ChiiCha_End, chiiChaIndex);
     }
 
 }

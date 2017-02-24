@@ -27,14 +27,14 @@ public class LoopState_AskHandleSuteHai : GameStateBase
 		logicOwner.ActivePlayer.Action.Response = EResponse.Nagashi;
 		logicOwner.Handle_SuteHai_Nagashi ();
 
-		EventManager.Get().SendEvent(UIEventType.HideMenuList);
+		EventManager.Instance.RpcSendEvent(UIEventType.HideMenuList);
 		logicOwner.ActivePlayer.OnPlayerInputFinished();
 		//OnHandle_ResponseSuteHai ();
 		//logicOwner.ActivePlayer.Action.SutehaiIndex = 0;
 		logicOwner.ActivePlayer.Action.Response = EResponse.SuteHai;
 		logicOwner.Handle_SuteHai ();
 
-		EventManager.Get().SendEvent(UIEventType.HideMenuList);
+		EventManager.Instance.RpcSendEvent(UIEventType.HideMenuList);
 		logicOwner.ActivePlayer.OnPlayerInputFinished();
 		//logicOwner.Handle_SuteHai();
 		//OnHandle_ResponseSuteHai ();
@@ -80,7 +80,7 @@ public class LoopState_AskHandleSuteHai : GameStateBase
                 logicOwner.AgariResult = EAgariType.Ron;
 
                 // show ron ui.
-                EventManager.Get().SendEvent(UIEventType.Ron_Agari, ronPlayers, logicOwner.FromKaze, logicOwner.SuteHai);
+				EventManager.Instance.RpcSendEvent(UIEventType.Ron_Agari, ronPlayers, logicOwner.FromKaze, logicOwner.SuteHai);
 
                 owner.ChangeState<LoopState_Agari>();
             }
@@ -121,7 +121,7 @@ public class LoopState_AskHandleSuteHai : GameStateBase
                         {
                             logicOwner.Handle_Pon();
 
-                            EventManager.Get().SendEvent(UIEventType.Pon, logicOwner.ActivePlayer, logicOwner.FromKaze);
+							EventManager.Instance.RpcSendEvent(UIEventType.Pon, logicOwner.ActivePlayer, logicOwner.FromKaze);
 
                             owner.ChangeState<LoopState_AskSelectSuteHai>();
                         }
@@ -130,7 +130,7 @@ public class LoopState_AskHandleSuteHai : GameStateBase
                         {
                             logicOwner.Handle_DaiMinKan();
 
-                            EventManager.Get().SendEvent(UIEventType.DaiMinKan, logicOwner.ActivePlayer, logicOwner.FromKaze);
+							EventManager.Instance.RpcSendEvent(UIEventType.DaiMinKan, logicOwner.ActivePlayer, logicOwner.FromKaze);
 
                             if( logicOwner.checkKanCountOverFlow() ){
                                 logicOwner.Handle_Invalid_RyuuKyoku(); // must.
@@ -176,21 +176,21 @@ public class LoopState_AskHandleSuteHai : GameStateBase
                             {
                                 logicOwner.Handle_ChiiLeft();
 
-                                EventManager.Get().SendEvent(UIEventType.Chii_Left, logicOwner.ActivePlayer, logicOwner.FromKaze);
+								EventManager.Instance.RpcSendEvent(UIEventType.Chii_Left, logicOwner.ActivePlayer, logicOwner.FromKaze);
                             }
                             break;
                             case EResponse.Chii_Center:
                             {
                                 logicOwner.Handle_ChiiCenter();
 
-                                EventManager.Get().SendEvent(UIEventType.Chii_Center, logicOwner.ActivePlayer, logicOwner.FromKaze);
+								EventManager.Instance.RpcSendEvent(UIEventType.Chii_Center, logicOwner.ActivePlayer, logicOwner.FromKaze);
                             }
                             break;
                             case EResponse.Chii_Right:
                             {
                                 logicOwner.Handle_ChiiRight();
 
-                                EventManager.Get().SendEvent(UIEventType.Chii_Right, logicOwner.ActivePlayer, logicOwner.FromKaze);
+								EventManager.Instance.RpcSendEvent(UIEventType.Chii_Right, logicOwner.ActivePlayer, logicOwner.FromKaze);
                             }
                             break;
                         }

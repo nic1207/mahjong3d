@@ -117,6 +117,6 @@ public class SaifuriPanel : MonoBehaviour
 
         Hide();
 
-        EventManager.Get().SendEvent(UIEventType.On_Select_Wareme_End);
+		EventManager.Instance.RpcSendEvent(UIEventType.On_Select_Wareme_End);
     }
 }

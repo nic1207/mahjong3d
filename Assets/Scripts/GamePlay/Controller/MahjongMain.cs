@@ -324,7 +324,7 @@ public class MahjongMain : Mahjong
 		}
 		//m_activePlayer = m_playerList[m_oyaIndex]; 
         m_kazeFrom = m_activePlayer.JiKaze;
-		EventManager.Get().SendEvent(UIEventType.Display_Homeba_Panel, m_oyaIndex);
+		EventManager.Instance.RpcSendEvent(UIEventType.Display_Homeba_Panel, m_oyaIndex);
     }
 
 	//是否是最後一局
@@ -344,7 +344,7 @@ public class MahjongMain : Mahjong
 		//Debug.Log ("SetNextPlayer()"+m_activePlayer.Name);
 		int idx = getPlayerIndex( m_kazeFrom );
 		//Debug.Log ("idx="+idx);
-		EventManager.Get().SendEvent(UIEventType.Display_Arrow_Panel, idx);
+		EventManager.Instance.RpcSendEvent(UIEventType.Display_Arrow_Panel, idx);
     }
 
     // ツモ牌がない場合、流局する

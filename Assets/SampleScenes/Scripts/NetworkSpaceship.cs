@@ -6,19 +6,20 @@ using UnityEngine.Networking;
 //[RequireComponent(typeof(Rigidbody))]
 public class NetworkSpaceship : NetworkBehaviour
 {
-    public float rotationSpeed = 45.0f;
-    public float speed = 2.0f;
-    public float maxSpeed = 3.0f;
+    //public float rotationSpeed = 45.0f;
+    //public float speed = 2.0f;
+    //public float maxSpeed = 3.0f;
 
     //public ParticleSystem killParticle;
     //public GameObject trailGameobject;
-    public GameObject bulletPrefab;
+    //public GameObject bulletPrefab;
+	public RectTransform Panel;
 
     //Network syncvar
     [SyncVar(hook = "OnScoreChanged")]
     public int score;
-    [SyncVar]
-    public Color color;
+    //[SyncVar]
+    //public Color color;
     [SyncVar]
     public string playerName;
     [SyncVar(hook = "OnLifeChanged")]
@@ -26,14 +27,14 @@ public class NetworkSpaceship : NetworkBehaviour
 
     //protected Rigidbody _rigidbody;
     //protected Collider _collider;
-    protected Text _scoreText;
+    //protected Text _scoreText;
 
-    protected float _rotation = 0;
-    protected float _acceleration = 0;
+    //protected float _rotation = 0;
+    //protected float _acceleration = 0;
 
-    protected float _shootingTimer = 0;
+    //protected float _shootingTimer = 0;
 
-    protected bool _canControl = true;
+    //protected bool _canControl = true;
 
     //hard to control WHEN Init is called (networking make order between object spawning non deterministic)
     //so we call init from multiple location (depending on what between spaceship & manager is created first).
@@ -42,7 +43,7 @@ public class NetworkSpaceship : NetworkBehaviour
     void Awake()
     {
         //register the spaceship in the gamemanager, that will allow to loop on it.
-        NetworkGameManager.sShips.Add(this);
+        //NetworkGameManager.sShips.Add(this);
     }
 
     void Start()
@@ -50,19 +51,21 @@ public class NetworkSpaceship : NetworkBehaviour
         //_rigidbody = GetComponent<Rigidbody>();
         //_collider = GetComponent<Collider>();
 
-        Renderer[] rends = GetComponentsInChildren<Renderer>();
-		foreach (Renderer r in rends) {
-			r.material.color = color;
-		}
+        //Renderer[] rends = GetComponentsInChildren<Renderer>();
+		//foreach (Renderer r in rends) {
+		//	r.material.color = color;
+		//}
 
         //We don't want to handle collision on client, so disable collider there
         //_collider.enabled = isServer;
+		if (isLocalPlayer) {
+			Panel.anchoredPosition = new Vector2 (0, -500);
+		}
 
-
-        if (NetworkGameManager.sInstance != null)
-        {//we MAY be awake late (see comment on _wasInit above), so if the instance is already there we init
-            Init();
-        }
+        //if (NetworkGameManager.sInstance != null)
+        //{//we MAY be awake late (see comment on _wasInit above), so if the instance is already there we init
+        Init();
+        //}
     }
 
     public void Init()
@@ -78,7 +81,7 @@ public class NetworkSpaceship : NetworkBehaviour
         _scoreText.resizeTextForBestFit = true;
         _scoreText.color = color;
 		*/
-		gameObject.transform.SetParent(NetworkGameManager.sInstance.uiScoreZone.transform, false);
+		//gameObject.transform.SetParent(NetworkGameManager.sInstance.uiScoreZone.transform, false);
 		_wasInit = true;
 
         //UpdateScoreLifeText();
@@ -86,10 +89,10 @@ public class NetworkSpaceship : NetworkBehaviour
 
     void OnDestroy()
     {
-        NetworkGameManager.sShips.Remove(this);
+        //NetworkGameManager.sShips.Remove(this);
     }
 
-    [ClientCallback]
+    //[ClientCallback]
     void Update()
     {
 		/*
@@ -117,7 +120,7 @@ public class NetworkSpaceship : NetworkBehaviour
     }
 
 
-    [ClientCallback]
+    //[ClientCallback]
     void FixedUpdate()
     {
         if (!hasAuthority)
@@ -147,8 +150,8 @@ public class NetworkSpaceship : NetworkBehaviour
         }
         */
     }
-
-    [ClientCallback]
+	/*
+    //[ClientCallback]
     void OnCollisionEnter(Collision coll)
     {
         if (isServer)
@@ -163,12 +166,13 @@ public class NetworkSpaceship : NetworkBehaviour
             LocalDestroy();
         }
     }
-
+	*/
+	/*
     void CheckExitScreen()
     {
         if (Camera.main == null)
             return;
-		/*
+		
         if (Mathf.Abs(_rigidbody.position.x) > Camera.main.orthographicSize * Camera.main.aspect)
         {
             _rigidbody.position = new Vector3(-Mathf.Sign(_rigidbody.position.x) * Camera.main.orthographicSize * Camera.main.aspect, 0, _rigidbody.position.z);
@@ -180,23 +184,25 @@ public class NetworkSpaceship : NetworkBehaviour
             _rigidbody.position = new Vector3(_rigidbody.position.x , _rigidbody.position.y, -Mathf.Sign(_rigidbody.position.z) * Camera.main.orthographicSize);
             _rigidbody.position -= _rigidbody.position.normalized * 0.1f; // offset a little bit to avoid looping back & forth between the 2 edges 
         }
-        */
+        
     }
+	*/
 
 
     // --- Score & Life management & display
     void OnScoreChanged(int newValue)
     {
         score = newValue;
-        UpdateScoreLifeText();
+        //UpdateScoreLifeText();
     }
 
     void OnLifeChanged(int newValue)
     {
         lifeCount = newValue;
-        UpdateScoreLifeText();
+        //UpdateScoreLifeText();
     }
 
+	/*
     void UpdateScoreLifeText()
     {
         if (_scoreText != null)
@@ -206,9 +212,10 @@ public class NetworkSpaceship : NetworkBehaviour
                 _scoreText.text += "X";
         }
     }
+    */
 
     //===================================
-
+	/*
     //We can't disable the whole object, as it would impair synchronisation/communication
     //So disabling mean disabling collider & renderer only
     public void EnableSpaceShip(bool enable)
@@ -219,22 +226,24 @@ public class NetworkSpaceship : NetworkBehaviour
 
         _canControl = enable;
     }
-
+	*/
+	/*
     [Client]
     public void LocalDestroy()
     {
-		/*
+		
         killParticle.transform.SetParent(null);
         killParticle.transform.position = transform.position;
         killParticle.gameObject.SetActive(true);
         killParticle.time = 0;
         killParticle.Play();
-		*/
+		
         if (!_canControl)
             return;//already destroyed, happen if destroyed Locally, Rpc will call that later
 
         EnableSpaceShip(false);
     }
+	*/
 	/*
     //this tell the game this should ONLY be called on server, will ignore call on client & produce a warning
     [Server]
@@ -261,10 +270,10 @@ public class NetworkSpaceship : NetworkBehaviour
         RpcRespawn();
     }
 	*/
-
+	/*
     public void CreateBullets()
     {
-		/*
+		
         Vector3[] vectorBase = { _rigidbody.rotation * Vector3.right, _rigidbody.rotation * Vector3.up, _rigidbody.rotation * Vector3.forward };
         Vector3[] offsets = { -1.5f * vectorBase[0] + -0.5f * vectorBase[2], 1.5f * vectorBase[0] + -0.5f * vectorBase[2] };
 
@@ -278,16 +287,16 @@ public class NetworkSpaceship : NetworkBehaviour
 
             //NetworkServer.SpawnWithClientAuthority(bullet, connectionToClient);
         }
-        */
-    }
 
+    }
+	*/
     // =========== NETWORK FUNCTIONS
 
     [Command]
     public void CmdFire(Vector3 position, Vector3 forward, Vector3 startingVelocity)
     {
-        if (!isClient) //avoid to create bullet twice (here & in Rpc call) on hosting client
-            CreateBullets();
+        //if (!isClient) //avoid to create bullet twice (here & in Rpc call) on hosting client
+        //    CreateBullets();
 
         RpcFire();
     }
@@ -302,7 +311,7 @@ public class NetworkSpaceship : NetworkBehaviour
     [ClientRpc]
     public void RpcFire()
     {
-        CreateBullets();
+        //CreateBullets();
     }
 
 
@@ -310,14 +319,13 @@ public class NetworkSpaceship : NetworkBehaviour
     [ClientRpc]
     void RpcDestroyed()
     {
-        LocalDestroy();
+        //LocalDestroy();
     }
 
     [ClientRpc]
     void RpcRespawn()
     {
-        EnableSpaceShip(true);
-
+        //EnableSpaceShip(true);
         //killParticle.gameObject.SetActive(false);
         //killParticle.Stop();
     }

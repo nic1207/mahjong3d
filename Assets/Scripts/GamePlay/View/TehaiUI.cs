@@ -170,7 +170,7 @@ public class TehaiUI : UIObject
                 PlayerAction.Response = EResponse.SuteHai;
                 PlayerAction.SutehaiIndex = index;
 
-                EventManager.Get().SendEvent(UIEventType.HideMenuList);
+				EventManager.Instance.RpcSendEvent(UIEventType.HideMenuList);
                 OwnerPlayer.OnPlayerInputFinished();
             }
             break;
@@ -181,7 +181,7 @@ public class TehaiUI : UIObject
                 PlayerAction.ReachSelectIndex = PlayerAction.ReachHaiIndexList.FindIndex(i => i == index);
 
                 SetEnableStateColor(true);
-                EventManager.Get().SendEvent(UIEventType.HideMenuList);
+				EventManager.Instance.RpcSendEvent(UIEventType.HideMenuList);
                 OwnerPlayer.OnPlayerInputFinished();
             }
             break;
@@ -203,7 +203,7 @@ public class TehaiUI : UIObject
                 PlayerAction.KanSelectIndex = PlayerAction.TsumoKanHaiList.FindIndex(h=> h.ID == kanHai.ID);
 
                 SetEnableStateColor(true);
-                EventManager.Get().SendEvent(UIEventType.HideMenuList);
+				EventManager.Instance.RpcSendEvent(UIEventType.HideMenuList);
                 OwnerPlayer.OnPlayerInputFinished();
             }
             break;
@@ -278,7 +278,7 @@ public class TehaiUI : UIObject
                             }
                         }
 
-                        EventManager.Get().SendEvent(UIEventType.HideMenuList);
+						EventManager.Instance.RpcSendEvent(UIEventType.HideMenuList);
                         OwnerPlayer.OnPlayerInputFinished();
 
                         chiiPaiSelectList.Clear();

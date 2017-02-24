@@ -26,7 +26,7 @@ public class LoopState_AskHandleTsumoHai : GameStateBase
 		logicOwner.ActivePlayer.Action.Response = EResponse.SuteHai;
 		logicOwner.Handle_SuteHai();
 
-		EventManager.Get().SendEvent(UIEventType.HideMenuList);
+		EventManager.Instance.RpcSendEvent(UIEventType.HideMenuList);
 		logicOwner.ActivePlayer.OnPlayerInputFinished();
 
 		owner.ChangeState<LoopState_ToNextLoop>();
@@ -45,7 +45,7 @@ public class LoopState_AskHandleTsumoHai : GameStateBase
                 logicOwner.Handle_TsumoAgari();
                 logicOwner.AgariResult = EAgariType.Tsumo;
 
-                EventManager.Get().SendEvent(UIEventType.Tsumo_Agari, activePlayer);
+				EventManager.Instance.RpcSendEvent(UIEventType.Tsumo_Agari, activePlayer);
 
                 owner.ChangeState<LoopState_Agari>();
             }
@@ -54,7 +54,7 @@ public class LoopState_AskHandleTsumoHai : GameStateBase
             {
                 logicOwner.Handle_AnKan();
 
-                EventManager.Get().SendEvent(UIEventType.Ankan, activePlayer);
+				EventManager.Instance.RpcSendEvent(UIEventType.Ankan, activePlayer);
 
                 if( logicOwner.checkKanCountOverFlow() ){
                     logicOwner.Handle_Invalid_RyuuKyoku(); // must.
@@ -71,7 +71,7 @@ public class LoopState_AskHandleTsumoHai : GameStateBase
             {
                 logicOwner.Handle_KaKan();
 
-                EventManager.Get().SendEvent(UIEventType.Kakan, activePlayer, logicOwner.KakanHai);
+				EventManager.Instance.RpcSendEvent(UIEventType.Kakan, activePlayer, logicOwner.KakanHai);
 
                 if( logicOwner.checkKanCountOverFlow() ){
                     logicOwner.Handle_Invalid_RyuuKyoku(); // must.
@@ -88,7 +88,7 @@ public class LoopState_AskHandleTsumoHai : GameStateBase
             {
                 logicOwner.Handle_Reach();
 
-                EventManager.Get().SendEvent(UIEventType.Reach, activePlayer, logicOwner.SuteHaiIndex, logicOwner.SuteHai, logicOwner.isTedashi);
+				EventManager.Instance.RpcSendEvent(UIEventType.Reach, activePlayer, logicOwner.SuteHaiIndex, logicOwner.SuteHai, logicOwner.isTedashi);
 
                 // 4 fon
                 if( logicOwner.checkSuteFonHai4() && !GameSettings.AllowSuteFonHai4 ){
@@ -111,7 +111,7 @@ public class LoopState_AskHandleTsumoHai : GameStateBase
             {
                 logicOwner.Handle_SuteHai();
 
-                EventManager.Get().SendEvent(UIEventType.SuteHai, activePlayer, logicOwner.SuteHaiIndex, logicOwner.SuteHai, logicOwner.isTedashi);
+				EventManager.Instance.RpcSendEvent(UIEventType.SuteHai, activePlayer, logicOwner.SuteHaiIndex, logicOwner.SuteHai, logicOwner.isTedashi);
 
                 if( logicOwner.checkSuteFonHai4() && !GameSettings.AllowSuteFonHai4 ){
                     logicOwner.Handle_Invalid_RyuuKyoku(); // must.

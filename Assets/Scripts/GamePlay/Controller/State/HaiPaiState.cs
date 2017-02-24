@@ -47,7 +47,7 @@ public class HaiPaiState : GameStateBase
         }
         Debug.Log( kyokuStr + " " + honbaStr + " " + ResManager.getString("start") + "!" );
 
-        EventManager.Get().SendEvent(UIEventType.DisplayKyokuInfo, kyokuStr, honbaStr);
+		EventManager.Instance.RpcSendEvent(UIEventType.DisplayKyokuInfo, kyokuStr, honbaStr);
     }
 
     /*
@@ -63,7 +63,7 @@ public class HaiPaiState : GameStateBase
     {
         StopWaitingOperation();
 
-        EventManager.Get().SendEvent(UIEventType.Select_Wareme);
+		EventManager.Instance.RpcSendEvent(UIEventType.Select_Wareme);
     }
 
 
@@ -89,7 +89,7 @@ public class HaiPaiState : GameStateBase
     {
         logicOwner.SetWaremeAndHaipai();
 
-        EventManager.Get().SendEvent(UIEventType.SetUI_AfterHaipai);
+		EventManager.Instance.RpcSendEvent(UIEventType.SetUI_AfterHaipai);
 
         StartCoroutine(StartLoop());
     }

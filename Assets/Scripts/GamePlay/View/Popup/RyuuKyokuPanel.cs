@@ -91,6 +91,6 @@ public class RyuuKyokuPanel : MonoBehaviour
 
     void OnConfirm()
     {
-        EventManager.Get().SendEvent(UIEventType.End_RyuuKyoku);
+		EventManager.Instance.RpcSendEvent(UIEventType.End_RyuuKyoku);
     }
 }

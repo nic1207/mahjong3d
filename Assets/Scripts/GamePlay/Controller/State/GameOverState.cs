@@ -10,7 +10,7 @@ public class GameOverState : GameStateBase
 
         logicOwner.EndGame();
 
-        EventManager.Get().SendEvent(UIEventType.End_Game, logicOwner.AgariUpdateInfoList);
+		EventManager.Instance.RpcSendEvent(UIEventType.End_Game, logicOwner.AgariUpdateInfoList);
     }
 
 }

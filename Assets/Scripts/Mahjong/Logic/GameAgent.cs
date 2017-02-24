@@ -62,7 +62,7 @@ public class GameAgent
 
     public void PostUiEvent(UIEventType eventType, params object[] args)
     {
-        EventManager.Get().SendEvent(eventType, args);
+		EventManager.Instance.RpcSendEvent(eventType, args);
     }
 
     public SuteHai[] getSuteHaiList() {

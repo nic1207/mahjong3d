@@ -9,7 +9,7 @@ public class GameStartState : GameStateBase
 
         base.Enter();
 
-        EventManager.Get().SendEvent( UIEventType.Init_Game );
+		EventManager.Instance.RpcSendEvent( UIEventType.Init_Game );
 
         owner.ChangeState<GamePrepareState>();
     }

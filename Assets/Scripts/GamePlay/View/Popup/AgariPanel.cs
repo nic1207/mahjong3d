@@ -403,7 +403,7 @@ public class AgariPanel : MonoBehaviour
     {
         Hide();
 
-        EventManager.Get().SendEvent(UIEventType.End_Kyoku);
+		EventManager.Instance.RpcSendEvent(UIEventType.End_Kyoku);
     }
 
 }

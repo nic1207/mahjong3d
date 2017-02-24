@@ -81,6 +81,6 @@ public class KyokuInfoPanel : MonoBehaviour
     {
         Hide();
 
-        EventManager.Get().SendEvent(UIEventType.On_UIAnim_End);
+		EventManager.Instance.RpcSendEvent(UIEventType.On_UIAnim_End);
     }
 }

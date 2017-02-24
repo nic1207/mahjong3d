@@ -12,10 +12,11 @@ public class GamePrepareState : GameStateBase
     public override void Enter() {
         base.Enter();
 
-        if( logicOwner.needSelectChiiCha() )
-            EventManager.Get().SendEvent(UIEventType.Select_ChiiCha);
-        else
-            OnSaifuriForOyaEnd();
+		if (logicOwner.needSelectChiiCha ()) {
+			EventManager.Instance.RpcSendEvent (UIEventType.Select_ChiiCha);
+		} else {
+			OnSaifuriForOyaEnd ();
+		}
     }
 
 
@@ -39,8 +40,8 @@ public class GamePrepareState : GameStateBase
     {
         logicOwner.PrepareKyoku();
 
-        EventManager.Get().SendEvent(UIEventType.Init_PlayerInfoUI);
-        EventManager.Get().SendEvent(UIEventType.SetYama_BeforeHaipai);
+		EventManager.Instance.RpcSendEvent(UIEventType.Init_PlayerInfoUI);
+		EventManager.Instance.RpcSendEvent(UIEventType.SetYama_BeforeHaipai);
 
         owner.ChangeState<HaiPaiState>();
     }

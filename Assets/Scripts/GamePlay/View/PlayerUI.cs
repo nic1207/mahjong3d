@@ -153,7 +153,7 @@ public class PlayerUI : UIObject
 		//string path = "Sounds/CV/sm_cvw_b001";
 		//Debug.Log(path);
 		AudioManager.Get().PlaySFX(path);
-		EventManager.Get().SendEvent(UIEventType.Display_Throwpai_Panel, _index, h);
+		EventManager.Instance.RpcSendEvent(UIEventType.Display_Throwpai_Panel, _index, h);
     }
 	public void Speak( ECvType content )
 	{

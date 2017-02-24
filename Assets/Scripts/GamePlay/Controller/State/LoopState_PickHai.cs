@@ -24,7 +24,7 @@ public class LoopState_PickHai : GameStateBase
                 return;
             }
 
-            EventManager.Get().SendEvent(UIEventType.PickTsumoHai, logicOwner.ActivePlayer, lastPickIndex, tsumoHai );
+			EventManager.Instance.RpcSendEvent(UIEventType.PickTsumoHai, logicOwner.ActivePlayer, lastPickIndex, tsumoHai );
 
             owner.ChangeState<LoopState_AskHandleTsumoHai>();
         }

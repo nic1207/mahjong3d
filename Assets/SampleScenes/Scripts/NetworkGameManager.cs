@@ -18,7 +18,7 @@ public class NetworkGameManager : NetworkBehaviour
 
     [Space]
 
-    protected bool _spawningAsteroid = true;
+    //protected bool _spawningAsteroid = true;
     protected bool _running = true;
 
     void Awake()
@@ -31,7 +31,7 @@ public class NetworkGameManager : NetworkBehaviour
         if (isServer)
         {
         	//StartCoroutine(AsteroidCoroutine());
-			GameManager.Get().startGame();
+			//GameManager.Get().startGame();
         }
 
         for(int i = 0; i < sShips.Count; ++i)
