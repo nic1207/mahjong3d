@@ -460,11 +460,7 @@ public class AgariPanel : MonoBehaviour
 
         Hide();
 
-<<<<<<< HEAD
 		EventManager.Instance.RpcSendEvent(UIEventType.End_Kyoku);
-=======
-        EventManager.Get().SendEvent(UIEventType.End_Kyoku);
-
         RecordPreTedasi._instance.Clear(); //重置贏家
         TotalScoreToggle(false);
     }
@@ -509,7 +505,6 @@ public class AgariPanel : MonoBehaviour
                     agariPlayers[i].GetComponent<AgariPlayer>().SetPlayerDrawUI();
             }
         }
->>>>>>> 597fcc1c78aa74e0dba2663cebdfcb365615c30f
     }
 
     private void CaculateCoin(int _getCoin) {

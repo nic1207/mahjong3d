@@ -1704,6 +1704,7 @@ MonoBehaviour:
   - {fileID: 2126147726}
   - {fileID: 1768945597}
   - {fileID: 335306486}
+  stayTime: 1.5
 --- !u!222 &130462061
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4621,7 +4622,7 @@ Transform:
   - {fileID: 1219617225}
   - {fileID: 1792431056}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
 --- !u!114 &330713885
 MonoBehaviour:
   m_ObjectHideFlags: 0
