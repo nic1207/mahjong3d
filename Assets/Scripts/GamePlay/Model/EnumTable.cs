@@ -12,4 +12,3 @@ public enum EFrontBack
     Front,
     Back
 }
-

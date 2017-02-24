@@ -273,4 +273,13 @@ public class ResManager
             Debug.LogError(path + " not found!!");
         return s;
     }
+
+    public static Sprite getSelectCCSprite(int num)
+    {
+        string path = "image/playing-c" + num;
+        Sprite s = Resources.Load<Sprite>(path) as Sprite;
+        if (s == null)
+            Debug.LogError(path + " not found!!");
+        return s;
+    }
 }

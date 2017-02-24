@@ -21,10 +21,10 @@ public class SelectChiiChaPanel : MonoBehaviour
 
 
     void Start(){
-		Vector3 pos0 = new Vector3 (0, -Screen.height/2, 0);//self
-		Vector3 pos1 = new Vector3 (-Screen.width/2, 0, 0);//prev
-		Vector3 pos2 = new Vector3 (0, Screen.height/2, 0);//upp
-		Vector3 pos3 = new Vector3 (Screen.width/2, 0, 0);//next
+		Vector3 pos0 = new Vector3 (0, -Screen.height*2/3, 0);//self
+		Vector3 pos1 = new Vector3 (-Screen.width*2/3, 0, 0);//prev
+		Vector3 pos2 = new Vector3 (0, Screen.height*2/3, 0);//upp
+		Vector3 pos3 = new Vector3 (Screen.width*2/3, 0, 0);//next
 
 		kazePosList.Add (pos0);
 		kazePosList.Add (pos1);
@@ -92,8 +92,9 @@ public class SelectChiiChaPanel : MonoBehaviour
 
 		for (int i = 0; i < pais.Count; i++) {
 			Hai h = kazePaiList [i];
-			pais [i].sprite = ResManager.getMahjongSprite( h.Kind, h.Num);
-			pais [i].transform.parent.gameObject.SetActive (true);
+            // pais [i].sprite = ResManager.getMahjongSprite( h.Kind, h.Num);
+            pais[i].sprite = ResManager.getSelectCCSprite(h.Num);
+            pais [i].transform.parent.gameObject.SetActive (true);
 			cachePais.Add (h.ID, pais [i]);
 		}
 

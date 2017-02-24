@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System;
 
 public class AgariPanel : MonoBehaviour
 {
@@ -22,11 +23,20 @@ public class AgariPanel : MonoBehaviour
 	public Text lab_point;
 	public Text lab_level;
 
-    public Button btn_Continue;
+    public GameObject _totalHan;     //總台數
+    public GameObject _totalWin;     //當手贏得
+    public GameObject _totalCoin;    //共得醬幣
+    public Transform[] agariPlayers;
 
+    public Button btn_Continue;
+    public Text CountDownText;
 
     private const float haiOffset = 2f;
     private const int DoraHaisColumn = 5;
+
+    private int _coinRate =  60;    // 1台多少
+    private float _coinFee = 0.9f;  //手續費抽成
+    private int countDownTime = 0; //CountDown second
 
     //private List<MahjongPai> _omoteDoraHais = new List<MahjongPai>();
     //private List<MahjongPai> _uraDoraHais = new List<MahjongPai>();
@@ -106,10 +116,15 @@ public class AgariPanel : MonoBehaviour
     public void Hide()
     {
         gameObject.SetActive(false);
+
+        ClearAgariEffect();
     }
 
     public void Show( List<AgariUpdateInfo> agariList )
     {
+
+        CheckWhoGun();
+
         HideButtons();
         gameObject.SetActive(true);
 
@@ -288,10 +303,16 @@ public class AgariPanel : MonoBehaviour
 
         string oyaStr = ResManager.getString( currentAgari.agariPlayerIsOya ? "parent" : "child" );
 		if (lab_han) {
-			lab_han.text = oyaStr + "    " + string.Format ("{0}{1}    {2}{3}", 
-				fu, ResManager.getString ("fu"),
-				han, ResManager.getString ("han"));
-		}
+            //han += currentAgari.agariPlayerIsOya ? 1 : 0; //莊家
+
+            //lab_han.text = oyaStr + "    " + string.Format ("{0}{1}    {2}{3}", 
+            //	fu, ResManager.getString ("fu"),
+            //	han, ResManager.getString ("han"));
+
+            TotalScoreToggle(true);
+            _totalHan.transform.GetChild(0).GetComponent<Text>().text = string.Format("{0}", han);
+            CaculateHanToMoney(han);
+        }
 
         PlayLevelVoice(level);
     }
@@ -391,19 +412,139 @@ public class AgariPanel : MonoBehaviour
     {
 		if (btn_Continue) {
 			btn_Continue.gameObject.SetActive (true);
-			TweenAlpha.Begin (btn_Continue.gameObject, 0.5f, 1f).SetOnFinished (() => {
-				//btn_Continue.GetComponent<BoxCollider> ().enabled = true;
-				btn_Continue.interactable = true;
-			});
-		}
+            // 按鈕透明度轉變
+            //TweenAlpha.Begin(btn_Continue.gameObject, 0.5f, 1f).SetOnFinished(() =>  
+            //{
+                //btn_Continue.GetComponent<BoxCollider> ().enabled = true;
+                btn_Continue.interactable = true;
+            //});
+
+            ShowCountDown(9); //按鈕倒數
+        }
+    }
+
+    private void ShowCountDown(int num)
+    {
+        countDownTime = num;
+        CountDownText.text = countDownTime.ToString();
+        StopCoroutine("countDown");
+        StartCoroutine("countDown");
+    }
+
+    //確定鈕的倒數計時
+    private IEnumerator countDown()
+    {
+        while (countDownTime > 0)
+        {
+            yield return new WaitForSeconds(1);
+            countDownTime--;
+            if (countDownTime > 0 && CountDownText != null && countDownTime < 10)
+                CountDownText.text = countDownTime.ToString();
+            else {
+                OnClickContinue();
+            }
+        }
+    }
+
+    //是否顯示結算總分
+    private void TotalScoreToggle(bool _isShowT) {
+        _totalHan.SetActive(_isShowT);
+        _totalWin.SetActive(_isShowT);
+        _totalCoin.SetActive(_isShowT);
     }
 
 
     void OnClickContinue()
     {
+        StopCoroutine("countDown");
+
         Hide();
 
+<<<<<<< HEAD
 		EventManager.Instance.RpcSendEvent(UIEventType.End_Kyoku);
+=======
+        EventManager.Get().SendEvent(UIEventType.End_Kyoku);
+
+        RecordPreTedasi._instance.Clear(); //重置贏家
+        TotalScoreToggle(false);
     }
 
+    //轉換台數為醬幣
+    private void CaculateHanToMoney(int _han) {
+        int _getCoin = (int) Math.Ceiling( _han * _coinRate  * _coinFee);
+        //Debug.Log("_getCoin = " + _getCoin);
+
+        _totalWin.transform.GetChild(0).GetComponent<Text>().text = string.Format("{0}", _han * _coinRate);
+        _totalCoin.transform.GetChild(0).GetComponent<Text>().text = string.Format("{0}", _getCoin);
+
+        CaculateCoin(_getCoin);
+    }
+
+    private void CheckWhoGun() {
+        int _gunPlayer = RecordPreTedasi._instance.PreTedasiPlayerIndex;
+        int _ronPlayer = RecordPreTedasi._instance.RonPlayerIndex;
+        int _tsumonPlayer = RecordPreTedasi._instance.TsumoPlayerIndex;
+        Debug.Log("放槍的人 = " + _gunPlayer);    //列出誰放槍
+        Debug.Log("胡的人 = " + _ronPlayer);      //列出誰胡
+        Debug.Log("自摸的人 = " + _tsumonPlayer); //列出誰自摸
+
+        if (_tsumonPlayer != -1)
+        {
+            for (int i = 0; i < agariPlayers.Length; i++)
+            {
+                if (i == _tsumonPlayer)
+                    agariPlayers[i].GetComponent<AgariPlayer>().SetPlayerWinUI();
+                else
+                    agariPlayers[i].GetComponent<AgariPlayer>().SetPlayerLoseUI();
+            }
+        }
+        else {
+            for (int i = 0; i < agariPlayers.Length; i++)
+            {
+                if(i == _ronPlayer)
+                    agariPlayers[i].GetComponent<AgariPlayer>().SetPlayerWinUI();
+                else if (i == _gunPlayer)
+                    agariPlayers[i].GetComponent<AgariPlayer>().SetPlayerLoseUI();
+                else
+                    agariPlayers[i].GetComponent<AgariPlayer>().SetPlayerDrawUI();
+            }
+        }
+>>>>>>> 597fcc1c78aa74e0dba2663cebdfcb365615c30f
+    }
+
+    private void CaculateCoin(int _getCoin) {
+        int _gunPlayer = RecordPreTedasi._instance.PreTedasiPlayerIndex;
+        int _ronPlayer = RecordPreTedasi._instance.RonPlayerIndex;
+        int _tsumonPlayer = RecordPreTedasi._instance.TsumoPlayerIndex;
+
+        if (_tsumonPlayer != -1)
+        {
+            for (int i = 0; i < agariPlayers.Length; i++)
+            {
+                if (i == _tsumonPlayer)
+                    agariPlayers[i].GetComponent<AgariPlayer>().AddCoin(_getCoin * 3);
+                else
+                    agariPlayers[i].GetComponent<AgariPlayer>().ReduceCoin(_getCoin);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < agariPlayers.Length; i++)
+            {
+                if (i == _ronPlayer)
+                    agariPlayers[i].GetComponent<AgariPlayer>().AddCoin(_getCoin);
+                else if (i == _gunPlayer)
+                    agariPlayers[i].GetComponent<AgariPlayer>().ReduceCoin(_getCoin);
+                else
+                    agariPlayers[i].GetComponent<AgariPlayer>().ClearCoin();
+            }
+        }
+    }
+
+    private void ClearAgariEffect() {
+        for (int i = 0; i < agariPlayers.Length; i++)
+        {
+            agariPlayers[i].GetComponent<AgariPlayer>().HideEffect();
+        }
+    }
 }

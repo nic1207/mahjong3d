@@ -14,9 +14,10 @@ public class PlayerUI : UIObject
 	private string _name = string.Empty;
 	private int _index;
 
+
     //private int panelDepth = 0;
 
-	public string Name
+    public string Name
 	{
 		get { return _name;}
 		set {
@@ -24,7 +25,7 @@ public class PlayerUI : UIObject
 		}
 	}
 
-	public int Index
+    public int Index
 	{
 		get { return _index; }
 		set {
@@ -184,7 +185,8 @@ public class PlayerUI : UIObject
 			string name = ResManager.getMagjongName (hai.Kind, hai.Num);
 			string wind = ResManager.getString ("kaze_"+_ownerPlayer.JiKaze.ToString().ToLower());
 			Debug.Log ("["+wind+"]"+this._ownerPlayer.Name + " 出牌(" + name + ")");
-			Speak (ECvType.Throw, hai);
+            RecordPreTedasi._instance.PreTedasiPlayerIndex = this._ownerPlayer.Order;
+            Speak (ECvType.Throw, hai);
 			//Speak( ECvType.Reach );
 			AddSuteHai (pai);
 		} else {

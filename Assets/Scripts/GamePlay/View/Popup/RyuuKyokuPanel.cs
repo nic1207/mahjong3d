@@ -13,6 +13,7 @@ public class RyuuKyokuPanel : MonoBehaviour
 
     private ERyuuKyokuReason ryuuKyokuReason;
     private AgariUpdateInfo currentAgari;
+    private float _delayTime = 2f; // stay UI time to continue;
 
 
     void Start(){
@@ -21,8 +22,15 @@ public class RyuuKyokuPanel : MonoBehaviour
 			Text btnTag = btn_Continue.GetComponentInChildren<Text> (true);
 			btnTag.text = ResManager.getString ("continue");
 		}
+
+        
     }
 
+    IEnumerator AutoContinue(float _delayTime) {
+        yield return new WaitForSeconds(_delayTime);
+
+        OnConfirm();
+    }
 
     public void Hide()
     {
@@ -37,7 +45,9 @@ public class RyuuKyokuPanel : MonoBehaviour
         gameObject.SetActive(true);
 
         Show_Internel();
-		//OnConfirm ();
+        //OnConfirm ();
+
+        StartCoroutine(AutoContinue(_delayTime));
     }
 
     void Show_Internel()
