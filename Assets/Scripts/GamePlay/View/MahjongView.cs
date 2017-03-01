@@ -54,7 +54,10 @@ public class MahjongView : UIObject, IObserver
 
     private MahjongMain Model
     {
-		get { return GameClientManager.Get().LogicMain; }
+		get { 
+			//return GameClientManager.Get().LogicMain; 
+			return GameManager.Instance.GetLogicOwner(); 
+		}
     }
 
 	void Awake() {

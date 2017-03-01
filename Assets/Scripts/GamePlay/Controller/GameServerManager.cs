@@ -16,10 +16,10 @@ public class GameServerManager : StateMachineNet, IObserver
         return _instance;
     }
 
-    private MahjongMain mahjong;
+    private MahjongMain _mahjong;
     public MahjongMain LogicMain
     {
-        get { return mahjong; }
+        get { return _mahjong; }
     }
 
     private EVoiceType _systemVoiceType = EVoiceType.W_B;
@@ -33,7 +33,7 @@ public class GameServerManager : StateMachineNet, IObserver
     void OnEnable() 
     {
 		//if(isClient)
-		//EventManager.Instance.AddObserver(this);
+		EventManager.Instance.AddObserver(this);
     }
     void OnDisable() 
     {
@@ -44,7 +44,7 @@ public class GameServerManager : StateMachineNet, IObserver
 
     void Awake() {
         _instance = this;
-		mahjong = new MahjongMain();
+		_mahjong = new MahjongMain();
     }
 
     void Start() {
@@ -74,7 +74,7 @@ public class GameServerManager : StateMachineNet, IObserver
 				|| _currentState is LoopState_AskHandleSuteHai
 				) {
 				//MahjongMain owner = (_currentState as GameStateBase).logicOwner;
-				MahjongMain owner = mahjong;
+				MahjongMain owner = _mahjong;
 				Player pl = owner.ActivePlayer;
 				if (_savepl != pl) {
 					_savepl = pl;
@@ -103,7 +103,7 @@ public class GameServerManager : StateMachineNet, IObserver
 	//10秒內沒有回應處理
 	void handleNoResponse() {
 		_currentState.Handle ();
-		//ChangeState<LoopState_ToNextLoop> ();
+		ChangeState<LoopState_ToNextLoop> ();
 	}
 
     void OnDestroy()

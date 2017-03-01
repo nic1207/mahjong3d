@@ -48,28 +48,35 @@ public class AgariPlayer : MonoBehaviour {
     }
 
     public void AddCoin(int _int) {
-        _caculate.text = "+" + _int;
+		if(_caculate)
+        	_caculate.text = "+" + _int;
     }
 
     public void ReduceCoin(int _int)
     {
-        _caculate.text = "-" + _int;
+		if(_caculate)
+        	_caculate.text = "-" + _int;
     }
 
     public void ClearCoin()
     {
-        _caculate.text = "";
+		if(_caculate)
+        	_caculate.text = "";
     }
 
     private void SetCoinBlockWin() {
-        _coinBG.color = _coinYellow;
-        _coin.color = Color.red;
+		if(_coinBG)
+        	_coinBG.color = _coinYellow;
+		if(_coin)
+			_coin.color = Color.red;
     }
 
     private void SetCoinBlockLose()
     {
-        _coinBG.color = _coinPurple;
-        _coin.color = Color.white;
+		if(_coinBG)
+        	_coinBG.color = _coinPurple;
+		if(_coin)
+        	_coin.color = Color.white;
     }
 
     private void SetCoinBlockDraw()

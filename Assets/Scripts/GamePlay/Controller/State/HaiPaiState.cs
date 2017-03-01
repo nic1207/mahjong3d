@@ -22,18 +22,18 @@ public class HaiPaiState : GameStateBase
         {
             kyokuStr = ResManager.getString("info_end");
 
-            if( logicOwner.HonBa == 0 )
-                owner.Speak(ECvType.ORaSu);
+            //if( logicOwner.HonBa == 0 )
+            //    owner.Speak(ECvType.ORaSu);
         }
         else
         {
             if( logicOwner.getBaKaze() == EKaze.Nan ){
-                if( logicOwner.Kyoku == 1 && logicOwner.HonBa == 0 )
-                    owner.Speak(ECvType.NanBa_Start);
+                //if( logicOwner.Kyoku == 1 && logicOwner.HonBa == 0 )
+                //    owner.Speak(ECvType.NanBa_Start);
             }
             else if(logicOwner.getBaKaze() == EKaze.Ton){
-                if( logicOwner.Kyoku == (int)EKyoku.Ton_1 && logicOwner.HonBa == 0 )
-                    owner.Speak(ECvType.Kyoku_Start);
+                //if( logicOwner.Kyoku == (int)EKyoku.Ton_1 && logicOwner.HonBa == 0 )
+                //    owner.Speak(ECvType.Kyoku_Start);
             }
 			string str = "kyoku_" +logicOwner.getBaKaze().ToString().ToLower()+'_'+logicOwner.Kyoku.ToString() ;
 			//Debug.Log(str);

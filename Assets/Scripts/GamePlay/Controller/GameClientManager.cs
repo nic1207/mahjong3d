@@ -106,7 +106,7 @@ public class GameClientManager : StateMachine, IObserver
 	//10秒內沒有回應處理
 	void handleNoResponse() {
 		_currentState.Handle ();
-		//ChangeState<LoopState_ToNextLoop> ();
+		ChangeState<LoopState_ToNextLoop> ();
 	}
 
 	void OnDestroy()

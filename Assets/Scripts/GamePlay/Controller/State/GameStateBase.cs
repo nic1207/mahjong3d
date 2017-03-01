@@ -5,15 +5,16 @@ using UnityEngine.Networking;
 public class GameStateBase : State 
 {
     public MahjongMain logicOwner;
-	protected GameClientManager owner;
+	//public StateMachine xxx;
+	public GameManager owner;
 
     protected Coroutine waitingOperation;
 
 
     protected virtual void Awake()
     {
-		owner = GetComponent<GameClientManager>();
-        logicOwner = owner.LogicMain;
+		owner = GameManager.Instance;
+		logicOwner = owner.GetLogicOwner();
     }
 
     public virtual void OnHandleEvent(UIEventType evtID, object[] args) 
