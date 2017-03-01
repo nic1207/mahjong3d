@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using Prototype.NetworkLobby;
+using UnityEngine.EventSystems;
 
 public class Lobby_UIManager : MonoBehaviour {
     public static Lobby_UIManager instance;
@@ -18,7 +19,8 @@ public class Lobby_UIManager : MonoBehaviour {
     public GameObject settingPanel;     //設定頁
     public GameObject particleEffects;  //粒子特效
 
-    private Color _duckYellow = new Color(0.952f, 0.596f, 0, 1);
+    private Color _duckYellow = new Color(0.952f, 0.596f, 0);
+    private Color _chargeYellow = new Color(0.9215f, 0.8235f, 0.447f);
 
     void Start() {
         instance = this;
@@ -38,7 +40,6 @@ public class Lobby_UIManager : MonoBehaviour {
 		//print("Lobby_UIManager.OnDisable()");
 		particleEffects.SetActive(false);
 	}
-
 
     //大廳-按鈕點擊變色
     public void ChangeTextColor(Button targetBtn) {
@@ -135,7 +136,10 @@ public class Lobby_UIManager : MonoBehaviour {
     //重置所有按鈕顏色
     public void ResetAllBtnColor() {
         foreach (Text _text in _buttonTexts) {
-            _text.color = Color.white;
+            if(_text.name == "Text_Charge")
+                _text.color = _chargeYellow;
+            else
+                _text.color = Color.white;
         }
 
         //HorseLight.instance.IsPlayHorse(true); //啟動跑馬燈
