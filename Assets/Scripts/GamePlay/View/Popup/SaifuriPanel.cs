@@ -7,6 +7,7 @@ public class SaifuriPanel : MonoBehaviour
 {
     public Text lab_tip;
     public Text lab_num;
+    public Text total_num;
 
     private float EachAnimTime = 0.3f;
 
@@ -55,6 +56,10 @@ public class SaifuriPanel : MonoBehaviour
 
     }
 
+    public void ShowPanel()
+    {
+        gameObject.SetActive(true);
+    }
 
     void Update()
     {
@@ -95,15 +100,31 @@ public class SaifuriPanel : MonoBehaviour
         else{
             saifuriTime += Time.deltaTime;
 
-            if( saifuriTime >= 0.5f )
+            if( saifuriTime >= 5f )
                 OnEnd();
         }
     }
 
-	void SetSaiString( int n1, int n2, int n3 )
+	public void SetSaiString( int n1, int n2, int n3 )
     {
-		if(lab_num)
-			lab_num.text = n1.ToString() + " , " + n2.ToString()+" , "+n3.ToString();
+        if (lab_num)
+            lab_num.text = n1.ToString() + " , " + n2.ToString() + " , " + n3.ToString();
+    }
+
+    public void SetTotalSaiString(int num)
+    {
+        if (total_num) {
+            total_num.text = num.ToString();
+            total_num.gameObject.SetActive(true);
+        }
+            
+    }
+    public void ClearTotalSaiString()
+    {
+        if (total_num) {
+            total_num.text = "";
+            total_num.gameObject.SetActive(false);
+        }
     }
 
     int GetRandomNum()
@@ -111,7 +132,7 @@ public class SaifuriPanel : MonoBehaviour
         return Random.Range(1, 7);
     }
 
-    void OnEnd()
+    public void OnEnd()
     {
         AnimEnd = true;
 

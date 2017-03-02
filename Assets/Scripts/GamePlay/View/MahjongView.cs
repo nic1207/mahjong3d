@@ -270,8 +270,11 @@ public class MahjongView : UIObject, IObserver
             {
                 Sai[] sais = Model.Saifuri();
 				if (saifuriPanel) {
-					saifuriPanel.Show (sais [0].Num, sais [1].Num, sais [2].Num);
-				}
+                    //saifuriPanel.Show (sais [0].Num, sais [1].Num, sais [2].Num);
+                    saifuriPanel.ShowPanel();
+                    //Dice.Instance.ThrowDices(); //擲骰子
+                    Dice.Instance.ThrowDices(sais);
+                    }
             }
             break;
 

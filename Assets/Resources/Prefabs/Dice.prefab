@@ -10,9 +10,10 @@ GameObject:
   - 4: {fileID: 439664}
   - 33: {fileID: 3305528}
   - 23: {fileID: 2341712}
-  - 65: {fileID: 6519652}
   - 54: {fileID: 5476716}
-  m_Layer: 0
+  - 65: {fileID: 6545182}
+  - 75: {fileID: 7551038}
+  m_Layer: 11
   m_Name: Dice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,15 +73,15 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165414}
   serializedVersion: 2
-  m_Mass: 50
+  m_Mass: 5
   m_Drag: 0
-  m_AngularDrag: 1
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &6519652
+--- !u!65 &6545182
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -90,8 +91,19 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.381, y: 0.381, z: 0.381}
-  m_Center: {x: -8.067989e-23, y: 0.1905, z: 0}
+  m_Size: {x: 0.3175, y: 0.3175, z: 0.3175}
+  m_Center: {x: -6.723324e-23, y: 0.15875, z: 0}
+--- !u!75 &7551038
+ConstantForce:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165414}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

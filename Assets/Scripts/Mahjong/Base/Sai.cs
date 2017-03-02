@@ -11,6 +11,7 @@ public class Sai
     public int Num
     {
         get{ return _num; }
+        set{ _num = value; }
     }
 
     /// <summary>

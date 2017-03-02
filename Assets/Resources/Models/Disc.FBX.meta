@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 6d88b313a317a1e4988cc43492f7e6a2
-timeCreated: 1483064862
+guid: c46f96a8e338f944f8c760186b6c0647
+timeCreated: 1488362543
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: ChamferBox001
+    4300000: Cylinder001
     9500000: //RootNode
   materials:
     importMaterials: 0
@@ -35,7 +35,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.25
+    globalScale: 1.6
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

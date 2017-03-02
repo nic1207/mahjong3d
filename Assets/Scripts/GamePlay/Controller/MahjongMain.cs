@@ -126,7 +126,7 @@ public class MahjongMain : Mahjong
     {
         m_sais[0].SaiFuri();
         m_sais[1].SaiFuri();
-		m_sais[2].SaiFuri();
+        m_sais[2].SaiFuri();
         return m_sais;
     }
 
