@@ -26,7 +26,6 @@ public class MahjongView : UIObject, IObserver
     private const float SuteHaiAnimationTime = 0.3f;
     private const float ReachAnimationTime = 0.4f;
     private const float NakiAnimationTime = 0.3f;
-    //private const float AgariAnimationTime = 0.5f;
     private const float AgariAnimationTime = 2.5f;
 
     private Dictionary<int, PlayerUI> playerUIDict = new Dictionary<int, PlayerUI>();

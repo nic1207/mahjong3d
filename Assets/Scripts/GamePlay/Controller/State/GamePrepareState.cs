@@ -31,6 +31,8 @@ public class GamePrepareState : GameStateBase
 
                 logicOwner.SetOyaChiicha(index);
 
+                logicOwner.SetInitialKaze();
+
                 OnSaifuriForOyaEnd();
             }
             break;

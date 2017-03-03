@@ -142,8 +142,9 @@ public class MahjongMain : Mahjong
 
         //if(debugMode) m_oyaIndex = 0;
 
-		m_oyaIndex = (4-m_chiichaIndex) % 4;
-		//Debug.Log ("m_oyaIndex="+m_oyaIndex);
+		//m_oyaIndex = (4-m_chiichaIndex) % 4;
+        m_oyaIndex =  m_chiichaIndex; //起家 = 莊家
+        //Debug.Log ("m_oyaIndex="+m_oyaIndex);
     }
 
     public void SetNextOya()
@@ -163,8 +164,14 @@ public class MahjongMain : Mahjong
 
             m_playerList[j].JiKaze = kaze;
 
-			kaze = kaze.Prev();
+			//kaze = kaze.Prev();
+            kaze = kaze.Next();
         }
+    }
+
+    // Step : 3.5 設定每家風位 只需第一次設定
+    public void SetInitialKaze() {
+        initPlayerKaze(); 
     }
 
     // Step: 4
@@ -188,7 +195,7 @@ public class MahjongMain : Mahjong
             m_playerList[i].Init();
         }
 
-        initPlayerKaze();
+        //initPlayerKaze(); //移到 Step 3.5
 
 
         m_suteHaiList.Clear();
@@ -216,22 +223,26 @@ public class MahjongMain : Mahjong
 		int sum = sais[0].Num + sais[1].Num + sais[2].Num;
 		//Debug.Log ("sum="+sum);
 		int waremePlayer = 0;
-		//Debug.Log ("ChiiChaIndex="+ChiiChaIndex);
+		Debug.Log ("ChiiChaIndex="+ChiiChaIndex);
 		switch(ChiiChaIndex){
 		case 0://東
-			waremePlayer = (sum - 1) % 4;
+			//waremePlayer = (sum - 1) % 4;
+            waremePlayer = (sum -1) % 4;
 			//Debug.Log ("東");
 			break;
 		case 1://北
-			waremePlayer = (sum) % 4;
+			//waremePlayer = (sum) % 4;
+            waremePlayer = (sum -2) % 4;
 			//Debug.Log ("北");
 			break;
 		case 2://西
-			waremePlayer = (sum+1) % 4;
+			//waremePlayer = (sum+1) % 4;
+            waremePlayer = (sum+1) % 4;
 			//Debug.Log ("西");
 			break;
 		case 3://南
-			waremePlayer = (sum - 2) % 4;
+			//waremePlayer = (sum - 2) % 4;
+            waremePlayer = (sum) % 4;
 			//Debug.Log ("南");
 			break;
 		}
@@ -317,7 +328,7 @@ public class MahjongMain : Mahjong
     // Step: 6
     public void PrepareToStart()
     {
-		//Debug.Log ("PrepareToStart("+m_oyaIndex+")");
+		Debug.Log ("PrepareToStart("+m_oyaIndex+")");
 		int i = 0;
 		foreach (Player p in m_playerList) {
 			if (p.JiKaze == EKaze.Ton) {
@@ -343,7 +354,8 @@ public class MahjongMain : Mahjong
 
     public void SetNextPlayer()
     {
-		m_kazeFrom = m_kazeFrom.Prev();
+		//m_kazeFrom = m_kazeFrom.Prev();
+        m_kazeFrom = m_kazeFrom.Next();
         m_activePlayer = getPlayer( m_kazeFrom );
 		//Debug.Log ("SetNextPlayer()"+m_activePlayer.Name);
 		int idx = getPlayerIndex( m_kazeFrom );

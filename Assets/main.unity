@@ -611,8 +611,9 @@ GameObject:
   - 224: {fileID: 1635136955}
   - 222: {fileID: 43033434}
   - 114: {fileID: 43033433}
+  - 114: {fileID: 43033435}
   m_Layer: 5
-  m_Name: TotalPanel
+  m_Name: GameOverPanel_New
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -653,6 +654,20 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 43033432}
+--- !u!114 &43033435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 43033432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4bbf25e4bae74be29e1af7c63558119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lab_reachbou: {fileID: 0}
+  btn_Continue: {fileID: 434327139}
+  playerTenbouList: []
 --- !u!1 &45385467
 GameObject:
   m_ObjectHideFlags: 0
@@ -9168,7 +9183,7 @@ RectTransform:
   - {fileID: 1177388685}
   - {fileID: 787446433}
   m_Father: {fileID: 1875682223}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -23.000008, y: -23.675003}
@@ -16951,7 +16966,7 @@ RectTransform:
   - {fileID: 909161206}
   - {fileID: 1887166138}
   m_Father: {fileID: 1875682223}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.000015258789}
@@ -25155,7 +25170,7 @@ RectTransform:
   - {fileID: 1446264501}
   - {fileID: 115842441}
   m_Father: {fileID: 1875682223}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.000061035156, y: -0.000015258789}
@@ -30135,9 +30150,9 @@ RectTransform:
   - {fileID: 2015051649}
   - {fileID: 51593219}
   - {fileID: 616651514}
-  - {fileID: 1635136955}
   - {fileID: 1027928989}
   - {fileID: 518955738}
+  - {fileID: 1635136955}
   - {fileID: 266568235}
   - {fileID: 130462058}
   m_Father: {fileID: 0}
@@ -32145,7 +32160,7 @@ Prefab:
     - target: {fileID: 11402428, guid: 5920fa09af2df47939254c213b65ad8c, type: 2}
       propertyPath: gameOverPanel
       value: 
-      objectReference: {fileID: 518955739}
+      objectReference: {fileID: 43033435}
     - target: {fileID: 11402428, guid: 5920fa09af2df47939254c213b65ad8c, type: 2}
       propertyPath: panelPlayers
       value: 

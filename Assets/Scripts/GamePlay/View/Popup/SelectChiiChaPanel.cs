@@ -23,11 +23,11 @@ public class SelectChiiChaPanel : MonoBehaviour
     void Start() {
 		Debug.Log("SelectChiiChaPanel.Start()");
 		Vector3 pos0 = new Vector3 (0, -Screen.height*2/3, 0);//self
-		Vector3 pos1 = new Vector3 (-Screen.width*2/3, 0, 0);//prev
-		Vector3 pos2 = new Vector3 (0, Screen.height*2/3, 0);//upp
-		Vector3 pos3 = new Vector3 (Screen.width*2/3, 0, 0);//next
+		Vector3 pos1 = new Vector3 (Screen.width*2/3, 0, 0);//next
+        Vector3 pos2 = new Vector3 (0, Screen.height*2/3, 0);//opp
+		Vector3 pos3 = new Vector3 (-Screen.width*2/3, 0, 0);//prev
 
-		kazePosList.Add (pos0);
+        kazePosList.Add (pos0);
 		kazePosList.Add (pos1);
 		kazePosList.Add (pos2);
 		kazePosList.Add (pos3);
@@ -89,7 +89,7 @@ public class SelectChiiChaPanel : MonoBehaviour
 		string name = ResManager.getMagjongName (pai.Kind, pai.Num);
 		//Debug.Log ("OnClickMahjong("+name+")"+paiID);
 		chiiChaIndex = ((Hai.ID_TON - paiID) + 4) % 4;
-        //Debug.Log("chiiChaIndex: " + chiiChaIndex.ToString());
+        Debug.Log("chiiChaIndex: " + chiiChaIndex.ToString());
 
 		for (int i = 0; i < pais.Count; i++) {
 			Hai h = kazePaiList [i];

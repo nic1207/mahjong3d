@@ -480,9 +480,9 @@ public class AgariPanel : MonoBehaviour
         int _gunPlayer = RecordPreTedasi._instance.PreTedasiPlayerIndex;
         int _ronPlayer = RecordPreTedasi._instance.RonPlayerIndex;
         int _tsumonPlayer = RecordPreTedasi._instance.TsumoPlayerIndex;
-        Debug.Log("放槍的人 = " + _gunPlayer);    //列出誰放槍
-        Debug.Log("胡的人 = " + _ronPlayer);      //列出誰胡
-        Debug.Log("自摸的人 = " + _tsumonPlayer); //列出誰自摸
+        //Debug.Log("放槍的人 = " + _gunPlayer);    //列出誰放槍
+        //Debug.Log("胡的人 = " + _ronPlayer);      //列出誰胡
+        //Debug.Log("自摸的人 = " + _tsumonPlayer); //列出誰自摸
 
         if (_tsumonPlayer != -1)
         {
