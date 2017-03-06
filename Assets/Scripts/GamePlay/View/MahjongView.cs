@@ -190,6 +190,7 @@ public class MahjongView : UIObject, IObserver
                 Clear();
                 Init();
                 HideAllHudPanel();
+
             }
             break;
 
@@ -197,6 +198,10 @@ public class MahjongView : UIObject, IObserver
             {
 				if(selectChiiChanPanel)
                 	selectChiiChanPanel.Show();
+
+                //Play BGM
+                AudioManager.Get().BgmVolume = 0.2f;
+                AudioManager.Get().PlayBGM();
             }
             break;
 
@@ -271,10 +276,13 @@ public class MahjongView : UIObject, IObserver
 				if (saifuriPanel) {
                     //saifuriPanel.Show (sais [0].Num, sais [1].Num, sais [2].Num);
                     saifuriPanel.ShowPanel();
-                    //Dice.Instance.ThrowDices(); //擲骰子
+                    //擲骰子
                     Dice.Instance.ThrowDices(sais);
+
+                    // play a throw dice sound
+                    AudioManager.Get().PlaySFX( AudioConfig.GetSEPath(ESeType.Dice) );
                     }
-            }
+                }
             break;
 
             case UIEventType.SetUI_AfterHaipai: // 配牌
@@ -503,7 +511,7 @@ public class MahjongView : UIObject, IObserver
                 //Hai kakanHai = (Hai)args[1];
 				Debug.Log (activePlayer.Name+"喊了槓");
                 PlayerUI ui = playerUIDict_Kaze[activePlayer.JiKaze];
-                ui.UpdateFuuro( activePlayer.Tehai.getFuuros() );
+                ui.UpdateFuuro( activePlayer.Tehai.getFuuros(), activePlayer.IsAI );
                 ui.SetTehai( activePlayer.Tehai.getJyunTehai(), true );
 
                 ui.Speak( ECvType.Kan );
@@ -521,7 +529,7 @@ public class MahjongView : UIObject, IObserver
                 Player activePlayer = (Player)args[0];
 				Debug.Log (activePlayer.Name+"喊了暗槓");
                 PlayerUI ui = playerUIDict_Kaze[activePlayer.JiKaze];
-                ui.UpdateFuuro( activePlayer.Tehai.getFuuros() );
+                ui.UpdateFuuro( activePlayer.Tehai.getFuuros() , activePlayer.IsAI);
                 ui.SetTehai( activePlayer.Tehai.getJyunTehai(), true );
 
                 ui.Speak( ECvType.Kan );
@@ -542,7 +550,7 @@ public class MahjongView : UIObject, IObserver
                 EKaze fromKaze = (EKaze)args[1];
 				Debug.Log (activePlayer.Name+"喊了大明槓");
                 PlayerUI ui = playerUIDict_Kaze[activePlayer.JiKaze];
-                ui.UpdateFuuro( activePlayer.Tehai.getFuuros() );
+                ui.UpdateFuuro( activePlayer.Tehai.getFuuros(), activePlayer.IsAI);
                 ui.SetTehai( activePlayer.Tehai.getJyunTehai(), true );
 
                 ui.Speak( ECvType.Kan );
@@ -565,7 +573,7 @@ public class MahjongView : UIObject, IObserver
                 EKaze fromKaze = (EKaze)args[1];
 				Debug.Log (activePlayer.Name+"喊了碰!!!");
                 PlayerUI ui = playerUIDict_Kaze[activePlayer.JiKaze];
-                ui.UpdateFuuro( activePlayer.Tehai.getFuuros() );
+                ui.UpdateFuuro( activePlayer.Tehai.getFuuros(), activePlayer.IsAI);
                 ui.SetTehai( activePlayer.Tehai.getJyunTehai(), true );
 
                 ui.Speak( ECvType.Pon );
@@ -591,7 +599,7 @@ public class MahjongView : UIObject, IObserver
                 EKaze fromKaze = (EKaze)args[1];
 				Debug.Log (activePlayer.Name+"喊了吃!!!");
                 PlayerUI ui = playerUIDict_Kaze[activePlayer.JiKaze];
-                ui.UpdateFuuro( activePlayer.Tehai.getFuuros() );
+                ui.UpdateFuuro( activePlayer.Tehai.getFuuros(), activePlayer.IsAI);
                 ui.SetTehai( activePlayer.Tehai.getJyunTehai(), true );
 
                 ui.Speak( ECvType.Chii );

@@ -30,7 +30,7 @@ public class HudPanel : MonoBehaviour {
 	}
 
 	public void setWindTxt(string str) {
-		if (WindTxt)
+		if (WindTxt && WindTxt.text=="")
 			WindTxt.text = str;
 	}
 }

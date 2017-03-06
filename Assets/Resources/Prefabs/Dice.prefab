@@ -12,7 +12,6 @@ GameObject:
   - 23: {fileID: 2341712}
   - 54: {fileID: 5476716}
   - 65: {fileID: 6545182}
-  - 75: {fileID: 7551038}
   m_Layer: 11
   m_Name: Dice
   m_TagString: Untagged
@@ -93,17 +92,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3175, y: 0.3175, z: 0.3175}
   m_Center: {x: -6.723324e-23, y: 0.15875, z: 0}
---- !u!75 &7551038
-ConstantForce:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165414}
-  m_Enabled: 1
-  m_Force: {x: 0, y: 0, z: 0}
-  m_RelativeForce: {x: 0, y: 0, z: 0}
-  m_Torque: {x: 0, y: 0, z: 0}
-  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

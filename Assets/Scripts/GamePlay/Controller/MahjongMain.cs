@@ -195,7 +195,7 @@ public class MahjongMain : Mahjong
             m_playerList[i].Init();
         }
 
-        //initPlayerKaze(); //移到 Step 3.5
+        initPlayerKaze(); //設定每家風位
 
 
         m_suteHaiList.Clear();
@@ -223,8 +223,10 @@ public class MahjongMain : Mahjong
 		int sum = sais[0].Num + sais[1].Num + sais[2].Num;
 		//Debug.Log ("sum="+sum);
 		int waremePlayer = 0;
-		Debug.Log ("ChiiChaIndex="+ChiiChaIndex);
-		switch(ChiiChaIndex){
+		//Debug.Log ("ChiiChaIndex="+ChiiChaIndex);
+        ChiiChaIndex = m_oyaIndex;
+        switch (ChiiChaIndex)
+        {
 		case 0://東
 			//waremePlayer = (sum - 1) % 4;
             waremePlayer = (sum -1) % 4;

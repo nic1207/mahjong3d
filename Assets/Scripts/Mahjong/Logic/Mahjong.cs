@@ -397,16 +397,16 @@ public abstract class Mahjong
             relation = ERelation.JiBun; //自家
         }
         else if( (self + 1) % 4 == other ) {
-            //relation = ERelation.ShiMoCha; //下家.
-			relation = ERelation.KaMiCha; //上家.
+            relation = ERelation.ShiMoCha; //下家.
+			//relation = ERelation.KaMiCha; //上家.
         }
         else if( (self + 2) % 4 == other ) {
             relation = ERelation.ToiMen;  //对家
         }
         else //if( (self + 3) % 4 == other )
         {
-            //relation = ERelation.KaMiCha; //上家.
-			relation = ERelation.ShiMoCha; //下家.
+            relation = ERelation.KaMiCha; //上家.
+			//relation = ERelation.ShiMoCha; //下家.
         }
 
         return (int)relation;

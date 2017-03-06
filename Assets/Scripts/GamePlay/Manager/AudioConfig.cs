@@ -51,6 +51,7 @@ public enum ESeType
     SuteHai = 1,
     Agari = 2,
     Yaku = 3,
+    Dice = 5,
 }
 
 public class AudioConfig

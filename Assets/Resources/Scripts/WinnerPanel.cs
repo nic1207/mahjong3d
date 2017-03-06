@@ -11,6 +11,7 @@ public class WinnerPanel : MonoBehaviour {
     public GameObject _ronObject;
     public GameObject _tsumoObject;
     public PanelPlayers panelPlayers;
+    public GameObject _fuuroImage;
 
     private int _winnerIndex = -1;
     private bool isTsumo = false;
@@ -35,7 +36,8 @@ public class WinnerPanel : MonoBehaviour {
     }
 
     private void Show(bool _isTsumo) {
-        _winnerEffect.SetActive(true);//背景特效
+        _winnerEffect.SetActive(true); //背景特效
+        _fuuroImage.SetActive(true);   //副露牌
         _ronObject.SetActive(!_isTsumo);
         _tsumoObject.SetActive(_isTsumo);
 
@@ -44,6 +46,7 @@ public class WinnerPanel : MonoBehaviour {
 
     public void Hide() {
         _winnerEffect.SetActive(false); //背景特效
+        _fuuroImage.SetActive(false);   //副露牌
         _main.SetActive(false);
     }
         

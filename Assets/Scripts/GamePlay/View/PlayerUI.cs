@@ -258,8 +258,9 @@ public class PlayerUI : UIObject
 
 
     // 副露.
-    public void UpdateFuuro(Fuuro[] fuuros) {
-        fuuro.UpdateFuuro(fuuros);
+    public void UpdateFuuro(Fuuro[] fuuros, bool isShow = false)
+    {
+        fuuro.UpdateFuuro(fuuros, isShow);
     }
 
     // player info.

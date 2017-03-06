@@ -51,7 +51,7 @@ public class Dice : MonoBehaviour {
 
             //rb[i].velocity = (new Vector3(Random.Range(0, 2), downForce*2, Random.Range(0, 2)));
             //rb[i].AddTorque(new Vector3(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f)));
-            rb[i].AddTorque(300f, -90f, 400f);
+            rb[i].AddTorque(300f * 5, -90f, 400f * 10);
 
             forces[i] = new Vector3(Random.Range(-50, 50), downForce * 100, Random.Range(-50, 50));
             rb[i].AddForce(forces[i]);
